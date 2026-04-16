@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gestion_de_stock_flutter/screens/dashboard/tabs/categories_page.dart';
+import 'package:gestion_de_stock_flutter/screens/dashboard/tabs/index_page.dart';
 import 'package:gestion_de_stock_flutter/screens/dashboard/tabs/products_page.dart';
 import 'package:gestion_de_stock_flutter/screens/dashboard/tabs/settings_page.dart';
 
@@ -13,21 +14,35 @@ class DashboardPage extends StatefulWidget {
 class __DashboardPageState extends State<DashboardPage> {
   int index = 0;
 
-  final pages = const [ProductsPage(), CategoriesPage(), SettingsPage()];
+  final pages = const [
+    IndexPage(),
+    ProductsPage(),
+    CategoriesPage(),
+    SettingsPage(),
+  ];
 
-  final titles = const ["Products", "Categories", "Settings"];
+  final titles = const ["Dashboard", "Products", "Categories", "Settings"];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(titles[index])),
+      appBar: AppBar(
+        title: Text(titles[index]),
+        centerTitle: true,
+        automaticallyImplyLeading: false,
+      ),
 
       body: IndexedStack(index: index, children: pages),
 
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         currentIndex: index,
         onTap: (i) => setState(() => index = i),
         items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.dashboard),
+            label: "Dashboard",
+          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.inventory),
             label: "Products",

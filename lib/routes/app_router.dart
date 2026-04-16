@@ -7,7 +7,6 @@ import 'app_routes.dart';
 class AppRouter {
   static Route generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case AppRoutes.main:
       case AppRoutes.login:
         return MaterialPageRoute(builder: (_) => LoginPage());
 
