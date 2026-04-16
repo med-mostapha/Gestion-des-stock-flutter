@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gestion_de_stock_flutter/core/theme/app_theme.dart';
 import 'package:gestion_de_stock_flutter/routes/app_router.dart';
 import 'package:gestion_de_stock_flutter/routes/app_routes.dart';
 
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       initialRoute: AppRoutes.login,
       onGenerateRoute: AppRouter.generateRoute,
+      // theme: AppTheme.lightTheme,
     );
   }
 }
