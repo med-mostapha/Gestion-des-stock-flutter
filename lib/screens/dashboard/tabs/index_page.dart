@@ -10,7 +10,8 @@ class IndexPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.count(
       crossAxisCount: 2,
-      childAspectRatio: 1.5,
+      childAspectRatio: 2,
+
       children: const [
         StatsCard(
           title: "Products",
@@ -24,21 +25,21 @@ class IndexPage extends StatelessWidget {
           subtitle: "",
           value: 25,
           icon: Icons.category,
-          iconbg: CupertinoColors.activeGreen,
+          iconbg: CupertinoColors.activeOrange,
         ),
         StatsCard(
-          title: "money",
+          title: "Money",
           subtitle: "",
           value: 12059,
           icon: Icons.money_off_csred,
           iconbg: CupertinoColors.systemPurple,
         ),
         StatsCard(
-          title: "Products",
+          title: "Wallet",
           subtitle: "",
           value: 4568,
-          icon: Icons.inventory,
-          iconbg: CupertinoColors.black,
+          icon: Icons.wallet,
+          iconbg: CupertinoColors.activeGreen,
         ),
       ],
     );

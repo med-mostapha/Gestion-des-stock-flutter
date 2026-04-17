@@ -28,6 +28,14 @@ class __DashboardPageState extends State<DashboardPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(titles[index]),
+        titleTextStyle: TextStyle(
+          color: Colors.black,
+          fontSize: 22,
+          fontWeight: FontWeight.w500,
+        ),
+        elevation: 1,
+        shadowColor: const Color.fromARGB(255, 223, 223, 223),
+        backgroundColor: Colors.white,
         centerTitle: true,
         automaticallyImplyLeading: false,
       ),

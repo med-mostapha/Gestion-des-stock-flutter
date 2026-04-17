@@ -23,9 +23,9 @@ class StatsCard extends StatelessWidget {
     return Container(
       constraints: BoxConstraints(
         minWidth: 140,
-        minHeight: 80,
+        minHeight: 60,
         maxWidth: 160,
-        maxHeight: 90,
+        maxHeight: 70,
       ),
 
       margin: const EdgeInsets.all(8),
@@ -33,6 +33,14 @@ class StatsCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: const Color.fromARGB(255, 226, 226, 226),
+            spreadRadius: 1,
+            blurRadius: 6,
+            offset: Offset(1, 1),
+          ),
+        ],
       ),
 
       child: Row(
@@ -42,9 +50,9 @@ class StatsCard extends StatelessWidget {
             height: 40,
             decoration: BoxDecoration(
               color: iconbg,
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(50),
             ),
-            child: Icon(icon, color: AppColors.white),
+            child: Icon(icon, color: AppColors.white, size: 22),
           ),
 
           const SizedBox(width: 12),
