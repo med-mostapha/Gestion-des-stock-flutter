@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: AppRoutes.login,
+      initialRoute: AppRoutes.main,
       onGenerateRoute: AppRouter.generateRoute,
       theme: AppTheme.lightTheme,
     );

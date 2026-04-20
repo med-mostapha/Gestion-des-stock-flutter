@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gestion_de_stock_flutter/screens/dashboard/dashboard_layout.dart';
+import 'package:gestion_de_stock_flutter/screens/onboarding/main_page.dart';
 import '../screens/auth/login_page.dart';
 import '../screens/auth/signup_page.dart';
 import 'app_routes.dart';
@@ -7,11 +8,14 @@ import 'app_routes.dart';
 class AppRouter {
   static Route generateRoute(RouteSettings settings) {
     switch (settings.name) {
+      case AppRoutes.main:
+        return MaterialPageRoute(builder: (_) => const MainPage());
+
       case AppRoutes.login:
         return MaterialPageRoute(builder: (_) => const LoginPage());
 
       case AppRoutes.signup:
-        return MaterialPageRoute(builder: (_) => const SignupPage());
+        return MaterialPageRoute(builder: (_) => const SignUpPage());
 
       case AppRoutes.dashboard:
         return MaterialPageRoute(builder: (_) => const DashboardPage());
