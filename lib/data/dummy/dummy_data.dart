@@ -17,7 +17,7 @@ class DummyData {
       id: 'p1',
       name: 'Laptop',
       price: 1200,
-      stock: 5,
+      stock: 0,
       minStock: 3,
       categoryId: 'c1',
       createdAt: DateTime.now(),
