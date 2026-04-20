@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gestion_de_stock_flutter/core/theme/app_colors.dart';
 import 'package:gestion_de_stock_flutter/screens/dashboard/tabs/categories_page.dart';
 import 'package:gestion_de_stock_flutter/screens/dashboard/tabs/index_page.dart';
 import 'package:gestion_de_stock_flutter/screens/dashboard/tabs/products_page.dart';
@@ -8,17 +9,17 @@ class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key});
 
   @override
-  State<DashboardPage> createState() => __DashboardPageState();
+  State<DashboardPage> createState() => _DashboardPageState();
 }
 
-class __DashboardPageState extends State<DashboardPage> {
+class _DashboardPageState extends State<DashboardPage> {
   int index = 0;
 
   final pages = [
     IndexPage(),
     const ProductsPage(),
-    CategoriesPage(),
-    SettingsPage(),
+    const CategoriesPage(),
+    const SettingsPage(),
   ];
 
   final titles = const ["Dashboard", "Products", "Categories", "Settings"];
@@ -26,45 +27,80 @@ class __DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.background,
       appBar: AppBar(
         title: Text(titles[index]),
-        titleTextStyle: TextStyle(
-          color: Colors.black,
-          fontSize: 22,
-          fontWeight: FontWeight.w500,
+        titleTextStyle: const TextStyle(
+          color: AppColors.textPrimary,
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
         ),
-        elevation: 1,
-        shadowColor: const Color.fromARGB(255, 223, 223, 223),
-
-        backgroundColor: Colors.white,
+        elevation: 0,
+        backgroundColor: AppColors.background,
         centerTitle: true,
         automaticallyImplyLeading: false,
-      ),
-
-      body: IndexedStack(index: index, children: pages),
-
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        currentIndex: index,
-        onTap: (i) => setState(() => index = i),
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.dashboard),
-            label: "Dashboard",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.inventory),
-            label: "Products",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.category),
-            label: "Categories",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: "Settings",
+        // Optional: Add a profile icon or notification icon for a SaaS look
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.notifications_none_rounded,
+              color: AppColors.textPrimary,
+            ),
           ),
         ],
+      ),
+
+      // IndexedStack keeps the state of each page alive
+      body: IndexedStack(index: index, children: pages),
+
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.05),
+              blurRadius: 10,
+              offset: const Offset(0, -2),
+            ),
+          ],
+        ),
+        child: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          currentIndex: index,
+          onTap: (i) => setState(() => index = i),
+          backgroundColor: AppColors.white,
+          selectedItemColor: AppColors.primary,
+          unselectedItemColor: Colors.grey,
+          showSelectedLabels: true,
+          showUnselectedLabels: true,
+          selectedLabelStyle: const TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 12,
+          ),
+          unselectedLabelStyle: const TextStyle(fontSize: 12),
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.grid_view_rounded),
+              activeIcon: Icon(Icons.grid_view_rounded),
+              label: "Overview",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.inventory_2_outlined),
+              activeIcon: Icon(Icons.inventory_2_rounded),
+              label: "Products",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.category_outlined),
+              activeIcon: Icon(Icons.category_rounded),
+              label: "Categories",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings_outlined),
+              activeIcon: Icon(Icons.settings_rounded),
+              label: "Settings",
+            ),
+          ],
+        ),
       ),
     );
   }
