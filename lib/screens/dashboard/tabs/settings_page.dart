@@ -34,7 +34,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 style: TextStyle(fontWeight: FontWeight.w600, fontSize: 15),
               ),
               value: darkMode,
-              activeColor: AppColors.primary,
+              activeThumbColor: AppColors.primary,
               onChanged: (val) {
                 setState(() {
                   darkMode = val;
@@ -102,7 +102,7 @@ class _SettingsPageState extends State<SettingsPage> {
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.03),
+            color: Colors.black.withValues(alpha: .03),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),

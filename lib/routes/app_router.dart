@@ -13,19 +13,19 @@ class AppRouter {
 
       case AppRoutes.login:
         return PageRouteBuilder(
-          pageBuilder: (_, __, ___) => const LoginPage(),
+          pageBuilder: (_, _, _) => const LoginPage(),
           transitionDuration: Duration.zero,
         );
 
       case AppRoutes.signup:
         return PageRouteBuilder(
-          pageBuilder: (_, __, ___) => const SignUpPage(),
+          pageBuilder: (_, _, _) => const SignUpPage(),
           transitionDuration: Duration.zero,
         );
 
       case AppRoutes.dashboard:
         return PageRouteBuilder(
-          pageBuilder: (_, __, ___) => const DashboardPage(),
+          pageBuilder: (_, _, _) => const DashboardPage(),
           transitionDuration: Duration.zero,
         );
 

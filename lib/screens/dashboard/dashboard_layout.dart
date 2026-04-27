@@ -16,7 +16,7 @@ class _DashboardPageState extends State<DashboardPage> {
   int index = 0;
 
   final pages = [
-    IndexPage(),
+    const IndexPage(),
     const ProductsPage(),
     const CategoriesPage(),
     const SettingsPage(),
@@ -58,7 +58,7 @@ class _DashboardPageState extends State<DashboardPage> {
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.05),
+              color: Colors.black.withValues(alpha: .05),
               blurRadius: 10,
               offset: const Offset(0, -2),
             ),
