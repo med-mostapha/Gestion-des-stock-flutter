@@ -1,19 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:gestion_de_stock_flutter/core/theme/app_colors.dart';
-import 'package:gestion_de_stock_flutter/data/repositories/category_repository.dart';
-import 'package:gestion_de_stock_flutter/data/repositories/product_repository.dart';
+import 'package:gestion_de_stock_flutter/providers/product_provider.dart';
+import 'package:gestion_de_stock_flutter/providers/category_provider.dart';
 import 'package:gestion_de_stock_flutter/widgets/dashboard/stats_card.dart';
 
 class IndexPage extends StatelessWidget {
-  IndexPage({super.key});
+  const IndexPage({super.key});
 
-  final ProductRepository productRepo = ProductRepository();
-  final CategoryRepository categorisRepo = CategoryRepository();
   @override
   Widget build(BuildContext context) {
-    final products = productRepo.getAllProducts();
-    final categoris = categorisRepo.getAllCategories();
+    final products = context.watch<ProductProvider>().products;
+    final categories = context.watch<CategoryProvider>().categories;
 
     return GridView.count(
       crossAxisCount: 2,
@@ -30,7 +29,7 @@ class IndexPage extends StatelessWidget {
         StatsCard(
           title: "Category",
           subtitle: "",
-          value: categoris.length + .0,
+          value: categories.length + .0,
           icon: Icons.category,
           iconbg: CupertinoColors.activeOrange,
         ),
