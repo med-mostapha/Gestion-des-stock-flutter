@@ -138,7 +138,10 @@ class _SignUpPageState extends State<SignUpPage> {
 
                 Center(
                   child: TextButton(
-                    onPressed: () => Navigator.pop(context),
+                    onPressed: () => Navigator.pushReplacementNamed(
+                      context,
+                      AppRoutes.login,
+                    ),
                     child: RichText(
                       text: TextSpan(
                         text: "Already have an account? ",
