@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gestion_de_stock_flutter/data/models/category_model.dart';
+import 'package:gestion_de_stock_flutter/providers/category_provider.dart';
+import 'package:provider/provider.dart';
 
 class AddCategoryPage extends StatefulWidget {
   const AddCategoryPage({super.key});
@@ -28,6 +30,7 @@ class _AddCategoryState extends State<AddCategoryPage> {
         description: descriptionController.text.trim(),
       );
 
+      context.read<CategoryProvider>().addCategory(newCategory);
       Navigator.pop(context, newCategory);
     }
   }
