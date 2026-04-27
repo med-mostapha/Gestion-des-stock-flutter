@@ -48,7 +48,10 @@ class ProductCard extends StatelessWidget {
               height: 90,
               width: double.infinity,
               decoration: BoxDecoration(
-                color: AppColors.primary,
+                // color: const Color.fromARGB(255, 159, 156, 217),
+                border: Border.all(
+                  color: const Color.fromARGB(155, 90, 87, 171),
+                ),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Icon(
@@ -84,7 +87,7 @@ class ProductCard extends StatelessWidget {
             // date
             Text(
               DateFormat('dd MMM yyyy').format(product.createdAt),
-              style: TextStyle(fontSize: 10, color: Colors.grey),
+              style: TextStyle(fontSize: 10, color: Colors.black),
             ),
 
             const Spacer(),
