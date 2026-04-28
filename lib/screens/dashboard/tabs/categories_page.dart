@@ -3,6 +3,7 @@ import 'package:gestion_de_stock_flutter/core/theme/app_colors.dart';
 import 'package:gestion_de_stock_flutter/data/models/category_model.dart';
 
 import 'package:gestion_de_stock_flutter/providers/category_provider.dart';
+import 'package:gestion_de_stock_flutter/screens/dashboard/details/category_detail_page.dart';
 import 'package:gestion_de_stock_flutter/screens/dashboard/tabs/add_category_page.dart';
 import 'package:gestion_de_stock_flutter/widgets/categories/category_card.dart';
 import 'package:provider/provider.dart';
@@ -78,7 +79,14 @@ class _CategoriesState extends State<CategoriesPage> {
                   category: category,
                   onLongPress: () => _confirmDelete(category),
 
-                  onTap: () {}, // add detalis latter.
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => CategoryDetailPage(category: category),
+                      ),
+                    );
+                  },
                 );
               },
               separatorBuilder: (context, index) => const SizedBox(height: 12),

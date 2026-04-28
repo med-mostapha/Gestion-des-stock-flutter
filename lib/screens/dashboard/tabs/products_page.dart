@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gestion_de_stock_flutter/core/theme/app_colors.dart';
 import 'package:gestion_de_stock_flutter/data/models/product_model.dart';
 import 'package:gestion_de_stock_flutter/providers/product_provider.dart';
+import 'package:gestion_de_stock_flutter/screens/dashboard/details/product_detail_page.dart';
 import 'package:gestion_de_stock_flutter/screens/dashboard/tabs/add_product_page.dart';
 import 'package:gestion_de_stock_flutter/widgets/products/product_card.dart';
 import 'package:gestion_de_stock_flutter/widgets/ui/app_search_bar.dart';
@@ -123,7 +124,15 @@ class _ProductsPageState extends State<ProductsPage> {
                       final product = filtered[index];
                       return ProductCard(
                         product: product,
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) =>
+                                  ProductDetailPage(product: product),
+                            ),
+                          );
+                        },
                         onLongPress: () => _confirmDelete(product),
                       );
                     },
