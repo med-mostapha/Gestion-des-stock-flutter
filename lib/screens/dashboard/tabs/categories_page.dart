@@ -78,9 +78,7 @@ class _CategoriesState extends State<CategoriesPage> {
                   category: category,
                   onLongPress: () => _confirmDelete(category),
 
-                  onTap: () => debugPrint(
-                    "Clicked: ${category.name}",
-                  ), // add detalis latter.
+                  onTap: () {}, // add detalis latter.
                 );
               },
               separatorBuilder: (context, index) => const SizedBox(height: 12),

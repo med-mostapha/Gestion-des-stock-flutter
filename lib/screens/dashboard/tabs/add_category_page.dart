@@ -38,7 +38,7 @@ class _AddCategoryState extends State<AddCategoryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Add new category")),
+      appBar: AppBar(title: const Text("Add new category"), centerTitle: true),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Form(
