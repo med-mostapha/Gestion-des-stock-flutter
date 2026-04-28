@@ -21,7 +21,7 @@ class CategoryProvider extends ChangeNotifier {
 
     try {
       await Future.delayed(
-        const Duration(seconds: 2),
+        const Duration(seconds: 5),
       ); // simulator don't forgat to delete this.
       _categories = await _repository.getAllCategories();
     } catch (e) {
@@ -31,6 +31,8 @@ class CategoryProvider extends ChangeNotifier {
       notifyListeners();
     }
   }
+
+  int get totalCategories => _categories.length;
 
   void addCategory(Category category) {
     _categories.add(category);
