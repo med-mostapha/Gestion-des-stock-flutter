@@ -56,67 +56,70 @@ Designed with a scalable architecture to support local and cloud storage.
 
 This project follows a clean **layered architecture**:
 
+## 📁 Project Structure
+
+````text
 .
 ├── core
-│ ├── theme
-│ │ ├── app_colors.dart
-│ │ └── app_theme.dart
-│ └── utils
-│ └── random_colors.dart
+│   ├── theme
+│   │   ├── app_colors.dart
+│   │   └── app_theme.dart
+│   └── utils
+│       └── random_colors.dart
 ├── data
-│ ├── dummy
-│ │ └── dummy_data.dart
-│ ├── models
-│ │ ├── category_model.dart
-│ │ └── product_model.dart
-│ ├── repositories
-│ │ ├── category_repository.dart
-│ │ ├── dummy_category_repository.dart
-│ │ ├── dummy_product_repository.dart
-│ │ └── product_repository.dart
-│ └── services
-│ └── analytics_service.dart
+│   ├── dummy
+│   │   └── dummy_data.dart
+│   ├── models
+│   │   ├── category_model.dart
+│   │   └── product_model.dart
+│   ├── repositories
+│   │   ├── category_repository.dart
+│   │   ├── dummy_category_repository.dart
+│   │   ├── dummy_product_repository.dart
+│   │   └── product_repository.dart
+│   └── services
+│       └── analytics_service.dart
 ├── main.dart
 ├── providers
-│ ├── category_provider.dart
-│ └── product_provider.dart
+│   ├── category_provider.dart
+│   └── product_provider.dart
 ├── routes
-│ ├── app_router.dart
-│ └── app_routes.dart
+│   ├── app_router.dart
+│   └── app_routes.dart
 ├── screens
-│ ├── auth
-│ │ ├── login_page.dart
-│ │ └── signup_page.dart
-│ ├── dashboard
-│ │ ├── dashboard_layout.dart
-│ │ ├── details
-│ │ │ ├── category_detail_page.dart
-│ │ │ └── product_detail_page.dart
-│ │ └── tabs
-│ │ ├── add_category_page.dart
-│ │ ├── add_product_page.dart
-│ │ ├── categories_page.dart
-│ │ ├── index_page.dart
-│ │ ├── products_page.dart
-│ │ └── settings_page.dart
-│ └── onboarding
-│ └── main_page.dart
+│   ├── auth
+│   │   ├── login_page.dart
+│   │   └── signup_page.dart
+│   ├── dashboard
+│   │   ├── dashboard_layout.dart
+│   │   ├── details
+│   │   │   ├── category_detail_page.dart
+│   │   │   └── product_detail_page.dart
+│   │   └── tabs
+│   │       ├── add_category_page.dart
+│   │       ├── add_product_page.dart
+│   │       ├── categories_page.dart
+│   │       ├── index_page.dart
+│   │       ├── products_page.dart
+│   │       └── settings_page.dart
+│   └── onboarding
+│       └── main_page.dart
 └── widgets
-├── categories
-│ └── category_card.dart
-├── charts
-│ ├── category_percentage_pie_chart.dart
-│ └── category_stock_bar_chart.dart
-├── dashboard
-│ └── stats_card.dart
-├── products
-│ └── product_card.dart
-└── ui
-├── app_search_bar.dart
-└── detail
-├── detail_field.dart
-├── detail_info_card.dart
-└── detail_stock_badge.dart
+    ├── categories
+    │   └── category_card.dart
+    ├── charts
+    │   ├── category_percentage_pie_chart.dart
+    │   └── category_stock_bar_chart.dart
+    ├── dashboard
+    │   └── stats_card.dart
+    ├── products
+    │   └── product_card.dart
+    └── ui
+        ├── app_search_bar.dart
+        └── detail
+            ├── detail_field.dart
+            ├── detail_info_card.dart
+            └── detail_stock_badge.dart
 
 ### Repository Pattern
 
@@ -129,7 +132,7 @@ abstract class ProductRepository {
   Future<void> updateProduct(String id, Product product);
   Future<void> deleteProduct(String id);
 }
-```
+````
 
 Switching from Dummy to Hive to Firebase requires changing **one line** in the Provider.
 
