@@ -21,7 +21,8 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => CategoryProvider()),
       ],
       child: MaterialApp(
-        initialRoute: AppRoutes.dashboard,
+        debugShowCheckedModeBanner: false,
+        initialRoute: AppRoutes.main,
         onGenerateRoute: AppRouter.generateRoute,
 
         theme: AppTheme.lightTheme,
