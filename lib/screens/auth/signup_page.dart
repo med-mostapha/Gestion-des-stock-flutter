@@ -164,7 +164,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         style: TextStyle(color: AppColors.textSecondary),
                         children: [
                           TextSpan(
-                            text: S.of(context).common_login,
+                            text: " ${S.of(context).common_login}",
                             style: TextStyle(
                               color: AppColors.primary,
                               fontWeight: FontWeight.bold,

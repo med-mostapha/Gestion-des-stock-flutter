@@ -171,7 +171,7 @@ class _LoginPageState extends State<LoginPage> {
                         style: TextStyle(color: AppColors.textSecondary),
                         children: [
                           TextSpan(
-                            text: S.of(context).common_signup,
+                            text: " ${S.of(context).common_signup}",
                             style: TextStyle(
                               color: AppColors.primary,
                               fontWeight: FontWeight.bold,
