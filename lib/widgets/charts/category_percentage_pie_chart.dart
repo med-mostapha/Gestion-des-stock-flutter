@@ -1,9 +1,10 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:gestion_de_stock_flutter/core/theme/app_colors.dart';
-import 'package:gestion_de_stock_flutter/data/%20services/analytics_service.dart';
+import 'package:gestion_de_stock_flutter/data/ services/analytics_service.dart';
 import 'package:gestion_de_stock_flutter/data/models/category_model.dart';
 import 'package:gestion_de_stock_flutter/data/models/product_model.dart';
+import 'package:gestion_de_stock_flutter/generated/l10n.dart';
 
 class CategoryPercentagePieChart extends StatelessWidget {
   final List<Product> products;
@@ -34,14 +35,13 @@ class CategoryPercentagePieChart extends StatelessWidget {
     final filtered = Map.fromEntries(data.entries.where((e) => e.value > 0));
 
     if (filtered.isEmpty) {
-      return const Center(child: Text("No data"));
+      return Center(child: Text(S.of(context).common_no_data));
     }
 
     final total = filtered.values.fold(0.0, (sum, v) => sum + v);
     final entries = filtered.entries.toList();
 
     final sections = List.generate(entries.length, (index) {
-      // final percentage = (entries[index].value / total) * 100;
       return PieChartSectionData(
         value: entries[index].value,
         color: _colors[index % _colors.length],
@@ -66,17 +66,20 @@ class CategoryPercentagePieChart extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            "Stock Distribution",
-            style: TextStyle(
+          Text(
+            S.of(context).chart_distribution_title, // Localized
+            style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 15,
               color: AppColors.textPrimary,
             ),
           ),
-          const Text(
-            "by category value",
-            style: TextStyle(fontSize: 12, color: AppColors.textSecondary),
+          Text(
+            S.of(context).chart_distribution_subtitle, // Localized
+            style: const TextStyle(
+              fontSize: 12,
+              color: AppColors.textSecondary,
+            ),
           ),
 
           const SizedBox(height: 20),

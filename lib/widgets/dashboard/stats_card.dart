@@ -21,28 +21,26 @@ class StatsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: BoxConstraints(
+      constraints: const BoxConstraints(
         minWidth: 140,
         minHeight: 60,
         maxWidth: 160,
         maxHeight: 70,
       ),
-
       margin: const EdgeInsets.all(6),
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.circular(16),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
-            color: const Color.fromARGB(255, 226, 226, 226),
+            color: Color.fromARGB(255, 226, 226, 226),
             spreadRadius: 1,
             blurRadius: 6,
             offset: Offset(1, 1),
           ),
         ],
       ),
-
       child: Row(
         children: [
           Container(
@@ -54,24 +52,29 @@ class StatsCard extends StatelessWidget {
             ),
             child: Icon(icon, color: AppColors.white, size: 22),
           ),
-
           const SizedBox(width: 12),
-
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                NumberFormat.compact().format(value),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  NumberFormat.compact().format(value),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              Text(title, style: const TextStyle(color: Colors.grey)),
-            ],
+                Text(
+                  title,
+                  style: const TextStyle(color: Colors.grey, fontSize: 12),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ],
+            ),
           ),
         ],
       ),

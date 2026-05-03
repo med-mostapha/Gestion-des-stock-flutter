@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gestion_de_stock_flutter/core/theme/app_colors.dart';
 import 'package:gestion_de_stock_flutter/data/models/category_model.dart';
 import 'package:gestion_de_stock_flutter/data/models/product_model.dart';
+import 'package:gestion_de_stock_flutter/generated/l10n.dart';
 
 import '../../data/ services/analytics_service.dart';
 
@@ -24,7 +25,7 @@ class CategoryStockBarChart extends StatelessWidget {
     );
 
     if (data.isEmpty) {
-      return const Center(child: Text("No data"));
+      return Center(child: Text(S.of(context).common_no_data));
     }
 
     final entries = data.entries.toList();
@@ -63,16 +64,16 @@ class CategoryStockBarChart extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            "Stock Value by Category",
-            style: TextStyle(
+          Text(
+            S.of(context).chart_stock_by_category, // Localized Title
+            style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 15,
               color: AppColors.textPrimary,
             ),
           ),
           const Text(
-            "MRU",
+            "MRU", // Keeping currency as MRU
             style: TextStyle(fontSize: 12, color: AppColors.textSecondary),
           ),
 
@@ -89,7 +90,7 @@ class CategoryStockBarChart extends StatelessWidget {
                   drawVerticalLine: false,
                   horizontalInterval: maxY / 4,
                   getDrawingHorizontalLine: (_) =>
-                      FlLine(color: AppColors.border, strokeWidth: 1),
+                      const FlLine(color: AppColors.border, strokeWidth: 1),
                 ),
                 borderData: FlBorderData(show: false),
                 titlesData: FlTitlesData(
