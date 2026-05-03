@@ -38,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 SizedBox(height: 60),
                 Text(
-                  S.of(context).login_title,
+                  S.of(context).auth_login_title,
                   style: TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
@@ -47,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const SizedBox(height: 10),
                 Text(
-                  S.of(context).login_subtitle,
+                  S.of(context).auth_login_subtitle,
                   style: TextStyle(
                     fontSize: 16,
                     color: AppColors.textSecondary,
@@ -57,7 +57,7 @@ class _LoginPageState extends State<LoginPage> {
 
                 // Email lable
                 Text(
-                  S.of(context).login_email_label,
+                  S.of(context).auth_login_email_label,
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
                     color: AppColors.textPrimary,
@@ -67,7 +67,7 @@ class _LoginPageState extends State<LoginPage> {
                 TextFormField(
                   controller: _emailController,
                   decoration: InputDecoration(
-                    hintText: S.of(context).login_email_hint,
+                    hintText: S.of(context).auth_login_email_hint,
                     prefixIcon: const Icon(Icons.email_outlined),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
@@ -81,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                   //  check email or username
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return S.of(context).login_validation_empty_email;
+                      return S.of(context).auth_login_validation_empty_email;
                     }
                     return null;
                   },
@@ -91,7 +91,7 @@ class _LoginPageState extends State<LoginPage> {
 
                 // pwd lable
                 Text(
-                  S.of(context).login_password_label,
+                  S.of(context).auth_login_password_label,
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
                     color: AppColors.textPrimary,
@@ -102,7 +102,7 @@ class _LoginPageState extends State<LoginPage> {
                   controller: _passwordController,
                   obscureText: !_isPasswordVisible,
                   decoration: InputDecoration(
-                    hintText: S.of(context).login_password_hint,
+                    hintText: S.of(context).auth_login_password_hint,
                     prefixIcon: const Icon(Icons.lock_outline),
                     suffixIcon: IconButton(
                       icon: Icon(
@@ -124,10 +124,10 @@ class _LoginPageState extends State<LoginPage> {
                   // check psw
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return S.of(context).login_validation_empty_password;
+                      return S.of(context).auth_login_validation_empty_password;
                     }
                     if (value.length < 6) {
-                      return S.of(context).login_validation_short_password;
+                      return S.of(context).auth_login_validation_short_password;
                     }
                     return null;
                   },
@@ -167,7 +167,7 @@ class _LoginPageState extends State<LoginPage> {
                     },
                     child: RichText(
                       text: TextSpan(
-                        text: S.of(context).login_no_account,
+                        text: S.of(context).auth_login_no_account,
                         style: TextStyle(color: AppColors.textSecondary),
                         children: [
                           TextSpan(

@@ -41,7 +41,7 @@ class _SignUpPageState extends State<SignUpPage> {
               children: [
                 const SizedBox(height: 40),
                 Text(
-                  S.of(context).signup_title,
+                  S.of(context).auth_signup_title,
                   style: TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
@@ -50,7 +50,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
                 const SizedBox(height: 10),
                 Text(
-                  S.of(context).signup_subtitle,
+                  S.of(context).auth_signup_subtitle,
                   style: TextStyle(
                     fontSize: 16,
                     color: AppColors.textSecondary,
@@ -59,31 +59,33 @@ class _SignUpPageState extends State<SignUpPage> {
                 const SizedBox(height: 40),
 
                 // username lable
-                _buildLabel(S.of(context).signup_username_label),
+                _buildLabel(S.of(context).auth_signup_username_label),
                 _buildTextField(
                   controller: _usernameController,
-                  hint: S.of(context).signup_username_hint,
+                  hint: S.of(context).auth_signup_username_hint,
                   icon: Icons.person_outline,
                   validator: (value) => value!.isEmpty
-                      ? S.of(context).signup_validation_username_required
+                      ? S.of(context).auth_signup_validation_username_required
                       : null,
                 ),
 
                 const SizedBox(height: 20),
 
                 // emaill lable
-                _buildLabel(S.of(context).signup_email_label),
+                _buildLabel(S.of(context).auth_signup_email_label),
                 _buildTextField(
                   controller: _emailController,
-                  hint: S.of(context).signup_email_hint,
+                  hint: S.of(context).auth_signup_email_hint,
                   icon: Icons.email_outlined,
                   keyboardType: TextInputType.emailAddress,
                   validator: (value) {
                     if (value!.isEmpty) {
-                      return S.of(context).signup_validation_email_required;
+                      return S
+                          .of(context)
+                          .auth_signup_validation_email_required;
                     }
                     if (!value.contains('@')) {
-                      return S.of(context).signup_validation_email_invalid;
+                      return S.of(context).auth_signup_validation_email_invalid;
                     }
                     return null;
                   },
@@ -92,32 +94,36 @@ class _SignUpPageState extends State<SignUpPage> {
                 const SizedBox(height: 20),
 
                 // pwd lable
-                _buildLabel(S.of(context).signup_password_label),
+                _buildLabel(S.of(context).auth_signup_password_label),
                 _buildTextField(
                   controller: _passwordController,
-                  hint: S.of(context).signup_password_hint,
+                  hint: S.of(context).auth_signup_password_hint,
                   icon: Icons.lock_outline,
                   isPassword: true,
                   validator: (value) => value!.length < 6
-                      ? S.of(context).signup_validation_password_short
+                      ? S.of(context).auth_signup_validation_password_short
                       : null,
                 ),
 
                 const SizedBox(height: 20),
 
                 // check pwd lable
-                _buildLabel(S.of(context).signup_confirm_password_label),
+                _buildLabel(S.of(context).auth_signup_confirm_password_label),
                 _buildTextField(
                   controller: _confirmPasswordController,
-                  hint: S.of(context).signup_confirm_password_hint,
+                  hint: S.of(context).auth_signup_confirm_password_hint,
                   icon: Icons.lock_reset_outlined,
                   isPassword: true,
                   validator: (value) {
                     if (value!.isEmpty) {
-                      return S.of(context).signup_validation_confirm_required;
+                      return S
+                          .of(context)
+                          .auth_signup_validation_confirm_required;
                     }
                     if (value != _passwordController.text) {
-                      return S.of(context).signup_validation_password_mismatch;
+                      return S
+                          .of(context)
+                          .auth_signup_validation_password_mismatch;
                     }
                     return null;
                   },
@@ -154,7 +160,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                     child: RichText(
                       text: TextSpan(
-                        text: S.of(context).signup_have_account,
+                        text: S.of(context).auth_signup_have_account,
                         style: TextStyle(color: AppColors.textSecondary),
                         children: [
                           TextSpan(
