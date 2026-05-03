@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gestion_de_stock_flutter/core/theme/app_colors.dart';
 import 'package:gestion_de_stock_flutter/data/models/product_model.dart';
+import 'package:gestion_de_stock_flutter/generated/l10n.dart'; // Import localization
 import 'package:gestion_de_stock_flutter/providers/product_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -23,10 +24,12 @@ class _AddProductState extends State<AddProductPage> {
 
   @override
   Widget build(BuildContext context) {
+    final s = S.of(context); // Shortcut for convenience
+
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
-        title: const Text("New Product"),
+        title: Text(s.add_product_title),
         centerTitle: true,
         backgroundColor: AppColors.background,
         elevation: 0,
@@ -39,13 +42,13 @@ class _AddProductState extends State<AddProductPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildLabel("Product Name"),
+              _buildLabel(s.add_product_name_label),
               _buildTextField(
                 controller: name,
-                hint: "Enter product name",
+                hint: s.add_product_name_hint,
                 icon: Icons.edit_note_rounded,
                 validator: (val) =>
-                    (val == null || val.isEmpty) ? "Name required" : null,
+                    (val == null || val.isEmpty) ? s.validation_required : null,
               ),
 
               const SizedBox(height: 20),
@@ -56,7 +59,7 @@ class _AddProductState extends State<AddProductPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        _buildLabel("Price"),
+                        _buildLabel(s.add_product_price_label),
                         _buildTextField(
                           controller: price,
                           hint: "0.00",
@@ -64,8 +67,9 @@ class _AddProductState extends State<AddProductPage> {
                           keyboardType: const TextInputType.numberWithOptions(
                             decimal: true,
                           ),
-                          validator: (val) =>
-                              (val == null || val.isEmpty) ? "Required" : null,
+                          validator: (val) => (val == null || val.isEmpty)
+                              ? s.validation_required
+                              : null,
                         ),
                       ],
                     ),
@@ -75,8 +79,8 @@ class _AddProductState extends State<AddProductPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        _buildLabel("Category"),
-                        _buildCategoryDropdown(),
+                        _buildLabel(s.add_product_category_label),
+                        _buildCategoryDropdown(s),
                       ],
                     ),
                   ),
@@ -91,14 +95,15 @@ class _AddProductState extends State<AddProductPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        _buildLabel("Stock Quantity"),
+                        _buildLabel(s.add_product_stock_label),
                         _buildTextField(
                           controller: stock,
                           hint: "0",
                           icon: Icons.inventory_rounded,
                           keyboardType: TextInputType.number,
-                          validator: (val) =>
-                              (val == null || val.isEmpty) ? "Required" : null,
+                          validator: (val) => (val == null || val.isEmpty)
+                              ? s.validation_required
+                              : null,
                         ),
                       ],
                     ),
@@ -108,14 +113,15 @@ class _AddProductState extends State<AddProductPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        _buildLabel("Alert Level"),
+                        _buildLabel(s.add_product_min_stock_label),
                         _buildTextField(
                           controller: minStock,
-                          hint: "Min",
+                          hint: s.add_product_min_stock_hint,
                           icon: Icons.notification_important_rounded,
                           keyboardType: TextInputType.number,
-                          validator: (val) =>
-                              (val == null || val.isEmpty) ? "Required" : null,
+                          validator: (val) => (val == null || val.isEmpty)
+                              ? s.validation_required
+                              : null,
                         ),
                       ],
                     ),
@@ -136,9 +142,9 @@ class _AddProductState extends State<AddProductPage> {
                     ),
                   ),
                   onPressed: _handleSave,
-                  child: const Text(
-                    "Create Product",
-                    style: TextStyle(
+                  child: Text(
+                    s.add_product_button,
+                    style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
@@ -157,7 +163,7 @@ class _AddProductState extends State<AddProductPage> {
 
   Widget _buildLabel(String text) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 8, left: 4),
+      padding: const EdgeInsets.only(bottom: 8, left: 4, right: 4),
       child: Text(
         text,
         style: const TextStyle(
@@ -187,14 +193,12 @@ class _AddProductState extends State<AddProductPage> {
         contentPadding: const EdgeInsets.symmetric(vertical: 15),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          // ignore: deprecated_member_use
           borderSide: BorderSide(
             color: AppColors.border.withValues(alpha: 0.5),
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          // ignore: deprecated_member_use
           borderSide: BorderSide(
             color: AppColors.border.withValues(alpha: 0.5),
           ),
@@ -203,9 +207,9 @@ class _AddProductState extends State<AddProductPage> {
     );
   }
 
-  Widget _buildCategoryDropdown() {
+  Widget _buildCategoryDropdown(S s) {
     return DropdownButtonFormField<String>(
-      initialValue: selectedCategory,
+      value: selectedCategory,
       decoration: InputDecoration(
         filled: true,
         fillColor: AppColors.white,
@@ -215,10 +219,10 @@ class _AddProductState extends State<AddProductPage> {
         ),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
       ),
-      items: const [
-        DropdownMenuItem(value: "c1", child: Text("Electronics")),
-        DropdownMenuItem(value: "c2", child: Text("Food")),
-        DropdownMenuItem(value: "c3", child: Text("Clothes")),
+      items: [
+        DropdownMenuItem(value: "c1", child: Text(s.category_electronics)),
+        DropdownMenuItem(value: "c2", child: Text(s.category_food)),
+        DropdownMenuItem(value: "c3", child: Text(s.category_clothes)),
       ],
       onChanged: (val) => setState(() => selectedCategory = val!),
     );

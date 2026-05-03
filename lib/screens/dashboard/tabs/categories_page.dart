@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gestion_de_stock_flutter/core/theme/app_colors.dart';
 import 'package:gestion_de_stock_flutter/data/models/category_model.dart';
-
+import 'package:gestion_de_stock_flutter/generated/l10n.dart';
 import 'package:gestion_de_stock_flutter/providers/category_provider.dart';
 import 'package:gestion_de_stock_flutter/screens/dashboard/details/category_detail_page.dart';
 import 'package:gestion_de_stock_flutter/screens/dashboard/tabs/add_category_page.dart';
@@ -32,12 +32,15 @@ class _CategoriesState extends State<CategoriesPage> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
           ),
-          title: const Text("Delete Category"),
-          content: Text("Are you sure you want to delete '${category.name}'?"),
+          title: Text(S.of(context).categories_delete_title),
+          content: Text(S.of(context).categories_delete_message(category.name)),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
-              child: const Text("Cancel", style: TextStyle(color: Colors.grey)),
+              child: Text(
+                S.of(context).common_cancel,
+                style: const TextStyle(color: Colors.grey),
+              ),
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(backgroundColor: AppColors.error),
@@ -45,12 +48,16 @@ class _CategoriesState extends State<CategoriesPage> {
                 context.read<CategoryProvider>().deleteCategory(category.id);
                 Navigator.pop(context);
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text("${category.name} deleted")),
+                  SnackBar(
+                    content: Text(
+                      S.of(context).categories_deleted(category.name),
+                    ),
+                  ),
                 );
               },
-              child: const Text(
-                "Delete",
-                style: TextStyle(color: Colors.white),
+              child: Text(
+                S.of(context).common_delete,
+                style: const TextStyle(color: Colors.white),
               ),
             ),
           ],
@@ -69,7 +76,7 @@ class _CategoriesState extends State<CategoriesPage> {
           : provider.error != null
           ? _buildError(provider.error!)
           : provider.categories.isEmpty
-          ? const Center(child: Text("No categoris found"))
+          ? Center(child: Text(S.of(context).categories_empty))
           : ListView.separated(
               padding: const EdgeInsets.all(12),
               itemCount: provider.categories.length,
@@ -93,7 +100,7 @@ class _CategoriesState extends State<CategoriesPage> {
             ),
 
       floatingActionButton: FloatingActionButton(
-        heroTag: "fab_categories",
+        heroTag: S.of(context).widget_category_no_desc,
         backgroundColor: AppColors.white,
 
         onPressed: () async {

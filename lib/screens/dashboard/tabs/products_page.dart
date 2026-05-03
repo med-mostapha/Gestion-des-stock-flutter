@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gestion_de_stock_flutter/core/theme/app_colors.dart';
 import 'package:gestion_de_stock_flutter/data/models/product_model.dart';
+import 'package:gestion_de_stock_flutter/generated/l10n.dart';
 import 'package:gestion_de_stock_flutter/providers/product_provider.dart';
 import 'package:gestion_de_stock_flutter/screens/dashboard/details/product_detail_page.dart';
 import 'package:gestion_de_stock_flutter/screens/dashboard/tabs/add_product_page.dart';
@@ -35,12 +36,15 @@ class _ProductsPageState extends State<ProductsPage> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
           ),
-          title: const Text("Delete Product"),
-          content: Text("Are you sure you want to delete '${product.name}'?"),
+          title: Text(S.of(context).products_delete_title),
+          content: Text(S.of(context).products_delete_message(product.name)),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
-              child: const Text("Cancel", style: TextStyle(color: Colors.grey)),
+              child: Text(
+                S.of(context).common_cancel,
+                style: const TextStyle(color: Colors.grey),
+              ),
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(backgroundColor: AppColors.error),
@@ -48,12 +52,14 @@ class _ProductsPageState extends State<ProductsPage> {
                 context.read<ProductProvider>().deleteProduct(product.id);
                 Navigator.pop(context);
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text("${product.name} deleted")),
+                  SnackBar(
+                    content: Text(S.of(context).products_deleted(product.name)),
+                  ),
                 );
               },
-              child: const Text(
-                "Delete",
-                style: TextStyle(color: Colors.white),
+              child: Text(
+                S.of(context).common_delete,
+                style: const TextStyle(color: Colors.white),
               ),
             ),
           ],
@@ -86,7 +92,7 @@ class _ProductsPageState extends State<ProductsPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Total Products: ${filtered.length}",
+                  S.of(context).products_title(filtered.length),
                   style: const TextStyle(
                     color: AppColors.textSecondary,
                     fontWeight: FontWeight.w500,
@@ -187,11 +193,18 @@ class _ProductsPageState extends State<ProductsPage> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(Icons.inventory_2_outlined, size: 80, color: AppColors.border),
+          const Icon(
+            Icons.inventory_2_outlined,
+            size: 80,
+            color: AppColors.border,
+          ),
           const SizedBox(height: 16),
-          const Text(
-            "No products found",
-            style: TextStyle(color: AppColors.textSecondary, fontSize: 16),
+          Text(
+            S.of(context).products_empty,
+            style: const TextStyle(
+              color: AppColors.textSecondary,
+              fontSize: 16,
+            ),
           ),
         ],
       ),
