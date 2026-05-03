@@ -514,6 +514,41 @@ class S {
     );
   }
 
+  /// `Stock Distribution`
+  String get chart_distribution_title {
+    return Intl.message(
+      'Stock Distribution',
+      name: 'chart_distribution_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `by category value`
+  String get chart_distribution_subtitle {
+    return Intl.message(
+      'by category value',
+      name: 'chart_distribution_subtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Stock Value by Category`
+  String get chart_stock_by_category {
+    return Intl.message(
+      'Stock Value by Category',
+      name: 'chart_stock_by_category',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No data`
+  String get common_no_data {
+    return Intl.message('No data', name: 'common_no_data', desc: '', args: []);
+  }
+
   /// `No products found`
   String get products_empty {
     return Intl.message(
@@ -574,6 +609,16 @@ class S {
     );
   }
 
+  /// `No description`
+  String get category_no_description {
+    return Intl.message(
+      'No description',
+      name: 'category_no_description',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Are you sure you want to delete '{name}'?`
   String categories_delete_message(String name) {
     return Intl.message(
@@ -620,6 +665,16 @@ class S {
       'Account',
       name: 'settings_account',
       desc: 'Account section',
+      args: [],
+    );
+  }
+
+  /// `Low Stock`
+  String get common_low_stock {
+    return Intl.message(
+      'Low Stock',
+      name: 'common_low_stock',
+      desc: 'Short title for low stock statistics',
       args: [],
     );
   }
@@ -890,6 +945,231 @@ class S {
       'Min: $count',
       name: 'widget_min_stock',
       desc: 'Minimum stock label',
+      args: [count],
+    );
+  }
+
+  /// `New Product`
+  String get add_product_title {
+    return Intl.message(
+      'New Product',
+      name: 'add_product_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Product Name`
+  String get add_product_name_label {
+    return Intl.message(
+      'Product Name',
+      name: 'add_product_name_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter product name`
+  String get add_product_name_hint {
+    return Intl.message(
+      'Enter product name',
+      name: 'add_product_name_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Price`
+  String get add_product_price_label {
+    return Intl.message(
+      'Price',
+      name: 'add_product_price_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Category`
+  String get add_product_category_label {
+    return Intl.message(
+      'Category',
+      name: 'add_product_category_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Stock Quantity`
+  String get add_product_stock_label {
+    return Intl.message(
+      'Stock Quantity',
+      name: 'add_product_stock_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Alert Level`
+  String get add_product_min_stock_label {
+    return Intl.message(
+      'Alert Level',
+      name: 'add_product_min_stock_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Min`
+  String get add_product_min_stock_hint {
+    return Intl.message(
+      'Min',
+      name: 'add_product_min_stock_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create Product`
+  String get add_product_button {
+    return Intl.message(
+      'Create Product',
+      name: 'add_product_button',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Electronics`
+  String get category_electronics {
+    return Intl.message(
+      'Electronics',
+      name: 'category_electronics',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Food`
+  String get category_food {
+    return Intl.message('Food', name: 'category_food', desc: '', args: []);
+  }
+
+  /// `Clothes`
+  String get category_clothes {
+    return Intl.message(
+      'Clothes',
+      name: 'category_clothes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Required`
+  String get validation_required {
+    return Intl.message(
+      'Required',
+      name: 'validation_required',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New Category`
+  String get add_category_title {
+    return Intl.message(
+      'New Category',
+      name: 'add_category_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Category Name`
+  String get add_category_name_label {
+    return Intl.message(
+      'Category Name',
+      name: 'add_category_name_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter category name`
+  String get add_category_name_hint {
+    return Intl.message(
+      'Enter category name',
+      name: 'add_category_name_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Description`
+  String get add_category_desc_label {
+    return Intl.message(
+      'Description',
+      name: 'add_category_desc_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter category description`
+  String get add_category_desc_hint {
+    return Intl.message(
+      'Enter category description',
+      name: 'add_category_desc_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create Category`
+  String get add_category_button {
+    return Intl.message(
+      'Create Category',
+      name: 'add_category_button',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Too short (min 2 chars)`
+  String get validation_too_short {
+    return Intl.message(
+      'Too short (min 2 chars)',
+      name: 'validation_too_short',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Out of Stock`
+  String get stock_status_out {
+    return Intl.message(
+      'Out of Stock',
+      name: 'stock_status_out',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Low Stock — {count} left`
+  String stock_status_low(int count) {
+    return Intl.message(
+      'Low Stock — $count left',
+      name: 'stock_status_low',
+      desc: '',
+      args: [count],
+    );
+  }
+
+  /// `In Stock — {count} units`
+  String stock_status_in(int count) {
+    return Intl.message(
+      'In Stock — $count units',
+      name: 'stock_status_in',
+      desc: '',
       args: [count],
     );
   }

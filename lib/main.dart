@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => CategoryProvider()),
       ],
       child: MaterialApp(
-        locale: const Locale('ar'),
+        locale: const Locale('en'),
         localizationsDelegates: [
           S.delegate,
           GlobalMaterialLocalizations.delegate,

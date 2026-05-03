@@ -1,146 +1,429 @@
 {
   "common_login": "تسجيل الدخول",
   "@common_login": {
-    "description": "Generic login text used in buttons or titles"
+    "description": "Generic login text"
   },
   "common_signup": "إنشاء حساب",
   "@common_signup": {
-    "description": "Generic signup text used in buttons or links"
+    "description": "Generic signup text"
   },
-  "onboarding_title": "مرحبًا",
+  "common_cancel": "إلغاء",
+  "@common_cancel": {
+    "description": "Cancel button"
+  },
+  "common_delete": "حذف",
+  "@common_delete": {
+    "description": "Delete button"
+  },
+  "common_save": "حفظ التغييرات",
+  "@common_save": {
+    "description": "Save button"
+  },
+  "common_edit": "تعديل",
+  "@common_edit": {
+    "description": "Edit button"
+  },
+  "onboarding_title": "مرحباً",
   "@onboarding_title": {
-    "description": "Main greeting title on onboarding screen"
+    "description": "Main greeting on onboarding"
   },
-  "onboarding_subtitle": "مرحبًا بك في Little Drop، حيث يمكنك إدارة مهامك اليومية",
+  "onboarding_subtitle": "مرحباً بك في Little Drop، حيث تدير مهامك اليومية",
   "@onboarding_subtitle": {
-    "description": "Short description explaining the app purpose on onboarding screen"
+    "description": "Onboarding subtitle"
   },
-  "onboarding_social_text": "سجل باستخدام",
+  "onboarding_social_text": "سجل الدخول بواسطة",
   "@onboarding_social_text": {
-    "description": "Text displayed above social media signup options"
+    "description": "Social signup text"
   },
-  "login_title": "أهلا بعودتك",
-  "@login_title": {
-    "description": "Main title displayed on login screen"
+  "auth_login_title": "مرحباً بعودتك",
+  "@auth_login_title": {
+    "description": "Login screen title"
   },
-  "login_subtitle": "سجل الدخول لإدارة مخزونك بكفاءة",
-  "@login_subtitle": {
-    "description": "Subtitle explaining login purpose"
+  "auth_login_subtitle": "سجل الدخول لإدارة مخزونك بكفاءة",
+  "@auth_login_subtitle": {
+    "description": "Login subtitle"
   },
-  "login_email_label": "البريد الإلكتروني أو اسم المستخدم",
-  "@login_email_label": {
-    "description": "Label for email or username input field"
+  "auth_login_email_label": "البريد الإلكتروني أو اسم المستخدم",
+  "@auth_login_email_label": {
+    "description": "Email label"
   },
-  "login_email_hint": "أدخل بريدك الإلكتروني",
-  "@login_email_hint": {
-    "description": "Placeholder text for email input field"
+  "auth_login_email_hint": "أدخل بريدك الإلكتروني",
+  "@auth_login_email_hint": {
+    "description": "Email hint"
   },
-  "login_password_label": "كلمة المرور",
-  "@login_password_label": {
-    "description": "Label for password input field"
+  "auth_login_password_label": "كلمة المرور",
+  "@auth_login_password_label": {
+    "description": "Password label"
   },
-  "login_password_hint": "أدخل كلمة المرور",
-  "@login_password_hint": {
-    "description": "Placeholder text for password input field"
+  "auth_login_password_hint": "أدخل كلمة المرور",
+  "@auth_login_password_hint": {
+    "description": "Password hint"
   },
-  "login_button": "تسجيل الدخول",
-  "@login_button": {
-    "description": "Main login button text"
+  "auth_login_button": "تسجيل الدخول",
+  "@auth_login_button": {
+    "description": "Login button"
   },
-  "login_no_account": "ليس لديك حساب؟",
-  "@login_no_account": {
-    "description": "Text before signup link on login screen"
+  "auth_login_no_account": "ليس لديك حساب؟",
+  "@auth_login_no_account": {
+    "description": "No account text"
   },
-  "login_signup_link": "إنشاء حساب",
-  "@login_signup_link": {
-    "description": "Clickable signup text on login screen"
+  "auth_login_signup_link": "إنشاء حساب",
+  "@auth_login_signup_link": {
+    "description": "Signup link"
   },
-  "login_validation_empty_email": "يرجى إدخال اسم المستخدم أو البريد الإلكتروني",
-  "@login_validation_empty_email": {
-    "description": "Validation error when email field is empty"
+  "auth_login_validation_empty_email": "يرجى إدخال اسم المستخدم أو البريد الإلكتروني",
+  "@auth_login_validation_empty_email": {
+    "description": "Empty email error"
   },
-  "login_validation_empty_password": "يرجى إدخال كلمة المرور",
-  "@login_validation_empty_password": {
-    "description": "Validation error when password is empty"
+  "auth_login_validation_empty_password": "يرجى إدخال كلمة المرور",
+  "@auth_login_validation_empty_password": {
+    "description": "Empty password error"
   },
-  "login_validation_short_password": "يجب أن تكون كلمة المرور 6 أحرف على الأقل",
-  "@login_validation_short_password": {
-    "description": "Validation error for short password"
+  "auth_login_validation_short_password": "يجب أن تكون كلمة المرور 6 أحرف على الأقل",
+  "@auth_login_validation_short_password": {
+    "description": "Short password error"
   },
-  "signup_title": "إنشاء حساب",
-  "@signup_title": {
-    "description": "Main title on signup screen"
+  "auth_signup_title": "إنشاء حساب",
+  "@auth_signup_title": {
+    "description": "Signup title"
   },
-  "signup_subtitle": "أدخل التفاصيل للبدء",
-  "@signup_subtitle": {
-    "description": "Subtitle on signup screen"
+  "auth_signup_subtitle": "أدخل البيانات للبدء",
+  "@auth_signup_subtitle": {
+    "description": "Signup subtitle"
   },
-  "signup_username_label": "اسم المستخدم",
-  "@signup_username_label": {
-    "description": "Label for username input field"
+  "auth_signup_username_label": "اسم المستخدم",
+  "@auth_signup_username_label": {
+    "description": "Username label"
   },
-  "signup_username_hint": "أدخل اسم المستخدم",
-  "@signup_username_hint": {
-    "description": "Placeholder for username field"
+  "auth_signup_username_hint": "أدخل اسم المستخدم",
+  "@auth_signup_username_hint": {
+    "description": "Username hint"
   },
-  "signup_email_label": "البريد الإلكتروني",
-  "@signup_email_label": {
-    "description": "Label for email input field"
+  "auth_signup_email_label": "البريد الإلكتروني",
+  "@auth_signup_email_label": {
+    "description": "Email label"
   },
-  "signup_email_hint": "أدخل بريدك الإلكتروني",
-  "@signup_email_hint": {
-    "description": "Placeholder for email field"
+  "auth_signup_email_hint": "أدخل بريدك الإلكتروني",
+  "@auth_signup_email_hint": {
+    "description": "Email hint"
   },
-  "signup_password_label": "كلمة المرور",
-  "@signup_password_label": {
-    "description": "Label for password input field"
+  "auth_signup_password_label": "كلمة المرور",
+  "@auth_signup_password_label": {
+    "description": "Password label"
   },
-  "signup_password_hint": "أدخل كلمة المرور",
-  "@signup_password_hint": {
-    "description": "Placeholder for password field"
+  "auth_signup_password_hint": "أدخل كلمة المرور",
+  "@auth_signup_password_hint": {
+    "description": "Password hint"
   },
-  "signup_confirm_password_label": "تأكيد كلمة المرور",
-  "@signup_confirm_password_label": {
-    "description": "Label for confirm password field"
+  "auth_signup_confirm_password_label": "تأكيد كلمة المرور",
+  "@auth_signup_confirm_password_label": {
+    "description": "Confirm password label"
   },
-  "signup_confirm_password_hint": "أعد إدخال كلمة المرور",
-  "@signup_confirm_password_hint": {
-    "description": "Placeholder for confirm password field"
+  "auth_signup_confirm_password_hint": "كرر كلمة المرور",
+  "@auth_signup_confirm_password_hint": {
+    "description": "Confirm password hint"
   },
-  "signup_button": "إنشاء حساب",
-  "@signup_button": {
-    "description": "Main signup button text"
+  "auth_signup_button": "إنشاء حساب",
+  "@auth_signup_button": {
+    "description": "Signup button"
   },
-  "signup_have_account": "هل لديك حساب بالفعل؟",
-  "@signup_have_account": {
-    "description": "Text before login link on signup screen"
+  "auth_signup_have_account": "لديك حساب بالفعل؟",
+  "@auth_signup_have_account": {
+    "description": "Have account text"
   },
-  "signup_login_link": "تسجيل الدخول",
-  "@signup_login_link": {
-    "description": "Clickable login text on signup screen"
+  "auth_signup_login_link": "تسجيل الدخول",
+  "@auth_signup_login_link": {
+    "description": "Login link"
   },
-  "signup_validation_username_required": "اسم المستخدم مطلوب",
-  "@signup_validation_username_required": {
-    "description": "Validation error when username is empty"
+  "auth_signup_validation_username_required": "اسم المستخدم مطلوب",
+  "@auth_signup_validation_username_required": {
+    "description": "Username required error"
   },
-  "signup_validation_email_required": "البريد الإلكتروني مطلوب",
-  "@signup_validation_email_required": {
-    "description": "Validation error when email is empty"
+  "auth_signup_validation_email_required": "البريد الإلكتروني مطلوب",
+  "@auth_signup_validation_email_required": {
+    "description": "Email required error"
   },
-  "signup_validation_email_invalid": "أدخل بريد إلكتروني صالح",
-  "@signup_validation_email_invalid": {
-    "description": "Validation error for invalid email format"
+  "auth_signup_validation_email_invalid": "أدخل بريداً إلكترونياً صحيحاً",
+  "@auth_signup_validation_email_invalid": {
+    "description": "Invalid email error"
   },
-  "signup_validation_password_short": "6 أحرف على الأقل",
-  "@signup_validation_password_short": {
-    "description": "Validation error for short password"
+  "auth_signup_validation_password_short": "6 أحرف كحد أدنى",
+  "@auth_signup_validation_password_short": {
+    "description": "Short password error"
   },
-  "signup_validation_confirm_required": "يرجى تأكيد كلمة المرور",
-  "@signup_validation_confirm_required": {
-    "description": "Validation error when confirm password is empty"
+  "auth_signup_validation_confirm_required": "يرجى تأكيد كلمة المرور",
+  "@auth_signup_validation_confirm_required": {
+    "description": "Confirm required error"
   },
-  "signup_validation_password_mismatch": "كلمات المرور غير متطابقة",
-  "@signup_validation_password_mismatch": {
-    "description": "Validation error when passwords don't match"
+  "auth_signup_validation_password_mismatch": "كلمات المرور غير متطابقة",
+  "@auth_signup_validation_password_mismatch": {
+    "description": "Password mismatch error"
+  },
+  "dashboard_title": "لوحة التحكم",
+  "@dashboard_title": {
+    "description": "Dashboard tab title"
+  },
+  "dashboard_products": "المنتجات",
+  "@dashboard_products": {
+    "description": "Products tab title"
+  },
+  "dashboard_categories": "الفئات",
+  "@dashboard_categories": {
+    "description": "Categories tab title"
+  },
+  "dashboard_settings": "الإعدادات",
+  "@dashboard_settings": {
+    "description": "Settings tab title"
+  },
+  "dashboard_overview": "نظرة عامة",
+  "@dashboard_overview": {
+    "description": "Overview bottom nav"
+  },
+  "products_title": "إجمالي المنتجات: {count}",
+  "@products_title": {
+    "description": "Products page title with count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "chart_distribution_title": "توزيع المخزون",
+  "chart_distribution_subtitle": "حسب قيمة الفئة",
+  "chart_stock_by_category": "قيمة المخزون حسب الفئة",
+  "common_no_data": "لا توجد بيانات",
+  "products_empty": "لم يتم العثور على منتجات",
+  "@products_empty": {
+    "description": "Empty products message"
+  },
+  "products_delete_title": "حذف المنتج",
+  "@products_delete_title": {
+    "description": "Delete product dialog title"
+  },
+  "products_delete_message": "هل أنت متأكد من رغبتك في حذف '{name}'؟",
+  "@products_delete_message": {
+    "description": "Delete confirmation message",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "products_deleted": "تم حذف {name}",
+  "@products_deleted": {
+    "description": "Product deleted message",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "categories_empty": "لم يتم العثور على فئات",
+  "@categories_empty": {
+    "description": "Empty categories message"
+  },
+  "categories_delete_title": "حذف الفئة",
+  "@categories_delete_title": {
+    "description": "Delete category dialog title"
+  },
+  "category_no_description": "لا يوجد وصف",
+  "categories_delete_message": "هل أنت متأكد من رغبتك في حذف '{name}'؟",
+  "@categories_delete_message": {
+    "description": "Delete confirmation message",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "categories_deleted": "تم حذف {name}",
+  "@categories_deleted": {
+    "description": "Category deleted message",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "settings_appearance": "المظهر",
+  "@settings_appearance": {
+    "description": "Appearance section"
+  },
+  "settings_dark_mode": "الوضع الداكن",
+  "@settings_dark_mode": {
+    "description": "Dark mode toggle"
+  },
+  "settings_account": "الحساب",
+  "@settings_account": {
+    "description": "Account section"
+  },
+  "common_low_stock": "مخزون منخفض",
+  "@common_low_stock": {
+    "description": "Short title for low stock statistics"
+  },
+  "settings_logout": "تسجيل الخروج",
+  "@settings_logout": {
+    "description": "Logout button"
+  },
+  "settings_logout_title": "تسجيل الخروج",
+  "@settings_logout_title": {
+    "description": "Logout dialog title"
+  },
+  "settings_logout_message": "هل أنت متأكد من رغبتك في تسجيل الخروج؟",
+  "@settings_logout_message": {
+    "description": "Logout confirmation message"
+  },
+  "settings_version": "الإصدار 1.0.0",
+  "@settings_version": {
+    "description": "App version"
+  },
+  "detail_category_updated": "تم تحديث الفئة",
+  "@detail_category_updated": {
+    "description": "Category update success message"
+  },
+  "detail_product_updated": "تم تحديث المنتج",
+  "@detail_product_updated": {
+    "description": "Product update success message"
+  },
+  "detail_category_name": "اسم الفئة",
+  "@detail_category_name": {
+    "description": "Category name label"
+  },
+  "detail_description": "الوصف",
+  "@detail_description": {
+    "description": "Description label"
+  },
+  "detail_edit_category": "تعديل الفئة",
+  "@detail_edit_category": {
+    "description": "Edit category button"
+  },
+  "detail_products_label": "المنتجات",
+  "@detail_products_label": {
+    "description": "Products section label"
+  },
+  "detail_no_products": "لا توجد منتجات في هذه الفئة",
+  "@detail_no_products": {
+    "description": "No products message"
+  },
+  "detail_product_name": "اسم المنتج",
+  "@detail_product_name": {
+    "description": "Product name label"
+  },
+  "detail_price": "السعر (أوقية)",
+  "@detail_price": {
+    "description": "Price label"
+  },
+  "detail_product_info": "معلومات المنتج",
+  "@detail_product_info": {
+    "description": "Product info section"
+  },
+  "detail_stock_info": "معلومات المخزون",
+  "@detail_stock_info": {
+    "description": "Stock info section"
+  },
+  "detail_stock_quantity": "كمية المخزون",
+  "@detail_stock_quantity": {
+    "description": "Stock quantity label"
+  },
+  "detail_alert_level": "مستوى التنبيه",
+  "@detail_alert_level": {
+    "description": "Alert level label"
+  },
+  "detail_edit_product": "تعديل المنتج",
+  "@detail_edit_product": {
+    "description": "Edit product button"
+  },
+  "detail_category_info": "معلومات الفئة",
+  "@detail_category_info": {
+    "description": "Category info section"
+  },
+  "widget_product_out": "نفد",
+  "@widget_product_out": {
+    "description": "Out of stock status"
+  },
+  "widget_product_qty": "الكمية: {quantity}",
+  "@widget_product_qty": {
+    "description": "Stock quantity display",
+    "placeholders": {
+      "quantity": {
+        "type": "int"
+      }
+    }
+  },
+  "widget_search_hint": "البحث عن منتجات...",
+  "@widget_search_hint": {
+    "description": "Search bar hint"
+  },
+  "widget_category_no_desc": "لا يوجد وصف",
+  "@widget_category_no_desc": {
+    "description": "No description message"
+  },
+  "widget_stock_out": "نفد من المخزون",
+  "@widget_stock_out": {
+    "description": "Out of stock label"
+  },
+  "widget_stock_low": "مخزون منخفض — تبقى {count}",
+  "@widget_stock_low": {
+    "description": "Low stock label",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "widget_stock_in": "متوفر — {count} وحدة",
+  "@widget_stock_in": {
+    "description": "In stock label",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "widget_min_stock": "الحد الأدنى: {count}",
+  "@widget_min_stock": {
+    "description": "Minimum stock label",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "add_product_title": "منتج جديد",
+  "add_product_name_label": "اسم المنتج",
+  "add_product_name_hint": "أدخل اسم المنتج",
+  "add_product_price_label": "السعر",
+  "add_product_category_label": "الفئة",
+  "add_product_stock_label": "كمية المخزون",
+  "add_product_min_stock_label": "مستوى التنبيه",
+  "add_product_min_stock_hint": "الأدنى",
+  "add_product_button": "إضافة المنتج",
+  "category_electronics": "إلكترونيات",
+  "category_food": "أغذية",
+  "category_clothes": "ملابس",
+  "validation_required": "هذا الحقل مطلوب",
+  "add_category_title": "فئة جديدة",
+  "add_category_name_label": "اسم الفئة",
+  "add_category_name_hint": "أدخل اسم الفئة",
+  "add_category_desc_label": "الوصف",
+  "add_category_desc_hint": "أدخل وصف الفئة",
+  "add_category_button": "إنشاء الفئة",
+  "validation_too_short": "قصير جداً (حرفين على الأقل)",
+  "stock_status_out": "نفد من المخزون",
+  "stock_status_low": "مخزون منخفض - تبقى {count}",
+  "@stock_status_low": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "stock_status_in": "متوفر - {count} وحدة",
+  "@stock_status_in": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
   }
 }

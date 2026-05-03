@@ -188,6 +188,10 @@
       }
     }
   },
+  "chart_distribution_title": "Stock Distribution",
+  "chart_distribution_subtitle": "by category value",
+  "chart_stock_by_category": "Stock Value by Category",
+  "common_no_data": "No data",
   "products_empty": "No products found",
   "@products_empty": {
     "description": "Empty products message"
@@ -222,6 +226,7 @@
   "@categories_delete_title": {
     "description": "Delete category dialog title"
   },
+  "category_no_description": "No description",
   "categories_delete_message": "Are you sure you want to delete '{name}'?",
   "@categories_delete_message": {
     "description": "Delete confirmation message",
@@ -251,6 +256,10 @@
   "settings_account": "Account",
   "@settings_account": {
     "description": "Account section"
+  },
+  "common_low_stock": "Low Stock",
+  "@common_low_stock": {
+    "description": "Short title for low stock statistics"
   },
   "settings_logout": "Logout",
   "@settings_logout": {
@@ -374,6 +383,43 @@
   "widget_min_stock": "Min: {count}",
   "@widget_min_stock": {
     "description": "Minimum stock label",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "add_product_title": "New Product",
+  "add_product_name_label": "Product Name",
+  "add_product_name_hint": "Enter product name",
+  "add_product_price_label": "Price",
+  "add_product_category_label": "Category",
+  "add_product_stock_label": "Stock Quantity",
+  "add_product_min_stock_label": "Alert Level",
+  "add_product_min_stock_hint": "Min",
+  "add_product_button": "Create Product",
+  "category_electronics": "Electronics",
+  "category_food": "Food",
+  "category_clothes": "Clothes",
+  "validation_required": "Required",
+  "add_category_title": "New Category",
+  "add_category_name_label": "Category Name",
+  "add_category_name_hint": "Enter category name",
+  "add_category_desc_label": "Description",
+  "add_category_desc_hint": "Enter category description",
+  "add_category_button": "Create Category",
+  "validation_too_short": "Too short (min 2 chars)",
+  "stock_status_out": "Out of Stock",
+  "stock_status_low": "Low Stock — {count} left",
+  "@stock_status_low": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "stock_status_in": "In Stock — {count} units",
+  "@stock_status_in": {
     "placeholders": {
       "count": {
         "type": "int"

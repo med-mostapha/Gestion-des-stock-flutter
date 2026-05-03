@@ -30,16 +30,57 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m4(count) => "Total Products: ${count}";
 
-  static String m5(count) => "Min: ${count}";
+  static String m5(count) => "In Stock — ${count} units";
 
-  static String m6(quantity) => "Qty: ${quantity}";
+  static String m6(count) => "Low Stock — ${count} left";
 
-  static String m7(count) => "In Stock — ${count} units";
+  static String m7(count) => "Min: ${count}";
 
-  static String m8(count) => "Low Stock — ${count} left";
+  static String m8(quantity) => "Qty: ${quantity}";
+
+  static String m9(count) => "In Stock — ${count} units";
+
+  static String m10(count) => "Low Stock — ${count} left";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "add_category_button": MessageLookupByLibrary.simpleMessage(
+      "Create Category",
+    ),
+    "add_category_desc_hint": MessageLookupByLibrary.simpleMessage(
+      "Enter category description",
+    ),
+    "add_category_desc_label": MessageLookupByLibrary.simpleMessage(
+      "Description",
+    ),
+    "add_category_name_hint": MessageLookupByLibrary.simpleMessage(
+      "Enter category name",
+    ),
+    "add_category_name_label": MessageLookupByLibrary.simpleMessage(
+      "Category Name",
+    ),
+    "add_category_title": MessageLookupByLibrary.simpleMessage("New Category"),
+    "add_product_button": MessageLookupByLibrary.simpleMessage(
+      "Create Product",
+    ),
+    "add_product_category_label": MessageLookupByLibrary.simpleMessage(
+      "Category",
+    ),
+    "add_product_min_stock_hint": MessageLookupByLibrary.simpleMessage("Min"),
+    "add_product_min_stock_label": MessageLookupByLibrary.simpleMessage(
+      "Alert Level",
+    ),
+    "add_product_name_hint": MessageLookupByLibrary.simpleMessage(
+      "Enter product name",
+    ),
+    "add_product_name_label": MessageLookupByLibrary.simpleMessage(
+      "Product Name",
+    ),
+    "add_product_price_label": MessageLookupByLibrary.simpleMessage("Price"),
+    "add_product_stock_label": MessageLookupByLibrary.simpleMessage(
+      "Stock Quantity",
+    ),
+    "add_product_title": MessageLookupByLibrary.simpleMessage("New Product"),
     "auth_login_button": MessageLookupByLibrary.simpleMessage("Login"),
     "auth_login_email_hint": MessageLookupByLibrary.simpleMessage(
       "Enter your email",
@@ -121,10 +162,27 @@ class MessageLookup extends MessageLookupByLibrary {
     "categories_empty": MessageLookupByLibrary.simpleMessage(
       "No categories found",
     ),
+    "category_clothes": MessageLookupByLibrary.simpleMessage("Clothes"),
+    "category_electronics": MessageLookupByLibrary.simpleMessage("Electronics"),
+    "category_food": MessageLookupByLibrary.simpleMessage("Food"),
+    "category_no_description": MessageLookupByLibrary.simpleMessage(
+      "No description",
+    ),
+    "chart_distribution_subtitle": MessageLookupByLibrary.simpleMessage(
+      "by category value",
+    ),
+    "chart_distribution_title": MessageLookupByLibrary.simpleMessage(
+      "Stock Distribution",
+    ),
+    "chart_stock_by_category": MessageLookupByLibrary.simpleMessage(
+      "Stock Value by Category",
+    ),
     "common_cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "common_delete": MessageLookupByLibrary.simpleMessage("Delete"),
     "common_edit": MessageLookupByLibrary.simpleMessage("Edit"),
     "common_login": MessageLookupByLibrary.simpleMessage("Login"),
+    "common_low_stock": MessageLookupByLibrary.simpleMessage("Low Stock"),
+    "common_no_data": MessageLookupByLibrary.simpleMessage("No data"),
     "common_save": MessageLookupByLibrary.simpleMessage("Save Changes"),
     "common_signup": MessageLookupByLibrary.simpleMessage("Sign Up"),
     "dashboard_categories": MessageLookupByLibrary.simpleMessage("Categories"),
@@ -184,17 +242,24 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "settings_logout_title": MessageLookupByLibrary.simpleMessage("Logout"),
     "settings_version": MessageLookupByLibrary.simpleMessage("Version 1.0.0"),
+    "stock_status_in": m5,
+    "stock_status_low": m6,
+    "stock_status_out": MessageLookupByLibrary.simpleMessage("Out of Stock"),
+    "validation_required": MessageLookupByLibrary.simpleMessage("Required"),
+    "validation_too_short": MessageLookupByLibrary.simpleMessage(
+      "Too short (min 2 chars)",
+    ),
     "widget_category_no_desc": MessageLookupByLibrary.simpleMessage(
       "No description",
     ),
-    "widget_min_stock": m5,
+    "widget_min_stock": m7,
     "widget_product_out": MessageLookupByLibrary.simpleMessage("Out"),
-    "widget_product_qty": m6,
+    "widget_product_qty": m8,
     "widget_search_hint": MessageLookupByLibrary.simpleMessage(
       "Search products...",
     ),
-    "widget_stock_in": m7,
-    "widget_stock_low": m8,
+    "widget_stock_in": m9,
+    "widget_stock_low": m10,
     "widget_stock_out": MessageLookupByLibrary.simpleMessage("Out of Stock"),
   };
 }
