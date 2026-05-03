@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gestion_de_stock_flutter/data/%20services/analytics_service.dart';
+import 'package:gestion_de_stock_flutter/data/ services/analytics_service.dart';
+import 'package:gestion_de_stock_flutter/generated/l10n.dart';
 import 'package:provider/provider.dart';
 import 'package:gestion_de_stock_flutter/core/theme/app_colors.dart';
 import 'package:gestion_de_stock_flutter/data/models/category_model.dart';
@@ -42,7 +43,7 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
     super.dispose();
   }
 
-  void _handleSave() {
+  void _handleSave(S s) {
     if (_formKey.currentState!.validate()) {
       final updated = Category(
         id: widget.category.id,
@@ -59,20 +60,20 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
 
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(const SnackBar(content: Text("Category updated")));
+      ).showSnackBar(SnackBar(content: Text(s.detail_category_updated)));
     }
   }
 
-  void _handleDelete() {
+  void _handleDelete(S s) {
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text("Delete Category"),
-        content: Text("Delete '${widget.category.name}'?"),
+        title: Text(s.categories_delete_title),
+        content: Text(s.categories_delete_message(widget.category.name)),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(ctx),
-            child: const Text("Cancel"),
+            child: Text(s.common_cancel),
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(backgroundColor: AppColors.error),
@@ -83,7 +84,10 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
               Navigator.pop(ctx);
               Navigator.pop(context);
             },
-            child: const Text("Delete", style: TextStyle(color: Colors.white)),
+            child: Text(
+              s.common_delete,
+              style: const TextStyle(color: Colors.white),
+            ),
           ),
         ],
       ),
@@ -92,7 +96,7 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
 
   @override
   Widget build(BuildContext context) {
-    // provider updated with new value
+    final s = S.of(context);
     final updatedCategory = context
         .watch<CategoryProvider>()
         .categories
@@ -101,7 +105,6 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
           orElse: () => widget.category,
         );
 
-    // products fo this category.
     final products = context
         .watch<ProductProvider>()
         .products
@@ -127,11 +130,10 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
         actions: [
           IconButton(
             icon: const Icon(Icons.delete_outline, color: AppColors.error),
-            onPressed: _handleDelete,
+            onPressed: () => _handleDelete(s),
           ),
         ],
       ),
-
       body: Form(
         key: _formKey,
         child: SingleChildScrollView(
@@ -139,43 +141,40 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              //  Analytics Card
               DetailInfoCard(
                 child: Row(
                   children: [
                     _buildStatItem(
                       icon: Icons.inventory_2_outlined,
-                      label: "Products",
+                      label: s.dashboard_products,
                       value: products.length.toString(),
                       color: AppColors.primary,
                     ),
                     const SizedBox(width: 16),
                     _buildStatItem(
                       icon: Icons.account_balance_wallet_outlined,
-                      label: "Stock Value",
+                      label: s.chart_stock_by_category,
                       value: "${totalValue.toStringAsFixed(0)} MRU",
                       color: AppColors.success,
                     ),
                   ],
                 ),
               ),
-
               const SizedBox(height: 16),
-
-              //  Category Info
               DetailInfoCard(
-                title: "CATEGORY INFO",
+                title: s.detail_category_info,
                 child: Column(
                   children: [
                     DetailField(
-                      label: "Category Name",
+                      label: s.detail_category_name,
                       controller: _name,
                       icon: Icons.category_outlined,
                       readOnly: !_isEditing,
-                      validator: (v) => v!.isEmpty ? "Required" : null,
+                      validator: (v) =>
+                          v!.isEmpty ? s.validation_required : null,
                     ),
                     DetailField(
-                      label: "Description",
+                      label: s.detail_description,
                       controller: _description,
                       icon: Icons.notes_outlined,
                       readOnly: !_isEditing,
@@ -183,10 +182,7 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
                   ],
                 ),
               ),
-
               const SizedBox(height: 16),
-
-              //  Edit / Save Button
               SizedBox(
                 width: double.infinity,
                 height: 55,
@@ -200,14 +196,14 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
                     ),
                   ),
                   onPressed: _isEditing
-                      ? _handleSave
+                      ? () => _handleSave(s)
                       : () => setState(() => _isEditing = true),
                   icon: Icon(
                     _isEditing ? Icons.check : Icons.edit,
                     color: Colors.white,
                   ),
                   label: Text(
-                    _isEditing ? "Save Changes" : "Edit Category",
+                    _isEditing ? s.common_save : s.detail_edit_category,
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -216,27 +212,22 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
                   ),
                 ),
               ),
-
               const SizedBox(height: 24),
-
-              //  Products List
-              const Text(
-                "PRODUCTS",
-                style: TextStyle(
+              Text(
+                s.detail_products_label,
+                style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 13,
                   color: AppColors.textSecondary,
                   letterSpacing: 0.8,
                 ),
               ),
-
               const SizedBox(height: 12),
-
               products.isEmpty
-                  ? const Center(
+                  ? Center(
                       child: Text(
-                        "No products in this category",
-                        style: TextStyle(color: AppColors.textSecondary),
+                        s.detail_no_products,
+                        style: const TextStyle(color: AppColors.textSecondary),
                       ),
                     )
                   : GridView.builder(
@@ -276,10 +267,7 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
         children: [
           Container(
             padding: const EdgeInsets.all(8),
-            decoration: BoxDecoration(
-              // color: color.withValues(alpha: 0.1),
-              borderRadius: BorderRadius.circular(10),
-            ),
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
             child: Icon(icon, color: color, size: 20),
           ),
           const SizedBox(width: 10),

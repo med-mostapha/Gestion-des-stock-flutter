@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gestion_de_stock_flutter/core/theme/app_colors.dart';
 import 'package:gestion_de_stock_flutter/data/models/product_model.dart';
+import 'package:gestion_de_stock_flutter/generated/l10n.dart';
 import 'package:gestion_de_stock_flutter/providers/product_provider.dart';
 import 'package:gestion_de_stock_flutter/widgets/ui/detail/detail_field.dart';
 import 'package:gestion_de_stock_flutter/widgets/ui/detail/detail_info_card.dart';
@@ -44,7 +45,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
     super.dispose();
   }
 
-  void _handleSave() {
+  void _handleSave(S s) {
     if (_formKey.currentState!.validate()) {
       final updated = Product(
         id: widget.product.id,
@@ -62,20 +63,20 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
 
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(const SnackBar(content: Text("Product updated")));
+      ).showSnackBar(SnackBar(content: Text(s.detail_product_updated)));
     }
   }
 
-  void _handleDelete() {
+  void _handleDelete(S s) {
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text("Delete Product"),
-        content: Text("Delete '${widget.product.name}'?"),
+        title: Text(s.products_delete_title),
+        content: Text(s.products_delete_message(widget.product.name)),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(ctx),
-            child: const Text("Cancel"),
+            child: Text(s.common_cancel),
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(backgroundColor: AppColors.error),
@@ -84,7 +85,10 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
               Navigator.pop(ctx);
               Navigator.pop(context);
             },
-            child: const Text("Delete", style: TextStyle(color: Colors.white)),
+            child: Text(
+              s.common_delete,
+              style: const TextStyle(color: Colors.white),
+            ),
           ),
         ],
       ),
@@ -93,11 +97,12 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
 
   @override
   Widget build(BuildContext context) {
-    // for detail stock badge to read updated data.
+    final s = S.of(context);
     final updatedProduct = context.watch<ProductProvider>().products.firstWhere(
       (p) => p.id == widget.product.id,
       orElse: () => widget.product,
     );
+
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
@@ -110,82 +115,74 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
           style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         actions: [
-          // Delete
           IconButton(
             icon: const Icon(Icons.delete_outline, color: AppColors.error),
-            onPressed: _handleDelete,
+            onPressed: () => _handleDelete(s),
           ),
         ],
       ),
-
       body: Form(
         key: _formKey,
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(16),
           child: Column(
             children: [
-              //  Stock Alert
               DetailStockBadge(
                 stock: updatedProduct.stock,
                 minStock: updatedProduct.minStock,
               ),
-
               const SizedBox(height: 16),
-
-              //  Product Info
               DetailInfoCard(
-                title: "PRODUCT INFO",
+                title: s.detail_product_info,
                 child: Column(
                   children: [
                     DetailField(
-                      label: "Product Name",
+                      label: s.detail_product_name,
                       controller: _name,
                       icon: Icons.inventory_2_outlined,
                       readOnly: !_isEditing,
-                      validator: (v) => v!.isEmpty ? "Required" : null,
+                      validator: (v) =>
+                          v!.isEmpty ? s.validation_required : null,
                     ),
                     DetailField(
-                      label: "Price (MRU)",
+                      label: s.detail_price,
                       controller: _price,
                       icon: Icons.attach_money_rounded,
                       readOnly: !_isEditing,
                       keyboardType: TextInputType.number,
-                      validator: (v) => v!.isEmpty ? "Required" : null,
+                      validator: (v) =>
+                          v!.isEmpty ? s.validation_required : null,
                     ),
                   ],
                 ),
               ),
-
               const SizedBox(height: 16),
-
-              //  Stock Info
               DetailInfoCard(
-                title: "STOCK INFO",
+                title: s.detail_stock_info,
                 child: Column(
                   children: [
                     DetailField(
-                      label: "Stock Quantity",
+                      label: s.detail_stock_quantity,
                       controller: _stock,
                       icon: Icons.inventory_rounded,
                       readOnly: !_isEditing,
                       keyboardType: TextInputType.number,
-                      validator: (v) => v!.isEmpty ? "Required" : null,
+                      validator: (v) =>
+                          v!.isEmpty ? s.validation_required : null,
                     ),
                     DetailField(
-                      label: "Alert Level",
+                      label: s.detail_alert_level,
                       controller: _minStock,
                       icon: Icons.warning_amber_rounded,
                       readOnly: !_isEditing,
                       keyboardType: TextInputType.number,
-                      validator: (v) => v!.isEmpty ? "Required" : null,
+                      validator: (v) =>
+                          v!.isEmpty ? s.validation_required : null,
                     ),
                   ],
                 ),
               ),
-
               const SizedBox(height: 24),
-
-              //  Edit | Save Button
               SizedBox(
                 width: double.infinity,
                 height: 55,
@@ -199,14 +196,14 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                     ),
                   ),
                   onPressed: _isEditing
-                      ? _handleSave
+                      ? () => _handleSave(s)
                       : () => setState(() => _isEditing = true),
                   icon: Icon(
                     _isEditing ? Icons.check : Icons.edit,
                     color: Colors.white,
                   ),
                   label: Text(
-                    _isEditing ? "Save Changes" : "Edit Product",
+                    _isEditing ? s.common_save : s.detail_edit_product,
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,

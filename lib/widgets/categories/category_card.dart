@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gestion_de_stock_flutter/core/theme/app_colors.dart';
 import 'package:gestion_de_stock_flutter/data/models/category_model.dart';
+import 'package:gestion_de_stock_flutter/generated/l10n.dart';
 
 class CategoryCard extends StatelessWidget {
   final Category category;
@@ -37,12 +38,17 @@ class CategoryCard extends StatelessWidget {
           style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
         subtitle: Text(
-          category.description ?? "No description",
+          category.description ??
+              S.of(context).category_no_description, // Localized
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
           style: const TextStyle(fontSize: 12, color: Colors.grey),
         ),
-        trailing: Icon(Icons.edit_note, color: AppColors.primary, size: 22),
+        trailing: const Icon(
+          Icons.edit_note,
+          color: AppColors.primary,
+          size: 22,
+        ),
       ),
     );
   }

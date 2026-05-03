@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gestion_de_stock_flutter/core/theme/app_colors.dart';
+import 'package:gestion_de_stock_flutter/generated/l10n.dart';
 
 class DetailStockBadge extends StatelessWidget {
   final int stock;
@@ -13,6 +14,7 @@ class DetailStockBadge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = S.of(context);
     final bool isOut = stock <= 0;
     final bool isLow = stock <= minStock && !isOut;
 
@@ -28,17 +30,17 @@ class DetailStockBadge extends StatelessWidget {
         ? Icons.warning_amber_rounded
         : Icons.check_circle_outline;
 
+    // Use localized strings with arguments
     final String label = isOut
-        ? "Out of Stock"
+        ? s.stock_status_out
         : isLow
-        ? "Low Stock — $stock left"
-        : "In Stock — $stock units";
+        ? s.stock_status_low(stock)
+        : s.stock_status_in(stock);
 
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
-        // color: color.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(12),
         border: Border.all(color: color.withValues(alpha: 0.4)),
       ),
@@ -56,7 +58,7 @@ class DetailStockBadge extends StatelessWidget {
           ),
           const Spacer(),
           Text(
-            "Min: $minStock",
+            "${s.detail_alert_level}: $minStock", // Localized "Min"
             style: TextStyle(color: color.withValues(alpha: 0.8), fontSize: 12),
           ),
         ],
