@@ -1,0 +1,146 @@
+{
+  "common_login": "تسجيل الدخول",
+  "@common_login": {
+    "description": "Generic login text used in buttons or titles"
+  },
+  "common_signup": "إنشاء حساب",
+  "@common_signup": {
+    "description": "Generic signup text used in buttons or links"
+  },
+  "onboarding_title": "مرحبًا",
+  "@onboarding_title": {
+    "description": "Main greeting title on onboarding screen"
+  },
+  "onboarding_subtitle": "مرحبًا بك في Little Drop، حيث يمكنك إدارة مهامك اليومية",
+  "@onboarding_subtitle": {
+    "description": "Short description explaining the app purpose on onboarding screen"
+  },
+  "onboarding_social_text": "سجل باستخدام",
+  "@onboarding_social_text": {
+    "description": "Text displayed above social media signup options"
+  },
+  "login_title": "أهلا بعودتك",
+  "@login_title": {
+    "description": "Main title displayed on login screen"
+  },
+  "login_subtitle": "سجل الدخول لإدارة مخزونك بكفاءة",
+  "@login_subtitle": {
+    "description": "Subtitle explaining login purpose"
+  },
+  "login_email_label": "البريد الإلكتروني أو اسم المستخدم",
+  "@login_email_label": {
+    "description": "Label for email or username input field"
+  },
+  "login_email_hint": "أدخل بريدك الإلكتروني",
+  "@login_email_hint": {
+    "description": "Placeholder text for email input field"
+  },
+  "login_password_label": "كلمة المرور",
+  "@login_password_label": {
+    "description": "Label for password input field"
+  },
+  "login_password_hint": "أدخل كلمة المرور",
+  "@login_password_hint": {
+    "description": "Placeholder text for password input field"
+  },
+  "login_button": "تسجيل الدخول",
+  "@login_button": {
+    "description": "Main login button text"
+  },
+  "login_no_account": "ليس لديك حساب؟",
+  "@login_no_account": {
+    "description": "Text before signup link on login screen"
+  },
+  "login_signup_link": "إنشاء حساب",
+  "@login_signup_link": {
+    "description": "Clickable signup text on login screen"
+  },
+  "login_validation_empty_email": "يرجى إدخال اسم المستخدم أو البريد الإلكتروني",
+  "@login_validation_empty_email": {
+    "description": "Validation error when email field is empty"
+  },
+  "login_validation_empty_password": "يرجى إدخال كلمة المرور",
+  "@login_validation_empty_password": {
+    "description": "Validation error when password is empty"
+  },
+  "login_validation_short_password": "يجب أن تكون كلمة المرور 6 أحرف على الأقل",
+  "@login_validation_short_password": {
+    "description": "Validation error for short password"
+  },
+  "signup_title": "إنشاء حساب",
+  "@signup_title": {
+    "description": "Main title on signup screen"
+  },
+  "signup_subtitle": "أدخل التفاصيل للبدء",
+  "@signup_subtitle": {
+    "description": "Subtitle on signup screen"
+  },
+  "signup_username_label": "اسم المستخدم",
+  "@signup_username_label": {
+    "description": "Label for username input field"
+  },
+  "signup_username_hint": "أدخل اسم المستخدم",
+  "@signup_username_hint": {
+    "description": "Placeholder for username field"
+  },
+  "signup_email_label": "البريد الإلكتروني",
+  "@signup_email_label": {
+    "description": "Label for email input field"
+  },
+  "signup_email_hint": "أدخل بريدك الإلكتروني",
+  "@signup_email_hint": {
+    "description": "Placeholder for email field"
+  },
+  "signup_password_label": "كلمة المرور",
+  "@signup_password_label": {
+    "description": "Label for password input field"
+  },
+  "signup_password_hint": "أدخل كلمة المرور",
+  "@signup_password_hint": {
+    "description": "Placeholder for password field"
+  },
+  "signup_confirm_password_label": "تأكيد كلمة المرور",
+  "@signup_confirm_password_label": {
+    "description": "Label for confirm password field"
+  },
+  "signup_confirm_password_hint": "أعد إدخال كلمة المرور",
+  "@signup_confirm_password_hint": {
+    "description": "Placeholder for confirm password field"
+  },
+  "signup_button": "إنشاء حساب",
+  "@signup_button": {
+    "description": "Main signup button text"
+  },
+  "signup_have_account": "هل لديك حساب بالفعل؟",
+  "@signup_have_account": {
+    "description": "Text before login link on signup screen"
+  },
+  "signup_login_link": "تسجيل الدخول",
+  "@signup_login_link": {
+    "description": "Clickable login text on signup screen"
+  },
+  "signup_validation_username_required": "اسم المستخدم مطلوب",
+  "@signup_validation_username_required": {
+    "description": "Validation error when username is empty"
+  },
+  "signup_validation_email_required": "البريد الإلكتروني مطلوب",
+  "@signup_validation_email_required": {
+    "description": "Validation error when email is empty"
+  },
+  "signup_validation_email_invalid": "أدخل بريد إلكتروني صالح",
+  "@signup_validation_email_invalid": {
+    "description": "Validation error for invalid email format"
+  },
+  "signup_validation_password_short": "6 أحرف على الأقل",
+  "@signup_validation_password_short": {
+    "description": "Validation error for short password"
+  },
+  "signup_validation_confirm_required": "يرجى تأكيد كلمة المرور",
+  "@signup_validation_confirm_required": {
+    "description": "Validation error when confirm password is empty"
+  },
+  "signup_validation_password_mismatch": "كلمات المرور غير متطابقة",
+  "@signup_validation_password_mismatch": {
+    "description": "Validation error when passwords don't match"
+  }
+}

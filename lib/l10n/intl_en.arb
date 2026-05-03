@@ -1,0 +1,146 @@
+{
+  "common_login": "Login",
+  "@common_login": {
+    "description": "Generic login text used in buttons or titles"
+  },
+  "common_signup": "Sign Up",
+  "@common_signup": {
+    "description": "Generic signup text used in buttons or links"
+  },
+  "onboarding_title": "Hello",
+  "@onboarding_title": {
+    "description": "Main greeting title on onboarding screen"
+  },
+  "onboarding_subtitle": "Welcome to Little Drop, where you manage your daily tasks",
+  "@onboarding_subtitle": {
+    "description": "Short description explaining the app purpose on onboarding screen"
+  },
+  "onboarding_social_text": "Sign up using",
+  "@onboarding_social_text": {
+    "description": "Text displayed above social media signup options"
+  },
+  "login_title": "Welcome Back",
+  "@login_title": {
+    "description": "Main title displayed on login screen"
+  },
+  "login_subtitle": "Login to manage your stock efficiently",
+  "@login_subtitle": {
+    "description": "Subtitle explaining login purpose"
+  },
+  "login_email_label": "Email or Username",
+  "@login_email_label": {
+    "description": "Label for email or username input field"
+  },
+  "login_email_hint": "Enter your email",
+  "@login_email_hint": {
+    "description": "Placeholder text for email input field"
+  },
+  "login_password_label": "Password",
+  "@login_password_label": {
+    "description": "Label for password input field"
+  },
+  "login_password_hint": "Enter your password",
+  "@login_password_hint": {
+    "description": "Placeholder text for password input field"
+  },
+  "login_button": "Login",
+  "@login_button": {
+    "description": "Main login button text"
+  },
+  "login_no_account": "Don't have an account?",
+  "@login_no_account": {
+    "description": "Text before signup link on login screen"
+  },
+  "login_signup_link": "Sign Up",
+  "@login_signup_link": {
+    "description": "Clickable signup text on login screen"
+  },
+  "login_validation_empty_email": "Please enter your username or email",
+  "@login_validation_empty_email": {
+    "description": "Validation error when email field is empty"
+  },
+  "login_validation_empty_password": "Please enter your password",
+  "@login_validation_empty_password": {
+    "description": "Validation error when password is empty"
+  },
+  "login_validation_short_password": "Password must be at least 6 characters",
+  "@login_validation_short_password": {
+    "description": "Validation error for short password"
+  },
+  "signup_title": "Create Account",
+  "@signup_title": {
+    "description": "Main title on signup screen"
+  },
+  "signup_subtitle": "Fill in the details to get started",
+  "@signup_subtitle": {
+    "description": "Subtitle on signup screen"
+  },
+  "signup_username_label": "Username",
+  "@signup_username_label": {
+    "description": "Label for username input field"
+  },
+  "signup_username_hint": "Enter your username",
+  "@signup_username_hint": {
+    "description": "Placeholder for username field"
+  },
+  "signup_email_label": "Email",
+  "@signup_email_label": {
+    "description": "Label for email input field"
+  },
+  "signup_email_hint": "Enter your email",
+  "@signup_email_hint": {
+    "description": "Placeholder for email field"
+  },
+  "signup_password_label": "Password",
+  "@signup_password_label": {
+    "description": "Label for password input field"
+  },
+  "signup_password_hint": "Enter password",
+  "@signup_password_hint": {
+    "description": "Placeholder for password field"
+  },
+  "signup_confirm_password_label": "Confirm Password",
+  "@signup_confirm_password_label": {
+    "description": "Label for confirm password field"
+  },
+  "signup_confirm_password_hint": "Repeat password",
+  "@signup_confirm_password_hint": {
+    "description": "Placeholder for confirm password field"
+  },
+  "signup_button": "Sign Up",
+  "@signup_button": {
+    "description": "Main signup button text"
+  },
+  "signup_have_account": "Already have an account?",
+  "@signup_have_account": {
+    "description": "Text before login link on signup screen"
+  },
+  "signup_login_link": "Login",
+  "@signup_login_link": {
+    "description": "Clickable login text on signup screen"
+  },
+  "signup_validation_username_required": "Username is required",
+  "@signup_validation_username_required": {
+    "description": "Validation error when username is empty"
+  },
+  "signup_validation_email_required": "Email is required",
+  "@signup_validation_email_required": {
+    "description": "Validation error when email is empty"
+  },
+  "signup_validation_email_invalid": "Enter a valid email",
+  "@signup_validation_email_invalid": {
+    "description": "Validation error for invalid email format"
+  },
+  "signup_validation_password_short": "Minimum 6 characters",
+  "@signup_validation_password_short": {
+    "description": "Validation error for short password"
+  },
+  "signup_validation_confirm_required": "Please confirm your password",
+  "@signup_validation_confirm_required": {
+    "description": "Validation error when confirm password is empty"
+  },
+  "signup_validation_password_mismatch": "Passwords do not match",
+  "@signup_validation_password_mismatch": {
+    "description": "Validation error when passwords don't match"
+  }
+}
