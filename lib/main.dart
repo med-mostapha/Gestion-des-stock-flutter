@@ -7,10 +7,13 @@ import 'package:gestion_de_stock_flutter/providers/product_provider.dart';
 import 'package:gestion_de_stock_flutter/routes/app_router.dart';
 import 'package:gestion_de_stock_flutter/routes/app_routes.dart';
 import 'package:provider/provider.dart';
+import 'package:gestion_de_stock_flutter/providers/language_provider.dart';
 
 void main() {
   runApp(const MyApp());
 }
+
+// ... imports ...
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -19,23 +22,28 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        ChangeNotifierProvider(create: (_) => LanguageProvider()),
         ChangeNotifierProvider(create: (_) => ProductProvider()),
         ChangeNotifierProvider(create: (_) => CategoryProvider()),
       ],
-      child: MaterialApp(
-        locale: const Locale('en'),
-        localizationsDelegates: [
-          S.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        supportedLocales: S.delegate.supportedLocales,
-        title: 'Gestion des Stock',
-        debugShowCheckedModeBanner: false,
-        initialRoute: AppRoutes.main,
-        onGenerateRoute: AppRouter.generateRoute,
-        theme: AppTheme.lightTheme,
+      child: Consumer<LanguageProvider>(
+        builder: (context, langProvider, child) {
+          return MaterialApp(
+            locale: langProvider.locale,
+            localizationsDelegates: const [
+              S.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: S.delegate.supportedLocales,
+            title: 'Gestion des Stock',
+            debugShowCheckedModeBanner: false,
+            initialRoute: AppRoutes.main,
+            onGenerateRoute: AppRouter.generateRoute,
+            theme: AppTheme.lightTheme,
+          );
+        },
       ),
     );
   }
