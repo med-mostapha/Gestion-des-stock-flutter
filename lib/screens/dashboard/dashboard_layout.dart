@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gestion_de_stock_flutter/core/theme/app_colors.dart';
+import 'package:gestion_de_stock_flutter/generated/l10n.dart';
 import 'package:gestion_de_stock_flutter/screens/dashboard/tabs/categories_page.dart';
 import 'package:gestion_de_stock_flutter/screens/dashboard/tabs/index_page.dart';
 import 'package:gestion_de_stock_flutter/screens/dashboard/tabs/products_page.dart';
@@ -25,10 +26,14 @@ class _DashboardPageState extends State<DashboardPage> {
     const SettingsPage(),
   ];
 
-  final titles = const ["Dashboard", "Products", "Categories", "Settings"];
-
   @override
   Widget build(BuildContext context) {
+    final titles = [
+      S.of(context).dashboard_title,
+      S.of(context).dashboard_products,
+      S.of(context).dashboard_categories,
+      S.of(context).dashboard_settings,
+    ];
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
@@ -103,26 +108,26 @@ class _DashboardPageState extends State<DashboardPage> {
           ),
           unselectedLabelStyle: const TextStyle(fontSize: 12),
 
-          items: const [
+          items: [
             BottomNavigationBarItem(
               icon: Icon(Icons.grid_view_rounded),
               activeIcon: Icon(Icons.grid_view_rounded),
-              label: "Overview",
+              label: S.of(context).dashboard_overview,
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.inventory_2_outlined),
               activeIcon: Icon(Icons.inventory_2_rounded),
-              label: "Products",
+              label: S.of(context).dashboard_products,
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.category_outlined),
               activeIcon: Icon(Icons.category_rounded),
-              label: "Categories",
+              label: S.of(context).dashboard_categories,
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.settings_outlined),
               activeIcon: Icon(Icons.settings_rounded),
-              label: "Settings",
+              label: S.of(context).dashboard_categories,
             ),
           ],
         ),

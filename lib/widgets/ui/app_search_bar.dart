@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gestion_de_stock_flutter/generated/l10n.dart';
 import '../../core/theme/app_colors.dart';
 
 class SearchBarApp extends StatelessWidget {
@@ -25,7 +26,7 @@ class SearchBarApp extends StatelessWidget {
         child: TextField(
           onChanged: onChanged,
           decoration: InputDecoration(
-            hintText: "Search products...",
+            hintText: S.of(context).widget_search_hint,
             hintStyle: const TextStyle(color: AppColors.textSecondary),
             prefixIcon: const Icon(Icons.search, color: AppColors.primary),
             border: InputBorder.none,

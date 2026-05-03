@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:gestion_de_stock_flutter/core/theme/app_colors.dart';
+import 'package:gestion_de_stock_flutter/generated/l10n.dart';
 import 'package:gestion_de_stock_flutter/providers/product_provider.dart';
 import 'package:gestion_de_stock_flutter/providers/category_provider.dart';
 import 'package:gestion_de_stock_flutter/widgets/dashboard/stats_card.dart';
@@ -31,7 +32,7 @@ class IndexPage extends StatelessWidget {
               productProvider.isLoading
                   ? _buildCardSkeleton()
                   : StatsCard(
-                      title: "Products",
+                      title: S.of(context).dashboard_products,
                       subtitle: "",
                       value: productProvider.totalProducts + .0,
                       icon: Icons.inventory,
@@ -40,7 +41,7 @@ class IndexPage extends StatelessWidget {
               categoryProvider.isLoading
                   ? _buildCardSkeleton()
                   : StatsCard(
-                      title: "Categories",
+                      title: S.of(context).dashboard_categories,
                       subtitle: "",
                       value: categoryProvider.totalCategories + .0,
                       icon: Icons.category,
@@ -49,7 +50,7 @@ class IndexPage extends StatelessWidget {
               productProvider.isLoading
                   ? _buildCardSkeleton()
                   : StatsCard(
-                      title: "Stock Value",
+                      title: S.of(context).detail_stock_info,
                       subtitle: "MRU",
                       value: AnalyticsService.getTotalStockValue(
                         productProvider.products,
@@ -60,7 +61,9 @@ class IndexPage extends StatelessWidget {
               productProvider.isLoading
                   ? _buildCardSkeleton()
                   : StatsCard(
-                      title: "Low Stock",
+                      title: S
+                          .of(context)
+                          .common_low_stock, // La tense: ha4i key chore arb tche9al placeholder {count}
                       subtitle: "alert",
                       value:
                           AnalyticsService.getLowStockProducts(

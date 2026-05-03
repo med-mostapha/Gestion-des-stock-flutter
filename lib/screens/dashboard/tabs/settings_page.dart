@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gestion_de_stock_flutter/core/theme/app_colors.dart';
+import 'package:gestion_de_stock_flutter/generated/l10n.dart';
 import 'package:gestion_de_stock_flutter/routes/app_routes.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -19,7 +20,7 @@ class _SettingsPageState extends State<SettingsPage> {
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
         children: [
-          _buildSectionTitle("Appearance"),
+          _buildSectionTitle(S.of(context).settings_appearance),
           const SizedBox(height: 10),
 
           // Dark Mode Toggle
@@ -29,9 +30,12 @@ class _SettingsPageState extends State<SettingsPage> {
                 Icons.dark_mode_outlined,
                 color: AppColors.primary,
               ),
-              title: const Text(
-                "Dark Mode",
-                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 15),
+              title: Text(
+                S.of(context).settings_dark_mode,
+                style: const TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 15,
+                ),
               ),
               value: darkMode,
               activeThumbColor: AppColors.primary,
@@ -44,16 +48,16 @@ class _SettingsPageState extends State<SettingsPage> {
           ),
 
           const SizedBox(height: 25),
-          _buildSectionTitle("Account"),
+          _buildSectionTitle(S.of(context).settings_account),
           const SizedBox(height: 10),
 
           // Logout Button
           _buildSettingsContainer(
             child: ListTile(
               leading: const Icon(Icons.logout_rounded, color: AppColors.error),
-              title: const Text(
-                "Logout",
-                style: TextStyle(
+              title: Text(
+                S.of(context).settings_logout,
+                style: const TextStyle(
                   color: AppColors.error,
                   fontWeight: FontWeight.w600,
                   fontSize: 15,
@@ -69,10 +73,10 @@ class _SettingsPageState extends State<SettingsPage> {
           ),
 
           const SizedBox(height: 40),
-          const Center(
+          Center(
             child: Text(
-              "Version 1.0.0",
-              style: TextStyle(color: Colors.grey, fontSize: 12),
+              S.of(context).settings_version,
+              style: const TextStyle(color: Colors.grey, fontSize: 12),
             ),
           ),
         ],
@@ -117,20 +121,23 @@ class _SettingsPageState extends State<SettingsPage> {
       context: context,
       builder: (context) => AlertDialog(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-        title: const Text("Logout"),
-        content: const Text("Are you sure you want to sign out?"),
+        title: Text(S.of(context).settings_logout_title),
+        content: Text(S.of(context).settings_logout_message),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text("Cancel", style: TextStyle(color: Colors.grey)),
+            child: Text(
+              S.of(context).common_cancel,
+              style: const TextStyle(color: Colors.grey),
+            ),
           ),
           TextButton(
             onPressed: () {
               Navigator.pushReplacementNamed(context, AppRoutes.login);
             },
-            child: const Text(
-              "Logout",
-              style: TextStyle(color: AppColors.error),
+            child: Text(
+              S.of(context).settings_logout,
+              style: const TextStyle(color: AppColors.error),
             ),
           ),
         ],
