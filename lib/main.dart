@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => CategoryProvider()),
       ],
       child: MaterialApp(
-        locale: Locale('en'),
+        locale: const Locale('en'),
         localizationsDelegates: [
           S.delegate,
           GlobalMaterialLocalizations.delegate,
@@ -31,11 +31,10 @@ class MyApp extends StatelessWidget {
           GlobalCupertinoLocalizations.delegate,
         ],
         supportedLocales: S.delegate.supportedLocales,
-        title: 'Flutter Demo',
+        title: 'Gestion des Stock',
         debugShowCheckedModeBanner: false,
         initialRoute: AppRoutes.main,
         onGenerateRoute: AppRouter.generateRoute,
-
         theme: AppTheme.lightTheme,
       ),
     );
