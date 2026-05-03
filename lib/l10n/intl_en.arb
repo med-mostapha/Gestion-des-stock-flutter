@@ -1,146 +1,383 @@
 {
   "common_login": "Login",
   "@common_login": {
-    "description": "Generic login text used in buttons or titles"
+    "description": "Generic login text"
   },
   "common_signup": "Sign Up",
   "@common_signup": {
-    "description": "Generic signup text used in buttons or links"
+    "description": "Generic signup text"
+  },
+  "common_cancel": "Cancel",
+  "@common_cancel": {
+    "description": "Cancel button"
+  },
+  "common_delete": "Delete",
+  "@common_delete": {
+    "description": "Delete button"
+  },
+  "common_save": "Save Changes",
+  "@common_save": {
+    "description": "Save button"
+  },
+  "common_edit": "Edit",
+  "@common_edit": {
+    "description": "Edit button"
   },
   "onboarding_title": "Hello",
   "@onboarding_title": {
-    "description": "Main greeting title on onboarding screen"
+    "description": "Main greeting on onboarding"
   },
   "onboarding_subtitle": "Welcome to Little Drop, where you manage your daily tasks",
   "@onboarding_subtitle": {
-    "description": "Short description explaining the app purpose on onboarding screen"
+    "description": "Onboarding subtitle"
   },
   "onboarding_social_text": "Sign up using",
   "@onboarding_social_text": {
-    "description": "Text displayed above social media signup options"
+    "description": "Social signup text"
   },
-  "login_title": "Welcome Back",
-  "@login_title": {
-    "description": "Main title displayed on login screen"
+  "auth_login_title": "Welcome Back",
+  "@auth_login_title": {
+    "description": "Login screen title"
   },
-  "login_subtitle": "Login to manage your stock efficiently",
-  "@login_subtitle": {
-    "description": "Subtitle explaining login purpose"
+  "auth_login_subtitle": "Login to manage your stock efficiently",
+  "@auth_login_subtitle": {
+    "description": "Login subtitle"
   },
-  "login_email_label": "Email or Username",
-  "@login_email_label": {
-    "description": "Label for email or username input field"
+  "auth_login_email_label": "Email or Username",
+  "@auth_login_email_label": {
+    "description": "Email label"
   },
-  "login_email_hint": "Enter your email",
-  "@login_email_hint": {
-    "description": "Placeholder text for email input field"
+  "auth_login_email_hint": "Enter your email",
+  "@auth_login_email_hint": {
+    "description": "Email hint"
   },
-  "login_password_label": "Password",
-  "@login_password_label": {
-    "description": "Label for password input field"
+  "auth_login_password_label": "Password",
+  "@auth_login_password_label": {
+    "description": "Password label"
   },
-  "login_password_hint": "Enter your password",
-  "@login_password_hint": {
-    "description": "Placeholder text for password input field"
+  "auth_login_password_hint": "Enter your password",
+  "@auth_login_password_hint": {
+    "description": "Password hint"
   },
-  "login_button": "Login",
-  "@login_button": {
-    "description": "Main login button text"
+  "auth_login_button": "Login",
+  "@auth_login_button": {
+    "description": "Login button"
   },
-  "login_no_account": "Don't have an account?",
-  "@login_no_account": {
-    "description": "Text before signup link on login screen"
+  "auth_login_no_account": "Don't have an account?",
+  "@auth_login_no_account": {
+    "description": "No account text"
   },
-  "login_signup_link": "Sign Up",
-  "@login_signup_link": {
-    "description": "Clickable signup text on login screen"
+  "auth_login_signup_link": "Sign Up",
+  "@auth_login_signup_link": {
+    "description": "Signup link"
   },
-  "login_validation_empty_email": "Please enter your username or email",
-  "@login_validation_empty_email": {
-    "description": "Validation error when email field is empty"
+  "auth_login_validation_empty_email": "Please enter your username or email",
+  "@auth_login_validation_empty_email": {
+    "description": "Empty email error"
   },
-  "login_validation_empty_password": "Please enter your password",
-  "@login_validation_empty_password": {
-    "description": "Validation error when password is empty"
+  "auth_login_validation_empty_password": "Please enter your password",
+  "@auth_login_validation_empty_password": {
+    "description": "Empty password error"
   },
-  "login_validation_short_password": "Password must be at least 6 characters",
-  "@login_validation_short_password": {
-    "description": "Validation error for short password"
+  "auth_login_validation_short_password": "Password must be at least 6 characters",
+  "@auth_login_validation_short_password": {
+    "description": "Short password error"
   },
-  "signup_title": "Create Account",
-  "@signup_title": {
-    "description": "Main title on signup screen"
+  "auth_signup_title": "Create Account",
+  "@auth_signup_title": {
+    "description": "Signup title"
   },
-  "signup_subtitle": "Fill in the details to get started",
-  "@signup_subtitle": {
-    "description": "Subtitle on signup screen"
+  "auth_signup_subtitle": "Fill in the details to get started",
+  "@auth_signup_subtitle": {
+    "description": "Signup subtitle"
   },
-  "signup_username_label": "Username",
-  "@signup_username_label": {
-    "description": "Label for username input field"
+  "auth_signup_username_label": "Username",
+  "@auth_signup_username_label": {
+    "description": "Username label"
   },
-  "signup_username_hint": "Enter your username",
-  "@signup_username_hint": {
-    "description": "Placeholder for username field"
+  "auth_signup_username_hint": "Enter your username",
+  "@auth_signup_username_hint": {
+    "description": "Username hint"
   },
-  "signup_email_label": "Email",
-  "@signup_email_label": {
-    "description": "Label for email input field"
+  "auth_signup_email_label": "Email",
+  "@auth_signup_email_label": {
+    "description": "Email label"
   },
-  "signup_email_hint": "Enter your email",
-  "@signup_email_hint": {
-    "description": "Placeholder for email field"
+  "auth_signup_email_hint": "Enter your email",
+  "@auth_signup_email_hint": {
+    "description": "Email hint"
   },
-  "signup_password_label": "Password",
-  "@signup_password_label": {
-    "description": "Label for password input field"
+  "auth_signup_password_label": "Password",
+  "@auth_signup_password_label": {
+    "description": "Password label"
   },
-  "signup_password_hint": "Enter password",
-  "@signup_password_hint": {
-    "description": "Placeholder for password field"
+  "auth_signup_password_hint": "Enter password",
+  "@auth_signup_password_hint": {
+    "description": "Password hint"
   },
-  "signup_confirm_password_label": "Confirm Password",
-  "@signup_confirm_password_label": {
-    "description": "Label for confirm password field"
+  "auth_signup_confirm_password_label": "Confirm Password",
+  "@auth_signup_confirm_password_label": {
+    "description": "Confirm password label"
   },
-  "signup_confirm_password_hint": "Repeat password",
-  "@signup_confirm_password_hint": {
-    "description": "Placeholder for confirm password field"
+  "auth_signup_confirm_password_hint": "Repeat password",
+  "@auth_signup_confirm_password_hint": {
+    "description": "Confirm password hint"
   },
-  "signup_button": "Sign Up",
-  "@signup_button": {
-    "description": "Main signup button text"
+  "auth_signup_button": "Sign Up",
+  "@auth_signup_button": {
+    "description": "Signup button"
   },
-  "signup_have_account": "Already have an account?",
-  "@signup_have_account": {
-    "description": "Text before login link on signup screen"
+  "auth_signup_have_account": "Already have an account?",
+  "@auth_signup_have_account": {
+    "description": "Have account text"
   },
-  "signup_login_link": "Login",
-  "@signup_login_link": {
-    "description": "Clickable login text on signup screen"
+  "auth_signup_login_link": "Login",
+  "@auth_signup_login_link": {
+    "description": "Login link"
   },
-  "signup_validation_username_required": "Username is required",
-  "@signup_validation_username_required": {
-    "description": "Validation error when username is empty"
+  "auth_signup_validation_username_required": "Username is required",
+  "@auth_signup_validation_username_required": {
+    "description": "Username required error"
   },
-  "signup_validation_email_required": "Email is required",
-  "@signup_validation_email_required": {
-    "description": "Validation error when email is empty"
+  "auth_signup_validation_email_required": "Email is required",
+  "@auth_signup_validation_email_required": {
+    "description": "Email required error"
   },
-  "signup_validation_email_invalid": "Enter a valid email",
-  "@signup_validation_email_invalid": {
-    "description": "Validation error for invalid email format"
+  "auth_signup_validation_email_invalid": "Enter a valid email",
+  "@auth_signup_validation_email_invalid": {
+    "description": "Invalid email error"
   },
-  "signup_validation_password_short": "Minimum 6 characters",
-  "@signup_validation_password_short": {
-    "description": "Validation error for short password"
+  "auth_signup_validation_password_short": "Minimum 6 characters",
+  "@auth_signup_validation_password_short": {
+    "description": "Short password error"
   },
-  "signup_validation_confirm_required": "Please confirm your password",
-  "@signup_validation_confirm_required": {
-    "description": "Validation error when confirm password is empty"
+  "auth_signup_validation_confirm_required": "Please confirm your password",
+  "@auth_signup_validation_confirm_required": {
+    "description": "Confirm required error"
   },
-  "signup_validation_password_mismatch": "Passwords do not match",
-  "@signup_validation_password_mismatch": {
-    "description": "Validation error when passwords don't match"
+  "auth_signup_validation_password_mismatch": "Passwords do not match",
+  "@auth_signup_validation_password_mismatch": {
+    "description": "Password mismatch error"
+  },
+  "dashboard_title": "Dashboard",
+  "@dashboard_title": {
+    "description": "Dashboard tab title"
+  },
+  "dashboard_products": "Products",
+  "@dashboard_products": {
+    "description": "Products tab title"
+  },
+  "dashboard_categories": "Categories",
+  "@dashboard_categories": {
+    "description": "Categories tab title"
+  },
+  "dashboard_settings": "Settings",
+  "@dashboard_settings": {
+    "description": "Settings tab title"
+  },
+  "dashboard_overview": "Overview",
+  "@dashboard_overview": {
+    "description": "Overview bottom nav"
+  },
+  "products_title": "Total Products: {count}",
+  "@products_title": {
+    "description": "Products page title with count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "products_empty": "No products found",
+  "@products_empty": {
+    "description": "Empty products message"
+  },
+  "products_delete_title": "Delete Product",
+  "@products_delete_title": {
+    "description": "Delete product dialog title"
+  },
+  "products_delete_message": "Are you sure you want to delete '{name}'?",
+  "@products_delete_message": {
+    "description": "Delete confirmation message",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "products_deleted": "{name} deleted",
+  "@products_deleted": {
+    "description": "Product deleted message",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "categories_empty": "No categories found",
+  "@categories_empty": {
+    "description": "Empty categories message"
+  },
+  "categories_delete_title": "Delete Category",
+  "@categories_delete_title": {
+    "description": "Delete category dialog title"
+  },
+  "categories_delete_message": "Are you sure you want to delete '{name}'?",
+  "@categories_delete_message": {
+    "description": "Delete confirmation message",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "categories_deleted": "{name} deleted",
+  "@categories_deleted": {
+    "description": "Category deleted message",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "settings_appearance": "Appearance",
+  "@settings_appearance": {
+    "description": "Appearance section"
+  },
+  "settings_dark_mode": "Dark Mode",
+  "@settings_dark_mode": {
+    "description": "Dark mode toggle"
+  },
+  "settings_account": "Account",
+  "@settings_account": {
+    "description": "Account section"
+  },
+  "settings_logout": "Logout",
+  "@settings_logout": {
+    "description": "Logout button"
+  },
+  "settings_logout_title": "Logout",
+  "@settings_logout_title": {
+    "description": "Logout dialog title"
+  },
+  "settings_logout_message": "Are you sure you want to sign out?",
+  "@settings_logout_message": {
+    "description": "Logout confirmation message"
+  },
+  "settings_version": "Version 1.0.0",
+  "@settings_version": {
+    "description": "App version"
+  },
+  "detail_category_updated": "Category updated",
+  "@detail_category_updated": {
+    "description": "Category update success message"
+  },
+  "detail_product_updated": "Product updated",
+  "@detail_product_updated": {
+    "description": "Product update success message"
+  },
+  "detail_category_name": "Category Name",
+  "@detail_category_name": {
+    "description": "Category name label"
+  },
+  "detail_description": "Description",
+  "@detail_description": {
+    "description": "Description label"
+  },
+  "detail_edit_category": "Edit Category",
+  "@detail_edit_category": {
+    "description": "Edit category button"
+  },
+  "detail_products_label": "PRODUCTS",
+  "@detail_products_label": {
+    "description": "Products section label"
+  },
+  "detail_no_products": "No products in this category",
+  "@detail_no_products": {
+    "description": "No products message"
+  },
+  "detail_product_name": "Product Name",
+  "@detail_product_name": {
+    "description": "Product name label"
+  },
+  "detail_price": "Price (MRU)",
+  "@detail_price": {
+    "description": "Price label"
+  },
+  "detail_product_info": "PRODUCT INFO",
+  "@detail_product_info": {
+    "description": "Product info section"
+  },
+  "detail_stock_info": "STOCK INFO",
+  "@detail_stock_info": {
+    "description": "Stock info section"
+  },
+  "detail_stock_quantity": "Stock Quantity",
+  "@detail_stock_quantity": {
+    "description": "Stock quantity label"
+  },
+  "detail_alert_level": "Alert Level",
+  "@detail_alert_level": {
+    "description": "Alert level label"
+  },
+  "detail_edit_product": "Edit Product",
+  "@detail_edit_product": {
+    "description": "Edit product button"
+  },
+  "detail_category_info": "CATEGORY INFO",
+  "@detail_category_info": {
+    "description": "Category info section"
+  },
+  "widget_product_out": "Out",
+  "@widget_product_out": {
+    "description": "Out of stock status"
+  },
+  "widget_product_qty": "Qty: {quantity}",
+  "@widget_product_qty": {
+    "description": "Stock quantity display",
+    "placeholders": {
+      "quantity": {
+        "type": "int"
+      }
+    }
+  },
+  "widget_search_hint": "Search products...",
+  "@widget_search_hint": {
+    "description": "Search bar hint"
+  },
+  "widget_category_no_desc": "No description",
+  "@widget_category_no_desc": {
+    "description": "No description message"
+  },
+  "widget_stock_out": "Out of Stock",
+  "@widget_stock_out": {
+    "description": "Out of stock label"
+  },
+  "widget_stock_low": "Low Stock — {count} left",
+  "@widget_stock_low": {
+    "description": "Low stock label",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "widget_stock_in": "In Stock — {count} units",
+  "@widget_stock_in": {
+    "description": "In stock label",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "widget_min_stock": "Min: {count}",
+  "@widget_min_stock": {
+    "description": "Minimum stock label",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
   }
 }

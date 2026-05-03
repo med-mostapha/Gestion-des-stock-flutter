@@ -59,7 +59,7 @@ class S {
     return Intl.message(
       'Login',
       name: 'common_login',
-      desc: 'Generic login text used in buttons or titles',
+      desc: 'Generic login text',
       args: [],
     );
   }
@@ -69,7 +69,47 @@ class S {
     return Intl.message(
       'Sign Up',
       name: 'common_signup',
-      desc: 'Generic signup text used in buttons or links',
+      desc: 'Generic signup text',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get common_cancel {
+    return Intl.message(
+      'Cancel',
+      name: 'common_cancel',
+      desc: 'Cancel button',
+      args: [],
+    );
+  }
+
+  /// `Delete`
+  String get common_delete {
+    return Intl.message(
+      'Delete',
+      name: 'common_delete',
+      desc: 'Delete button',
+      args: [],
+    );
+  }
+
+  /// `Save Changes`
+  String get common_save {
+    return Intl.message(
+      'Save Changes',
+      name: 'common_save',
+      desc: 'Save button',
+      args: [],
+    );
+  }
+
+  /// `Edit`
+  String get common_edit {
+    return Intl.message(
+      'Edit',
+      name: 'common_edit',
+      desc: 'Edit button',
       args: [],
     );
   }
@@ -79,7 +119,7 @@ class S {
     return Intl.message(
       'Hello',
       name: 'onboarding_title',
-      desc: 'Main greeting title on onboarding screen',
+      desc: 'Main greeting on onboarding',
       args: [],
     );
   }
@@ -89,7 +129,7 @@ class S {
     return Intl.message(
       'Welcome to Little Drop, where you manage your daily tasks',
       name: 'onboarding_subtitle',
-      desc: 'Short description explaining the app purpose on onboarding screen',
+      desc: 'Onboarding subtitle',
       args: [],
     );
   }
@@ -99,318 +139,758 @@ class S {
     return Intl.message(
       'Sign up using',
       name: 'onboarding_social_text',
-      desc: 'Text displayed above social media signup options',
+      desc: 'Social signup text',
       args: [],
     );
   }
 
   /// `Welcome Back`
-  String get login_title {
+  String get auth_login_title {
     return Intl.message(
       'Welcome Back',
-      name: 'login_title',
-      desc: 'Main title displayed on login screen',
+      name: 'auth_login_title',
+      desc: 'Login screen title',
       args: [],
     );
   }
 
   /// `Login to manage your stock efficiently`
-  String get login_subtitle {
+  String get auth_login_subtitle {
     return Intl.message(
       'Login to manage your stock efficiently',
-      name: 'login_subtitle',
-      desc: 'Subtitle explaining login purpose',
+      name: 'auth_login_subtitle',
+      desc: 'Login subtitle',
       args: [],
     );
   }
 
   /// `Email or Username`
-  String get login_email_label {
+  String get auth_login_email_label {
     return Intl.message(
       'Email or Username',
-      name: 'login_email_label',
-      desc: 'Label for email or username input field',
+      name: 'auth_login_email_label',
+      desc: 'Email label',
       args: [],
     );
   }
 
   /// `Enter your email`
-  String get login_email_hint {
+  String get auth_login_email_hint {
     return Intl.message(
       'Enter your email',
-      name: 'login_email_hint',
-      desc: 'Placeholder text for email input field',
+      name: 'auth_login_email_hint',
+      desc: 'Email hint',
       args: [],
     );
   }
 
   /// `Password`
-  String get login_password_label {
+  String get auth_login_password_label {
     return Intl.message(
       'Password',
-      name: 'login_password_label',
-      desc: 'Label for password input field',
+      name: 'auth_login_password_label',
+      desc: 'Password label',
       args: [],
     );
   }
 
   /// `Enter your password`
-  String get login_password_hint {
+  String get auth_login_password_hint {
     return Intl.message(
       'Enter your password',
-      name: 'login_password_hint',
-      desc: 'Placeholder text for password input field',
+      name: 'auth_login_password_hint',
+      desc: 'Password hint',
       args: [],
     );
   }
 
   /// `Login`
-  String get login_button {
+  String get auth_login_button {
     return Intl.message(
       'Login',
-      name: 'login_button',
-      desc: 'Main login button text',
+      name: 'auth_login_button',
+      desc: 'Login button',
       args: [],
     );
   }
 
   /// `Don't have an account?`
-  String get login_no_account {
+  String get auth_login_no_account {
     return Intl.message(
       'Don\'t have an account?',
-      name: 'login_no_account',
-      desc: 'Text before signup link on login screen',
+      name: 'auth_login_no_account',
+      desc: 'No account text',
       args: [],
     );
   }
 
   /// `Sign Up`
-  String get login_signup_link {
+  String get auth_login_signup_link {
     return Intl.message(
       'Sign Up',
-      name: 'login_signup_link',
-      desc: 'Clickable signup text on login screen',
+      name: 'auth_login_signup_link',
+      desc: 'Signup link',
       args: [],
     );
   }
 
   /// `Please enter your username or email`
-  String get login_validation_empty_email {
+  String get auth_login_validation_empty_email {
     return Intl.message(
       'Please enter your username or email',
-      name: 'login_validation_empty_email',
-      desc: 'Validation error when email field is empty',
+      name: 'auth_login_validation_empty_email',
+      desc: 'Empty email error',
       args: [],
     );
   }
 
   /// `Please enter your password`
-  String get login_validation_empty_password {
+  String get auth_login_validation_empty_password {
     return Intl.message(
       'Please enter your password',
-      name: 'login_validation_empty_password',
-      desc: 'Validation error when password is empty',
+      name: 'auth_login_validation_empty_password',
+      desc: 'Empty password error',
       args: [],
     );
   }
 
   /// `Password must be at least 6 characters`
-  String get login_validation_short_password {
+  String get auth_login_validation_short_password {
     return Intl.message(
       'Password must be at least 6 characters',
-      name: 'login_validation_short_password',
-      desc: 'Validation error for short password',
+      name: 'auth_login_validation_short_password',
+      desc: 'Short password error',
       args: [],
     );
   }
 
   /// `Create Account`
-  String get signup_title {
+  String get auth_signup_title {
     return Intl.message(
       'Create Account',
-      name: 'signup_title',
-      desc: 'Main title on signup screen',
+      name: 'auth_signup_title',
+      desc: 'Signup title',
       args: [],
     );
   }
 
   /// `Fill in the details to get started`
-  String get signup_subtitle {
+  String get auth_signup_subtitle {
     return Intl.message(
       'Fill in the details to get started',
-      name: 'signup_subtitle',
-      desc: 'Subtitle on signup screen',
+      name: 'auth_signup_subtitle',
+      desc: 'Signup subtitle',
       args: [],
     );
   }
 
   /// `Username`
-  String get signup_username_label {
+  String get auth_signup_username_label {
     return Intl.message(
       'Username',
-      name: 'signup_username_label',
-      desc: 'Label for username input field',
+      name: 'auth_signup_username_label',
+      desc: 'Username label',
       args: [],
     );
   }
 
   /// `Enter your username`
-  String get signup_username_hint {
+  String get auth_signup_username_hint {
     return Intl.message(
       'Enter your username',
-      name: 'signup_username_hint',
-      desc: 'Placeholder for username field',
+      name: 'auth_signup_username_hint',
+      desc: 'Username hint',
       args: [],
     );
   }
 
   /// `Email`
-  String get signup_email_label {
+  String get auth_signup_email_label {
     return Intl.message(
       'Email',
-      name: 'signup_email_label',
-      desc: 'Label for email input field',
+      name: 'auth_signup_email_label',
+      desc: 'Email label',
       args: [],
     );
   }
 
   /// `Enter your email`
-  String get signup_email_hint {
+  String get auth_signup_email_hint {
     return Intl.message(
       'Enter your email',
-      name: 'signup_email_hint',
-      desc: 'Placeholder for email field',
+      name: 'auth_signup_email_hint',
+      desc: 'Email hint',
       args: [],
     );
   }
 
   /// `Password`
-  String get signup_password_label {
+  String get auth_signup_password_label {
     return Intl.message(
       'Password',
-      name: 'signup_password_label',
-      desc: 'Label for password input field',
+      name: 'auth_signup_password_label',
+      desc: 'Password label',
       args: [],
     );
   }
 
   /// `Enter password`
-  String get signup_password_hint {
+  String get auth_signup_password_hint {
     return Intl.message(
       'Enter password',
-      name: 'signup_password_hint',
-      desc: 'Placeholder for password field',
+      name: 'auth_signup_password_hint',
+      desc: 'Password hint',
       args: [],
     );
   }
 
   /// `Confirm Password`
-  String get signup_confirm_password_label {
+  String get auth_signup_confirm_password_label {
     return Intl.message(
       'Confirm Password',
-      name: 'signup_confirm_password_label',
-      desc: 'Label for confirm password field',
+      name: 'auth_signup_confirm_password_label',
+      desc: 'Confirm password label',
       args: [],
     );
   }
 
   /// `Repeat password`
-  String get signup_confirm_password_hint {
+  String get auth_signup_confirm_password_hint {
     return Intl.message(
       'Repeat password',
-      name: 'signup_confirm_password_hint',
-      desc: 'Placeholder for confirm password field',
+      name: 'auth_signup_confirm_password_hint',
+      desc: 'Confirm password hint',
       args: [],
     );
   }
 
   /// `Sign Up`
-  String get signup_button {
+  String get auth_signup_button {
     return Intl.message(
       'Sign Up',
-      name: 'signup_button',
-      desc: 'Main signup button text',
+      name: 'auth_signup_button',
+      desc: 'Signup button',
       args: [],
     );
   }
 
   /// `Already have an account?`
-  String get signup_have_account {
+  String get auth_signup_have_account {
     return Intl.message(
       'Already have an account?',
-      name: 'signup_have_account',
-      desc: 'Text before login link on signup screen',
+      name: 'auth_signup_have_account',
+      desc: 'Have account text',
       args: [],
     );
   }
 
   /// `Login`
-  String get signup_login_link {
+  String get auth_signup_login_link {
     return Intl.message(
       'Login',
-      name: 'signup_login_link',
-      desc: 'Clickable login text on signup screen',
+      name: 'auth_signup_login_link',
+      desc: 'Login link',
       args: [],
     );
   }
 
   /// `Username is required`
-  String get signup_validation_username_required {
+  String get auth_signup_validation_username_required {
     return Intl.message(
       'Username is required',
-      name: 'signup_validation_username_required',
-      desc: 'Validation error when username is empty',
+      name: 'auth_signup_validation_username_required',
+      desc: 'Username required error',
       args: [],
     );
   }
 
   /// `Email is required`
-  String get signup_validation_email_required {
+  String get auth_signup_validation_email_required {
     return Intl.message(
       'Email is required',
-      name: 'signup_validation_email_required',
-      desc: 'Validation error when email is empty',
+      name: 'auth_signup_validation_email_required',
+      desc: 'Email required error',
       args: [],
     );
   }
 
   /// `Enter a valid email`
-  String get signup_validation_email_invalid {
+  String get auth_signup_validation_email_invalid {
     return Intl.message(
       'Enter a valid email',
-      name: 'signup_validation_email_invalid',
-      desc: 'Validation error for invalid email format',
+      name: 'auth_signup_validation_email_invalid',
+      desc: 'Invalid email error',
       args: [],
     );
   }
 
   /// `Minimum 6 characters`
-  String get signup_validation_password_short {
+  String get auth_signup_validation_password_short {
     return Intl.message(
       'Minimum 6 characters',
-      name: 'signup_validation_password_short',
-      desc: 'Validation error for short password',
+      name: 'auth_signup_validation_password_short',
+      desc: 'Short password error',
       args: [],
     );
   }
 
   /// `Please confirm your password`
-  String get signup_validation_confirm_required {
+  String get auth_signup_validation_confirm_required {
     return Intl.message(
       'Please confirm your password',
-      name: 'signup_validation_confirm_required',
-      desc: 'Validation error when confirm password is empty',
+      name: 'auth_signup_validation_confirm_required',
+      desc: 'Confirm required error',
       args: [],
     );
   }
 
   /// `Passwords do not match`
-  String get signup_validation_password_mismatch {
+  String get auth_signup_validation_password_mismatch {
     return Intl.message(
       'Passwords do not match',
-      name: 'signup_validation_password_mismatch',
-      desc: 'Validation error when passwords don\'t match',
+      name: 'auth_signup_validation_password_mismatch',
+      desc: 'Password mismatch error',
       args: [],
+    );
+  }
+
+  /// `Dashboard`
+  String get dashboard_title {
+    return Intl.message(
+      'Dashboard',
+      name: 'dashboard_title',
+      desc: 'Dashboard tab title',
+      args: [],
+    );
+  }
+
+  /// `Products`
+  String get dashboard_products {
+    return Intl.message(
+      'Products',
+      name: 'dashboard_products',
+      desc: 'Products tab title',
+      args: [],
+    );
+  }
+
+  /// `Categories`
+  String get dashboard_categories {
+    return Intl.message(
+      'Categories',
+      name: 'dashboard_categories',
+      desc: 'Categories tab title',
+      args: [],
+    );
+  }
+
+  /// `Settings`
+  String get dashboard_settings {
+    return Intl.message(
+      'Settings',
+      name: 'dashboard_settings',
+      desc: 'Settings tab title',
+      args: [],
+    );
+  }
+
+  /// `Overview`
+  String get dashboard_overview {
+    return Intl.message(
+      'Overview',
+      name: 'dashboard_overview',
+      desc: 'Overview bottom nav',
+      args: [],
+    );
+  }
+
+  /// `Total Products: {count}`
+  String products_title(int count) {
+    return Intl.message(
+      'Total Products: $count',
+      name: 'products_title',
+      desc: 'Products page title with count',
+      args: [count],
+    );
+  }
+
+  /// `No products found`
+  String get products_empty {
+    return Intl.message(
+      'No products found',
+      name: 'products_empty',
+      desc: 'Empty products message',
+      args: [],
+    );
+  }
+
+  /// `Delete Product`
+  String get products_delete_title {
+    return Intl.message(
+      'Delete Product',
+      name: 'products_delete_title',
+      desc: 'Delete product dialog title',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to delete '{name}'?`
+  String products_delete_message(String name) {
+    return Intl.message(
+      'Are you sure you want to delete \'$name\'?',
+      name: 'products_delete_message',
+      desc: 'Delete confirmation message',
+      args: [name],
+    );
+  }
+
+  /// `{name} deleted`
+  String products_deleted(String name) {
+    return Intl.message(
+      '$name deleted',
+      name: 'products_deleted',
+      desc: 'Product deleted message',
+      args: [name],
+    );
+  }
+
+  /// `No categories found`
+  String get categories_empty {
+    return Intl.message(
+      'No categories found',
+      name: 'categories_empty',
+      desc: 'Empty categories message',
+      args: [],
+    );
+  }
+
+  /// `Delete Category`
+  String get categories_delete_title {
+    return Intl.message(
+      'Delete Category',
+      name: 'categories_delete_title',
+      desc: 'Delete category dialog title',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to delete '{name}'?`
+  String categories_delete_message(String name) {
+    return Intl.message(
+      'Are you sure you want to delete \'$name\'?',
+      name: 'categories_delete_message',
+      desc: 'Delete confirmation message',
+      args: [name],
+    );
+  }
+
+  /// `{name} deleted`
+  String categories_deleted(String name) {
+    return Intl.message(
+      '$name deleted',
+      name: 'categories_deleted',
+      desc: 'Category deleted message',
+      args: [name],
+    );
+  }
+
+  /// `Appearance`
+  String get settings_appearance {
+    return Intl.message(
+      'Appearance',
+      name: 'settings_appearance',
+      desc: 'Appearance section',
+      args: [],
+    );
+  }
+
+  /// `Dark Mode`
+  String get settings_dark_mode {
+    return Intl.message(
+      'Dark Mode',
+      name: 'settings_dark_mode',
+      desc: 'Dark mode toggle',
+      args: [],
+    );
+  }
+
+  /// `Account`
+  String get settings_account {
+    return Intl.message(
+      'Account',
+      name: 'settings_account',
+      desc: 'Account section',
+      args: [],
+    );
+  }
+
+  /// `Logout`
+  String get settings_logout {
+    return Intl.message(
+      'Logout',
+      name: 'settings_logout',
+      desc: 'Logout button',
+      args: [],
+    );
+  }
+
+  /// `Logout`
+  String get settings_logout_title {
+    return Intl.message(
+      'Logout',
+      name: 'settings_logout_title',
+      desc: 'Logout dialog title',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to sign out?`
+  String get settings_logout_message {
+    return Intl.message(
+      'Are you sure you want to sign out?',
+      name: 'settings_logout_message',
+      desc: 'Logout confirmation message',
+      args: [],
+    );
+  }
+
+  /// `Version 1.0.0`
+  String get settings_version {
+    return Intl.message(
+      'Version 1.0.0',
+      name: 'settings_version',
+      desc: 'App version',
+      args: [],
+    );
+  }
+
+  /// `Category updated`
+  String get detail_category_updated {
+    return Intl.message(
+      'Category updated',
+      name: 'detail_category_updated',
+      desc: 'Category update success message',
+      args: [],
+    );
+  }
+
+  /// `Product updated`
+  String get detail_product_updated {
+    return Intl.message(
+      'Product updated',
+      name: 'detail_product_updated',
+      desc: 'Product update success message',
+      args: [],
+    );
+  }
+
+  /// `Category Name`
+  String get detail_category_name {
+    return Intl.message(
+      'Category Name',
+      name: 'detail_category_name',
+      desc: 'Category name label',
+      args: [],
+    );
+  }
+
+  /// `Description`
+  String get detail_description {
+    return Intl.message(
+      'Description',
+      name: 'detail_description',
+      desc: 'Description label',
+      args: [],
+    );
+  }
+
+  /// `Edit Category`
+  String get detail_edit_category {
+    return Intl.message(
+      'Edit Category',
+      name: 'detail_edit_category',
+      desc: 'Edit category button',
+      args: [],
+    );
+  }
+
+  /// `PRODUCTS`
+  String get detail_products_label {
+    return Intl.message(
+      'PRODUCTS',
+      name: 'detail_products_label',
+      desc: 'Products section label',
+      args: [],
+    );
+  }
+
+  /// `No products in this category`
+  String get detail_no_products {
+    return Intl.message(
+      'No products in this category',
+      name: 'detail_no_products',
+      desc: 'No products message',
+      args: [],
+    );
+  }
+
+  /// `Product Name`
+  String get detail_product_name {
+    return Intl.message(
+      'Product Name',
+      name: 'detail_product_name',
+      desc: 'Product name label',
+      args: [],
+    );
+  }
+
+  /// `Price (MRU)`
+  String get detail_price {
+    return Intl.message(
+      'Price (MRU)',
+      name: 'detail_price',
+      desc: 'Price label',
+      args: [],
+    );
+  }
+
+  /// `PRODUCT INFO`
+  String get detail_product_info {
+    return Intl.message(
+      'PRODUCT INFO',
+      name: 'detail_product_info',
+      desc: 'Product info section',
+      args: [],
+    );
+  }
+
+  /// `STOCK INFO`
+  String get detail_stock_info {
+    return Intl.message(
+      'STOCK INFO',
+      name: 'detail_stock_info',
+      desc: 'Stock info section',
+      args: [],
+    );
+  }
+
+  /// `Stock Quantity`
+  String get detail_stock_quantity {
+    return Intl.message(
+      'Stock Quantity',
+      name: 'detail_stock_quantity',
+      desc: 'Stock quantity label',
+      args: [],
+    );
+  }
+
+  /// `Alert Level`
+  String get detail_alert_level {
+    return Intl.message(
+      'Alert Level',
+      name: 'detail_alert_level',
+      desc: 'Alert level label',
+      args: [],
+    );
+  }
+
+  /// `Edit Product`
+  String get detail_edit_product {
+    return Intl.message(
+      'Edit Product',
+      name: 'detail_edit_product',
+      desc: 'Edit product button',
+      args: [],
+    );
+  }
+
+  /// `CATEGORY INFO`
+  String get detail_category_info {
+    return Intl.message(
+      'CATEGORY INFO',
+      name: 'detail_category_info',
+      desc: 'Category info section',
+      args: [],
+    );
+  }
+
+  /// `Out`
+  String get widget_product_out {
+    return Intl.message(
+      'Out',
+      name: 'widget_product_out',
+      desc: 'Out of stock status',
+      args: [],
+    );
+  }
+
+  /// `Qty: {quantity}`
+  String widget_product_qty(int quantity) {
+    return Intl.message(
+      'Qty: $quantity',
+      name: 'widget_product_qty',
+      desc: 'Stock quantity display',
+      args: [quantity],
+    );
+  }
+
+  /// `Search products...`
+  String get widget_search_hint {
+    return Intl.message(
+      'Search products...',
+      name: 'widget_search_hint',
+      desc: 'Search bar hint',
+      args: [],
+    );
+  }
+
+  /// `No description`
+  String get widget_category_no_desc {
+    return Intl.message(
+      'No description',
+      name: 'widget_category_no_desc',
+      desc: 'No description message',
+      args: [],
+    );
+  }
+
+  /// `Out of Stock`
+  String get widget_stock_out {
+    return Intl.message(
+      'Out of Stock',
+      name: 'widget_stock_out',
+      desc: 'Out of stock label',
+      args: [],
+    );
+  }
+
+  /// `Low Stock — {count} left`
+  String widget_stock_low(int count) {
+    return Intl.message(
+      'Low Stock — $count left',
+      name: 'widget_stock_low',
+      desc: 'Low stock label',
+      args: [count],
+    );
+  }
+
+  /// `In Stock — {count} units`
+  String widget_stock_in(int count) {
+    return Intl.message(
+      'In Stock — $count units',
+      name: 'widget_stock_in',
+      desc: 'In stock label',
+      args: [count],
+    );
+  }
+
+  /// `Min: {count}`
+  String widget_min_stock(int count) {
+    return Intl.message(
+      'Min: $count',
+      name: 'widget_min_stock',
+      desc: 'Minimum stock label',
+      args: [count],
     );
   }
 }
