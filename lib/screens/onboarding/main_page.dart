@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:gestion_de_stock_flutter/generated/l10n.dart';
 import 'package:gestion_de_stock_flutter/routes/app_routes.dart';
 
 class MainPage extends StatelessWidget {
@@ -17,13 +18,13 @@ class MainPage extends StatelessWidget {
               const SizedBox(height: 80),
               SvgPicture.asset('assets/hi.svg', height: 200),
               const SizedBox(height: 40),
-              const Text(
-                "Hello",
+              Text(
+                S.of(context).onboarding_title,
                 style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 10),
-              const Text(
-                "Welcome To Little Drop, where you manage you daily tasks",
+              Text(
+                S.of(context).onboarding_subtitle,
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 16, color: Colors.grey),
               ),
@@ -41,8 +42,8 @@ class MainPage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(30),
                   ),
                 ),
-                child: const Text(
-                  "Login",
+                child: Text(
+                  S.of(context).common_login,
                   style: TextStyle(color: Colors.white, fontSize: 18),
                 ),
               ),
@@ -60,15 +61,18 @@ class MainPage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(30),
                   ),
                 ),
-                child: const Text(
-                  "Sign Up",
+                child: Text(
+                  S.of(context).common_signup,
                   style: TextStyle(color: Color(0xFF5A57AB), fontSize: 18),
                 ),
               ),
 
               const SizedBox(height: 40),
 
-              const Text("Sign up using", style: TextStyle(color: Colors.grey)),
+              Text(
+                S.of(context).onboarding_social_text,
+                style: TextStyle(color: Colors.grey),
+              ),
               const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

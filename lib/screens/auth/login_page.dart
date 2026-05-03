@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gestion_de_stock_flutter/core/theme/app_colors.dart';
+import 'package:gestion_de_stock_flutter/generated/l10n.dart';
 import 'package:gestion_de_stock_flutter/routes/app_routes.dart';
 
 class LoginPage extends StatefulWidget {
@@ -35,9 +36,9 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 60),
+                SizedBox(height: 60),
                 Text(
-                  "Welcome Back",
+                  S.of(context).login_title,
                   style: TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
@@ -46,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const SizedBox(height: 10),
                 Text(
-                  "Login to manage your stock efficiently",
+                  S.of(context).login_subtitle,
                   style: TextStyle(
                     fontSize: 16,
                     color: AppColors.textSecondary,
@@ -54,9 +55,9 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const SizedBox(height: 50),
 
-                // Email
+                // Email lable
                 Text(
-                  "Email or Username",
+                  S.of(context).login_email_label,
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
                     color: AppColors.textPrimary,
@@ -66,7 +67,7 @@ class _LoginPageState extends State<LoginPage> {
                 TextFormField(
                   controller: _emailController,
                   decoration: InputDecoration(
-                    hintText: "Enter your email",
+                    hintText: S.of(context).login_email_hint,
                     prefixIcon: const Icon(Icons.email_outlined),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
@@ -80,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                   //  check email or username
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please enter your username or email';
+                      return S.of(context).login_validation_empty_email;
                     }
                     return null;
                   },
@@ -88,9 +89,9 @@ class _LoginPageState extends State<LoginPage> {
 
                 const SizedBox(height: 25),
 
-                // pwd Field
+                // pwd lable
                 Text(
-                  "Password",
+                  S.of(context).login_password_label,
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
                     color: AppColors.textPrimary,
@@ -101,7 +102,7 @@ class _LoginPageState extends State<LoginPage> {
                   controller: _passwordController,
                   obscureText: !_isPasswordVisible,
                   decoration: InputDecoration(
-                    hintText: "Enter your password",
+                    hintText: S.of(context).login_password_hint,
                     prefixIcon: const Icon(Icons.lock_outline),
                     suffixIcon: IconButton(
                       icon: Icon(
@@ -123,10 +124,10 @@ class _LoginPageState extends State<LoginPage> {
                   // check psw
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please enter your password';
+                      return S.of(context).login_validation_empty_password;
                     }
                     if (value.length < 6) {
-                      return 'Password must be at least 6 characters';
+                      return S.of(context).login_validation_short_password;
                     }
                     return null;
                   },
@@ -147,8 +148,8 @@ class _LoginPageState extends State<LoginPage> {
                         borderRadius: BorderRadius.circular(12),
                       ),
                     ),
-                    child: const Text(
-                      "Login",
+                    child: Text(
+                      S.of(context).common_login,
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -166,11 +167,11 @@ class _LoginPageState extends State<LoginPage> {
                     },
                     child: RichText(
                       text: TextSpan(
-                        text: "Don't have an account? ",
+                        text: S.of(context).login_no_account,
                         style: TextStyle(color: AppColors.textSecondary),
                         children: [
                           TextSpan(
-                            text: "Sign Up",
+                            text: S.of(context).common_signup,
                             style: TextStyle(
                               color: AppColors.primary,
                               fontWeight: FontWeight.bold,

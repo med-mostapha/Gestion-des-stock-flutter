@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gestion_de_stock_flutter/core/theme/app_colors.dart';
+import 'package:gestion_de_stock_flutter/generated/l10n.dart';
 import 'package:gestion_de_stock_flutter/routes/app_routes.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -40,7 +41,7 @@ class _SignUpPageState extends State<SignUpPage> {
               children: [
                 const SizedBox(height: 40),
                 Text(
-                  "Create Account",
+                  S.of(context).signup_title,
                   style: TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
@@ -49,7 +50,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
                 const SizedBox(height: 10),
                 Text(
-                  "Fill in the details to get started",
+                  S.of(context).signup_subtitle,
                   style: TextStyle(
                     fontSize: 16,
                     color: AppColors.textSecondary,
@@ -57,57 +58,66 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
                 const SizedBox(height: 40),
 
-                // Usr name
-                _buildLabel("Username"),
+                // username lable
+                _buildLabel(S.of(context).signup_username_label),
                 _buildTextField(
                   controller: _usernameController,
-                  hint: "Enter your username",
+                  hint: S.of(context).signup_username_hint,
                   icon: Icons.person_outline,
-                  validator: (value) =>
-                      value!.isEmpty ? "Username is required" : null,
+                  validator: (value) => value!.isEmpty
+                      ? S.of(context).signup_validation_username_required
+                      : null,
                 ),
 
                 const SizedBox(height: 20),
 
-                _buildLabel("Email"),
+                // emaill lable
+                _buildLabel(S.of(context).signup_email_label),
                 _buildTextField(
                   controller: _emailController,
-                  hint: "Enter your email",
+                  hint: S.of(context).signup_email_hint,
                   icon: Icons.email_outlined,
                   keyboardType: TextInputType.emailAddress,
                   validator: (value) {
-                    if (value!.isEmpty) return "Email is required";
-                    if (!value.contains('@')) return "Enter a valid email";
+                    if (value!.isEmpty) {
+                      return S.of(context).signup_validation_email_required;
+                    }
+                    if (!value.contains('@')) {
+                      return S.of(context).signup_validation_email_invalid;
+                    }
                     return null;
                   },
                 ),
 
                 const SizedBox(height: 20),
 
-                // pwd Field
-                _buildLabel("Password"),
+                // pwd lable
+                _buildLabel(S.of(context).signup_password_label),
                 _buildTextField(
                   controller: _passwordController,
-                  hint: "Enter password",
+                  hint: S.of(context).signup_password_hint,
                   icon: Icons.lock_outline,
                   isPassword: true,
-                  validator: (value) =>
-                      value!.length < 6 ? "Minimum 6 characters" : null,
+                  validator: (value) => value!.length < 6
+                      ? S.of(context).signup_validation_password_short
+                      : null,
                 ),
 
                 const SizedBox(height: 20),
 
-                // check Field
-                _buildLabel("Confirm Password"),
+                // check pwd lable
+                _buildLabel(S.of(context).signup_confirm_password_label),
                 _buildTextField(
                   controller: _confirmPasswordController,
-                  hint: "Repeat password",
+                  hint: S.of(context).signup_confirm_password_hint,
                   icon: Icons.lock_reset_outlined,
                   isPassword: true,
                   validator: (value) {
-                    if (value!.isEmpty) return "Please confirm your password";
+                    if (value!.isEmpty) {
+                      return S.of(context).signup_validation_confirm_required;
+                    }
                     if (value != _passwordController.text) {
-                      return "Passwords do not match";
+                      return S.of(context).signup_validation_password_mismatch;
                     }
                     return null;
                   },
@@ -127,8 +137,8 @@ class _SignUpPageState extends State<SignUpPage> {
                         borderRadius: BorderRadius.circular(12),
                       ),
                     ),
-                    child: const Text(
-                      "Sign Up",
+                    child: Text(
+                      S.of(context).common_signup,
                       style: TextStyle(fontSize: 18, color: Colors.white),
                     ),
                   ),
@@ -144,11 +154,11 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                     child: RichText(
                       text: TextSpan(
-                        text: "Already have an account? ",
+                        text: S.of(context).signup_have_account,
                         style: TextStyle(color: AppColors.textSecondary),
                         children: [
                           TextSpan(
-                            text: "Login",
+                            text: S.of(context).common_login,
                             style: TextStyle(
                               color: AppColors.primary,
                               fontWeight: FontWeight.bold,
