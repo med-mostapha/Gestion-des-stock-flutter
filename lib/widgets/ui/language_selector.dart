@@ -20,7 +20,7 @@ class LanguageSelector extends StatelessWidget {
         const PopupMenuItem(value: 'en', child: Text("English 🇺🇸")),
         const PopupMenuItem(
           value: 'ar',
-          enabled: false,
+          enabled: true,
           child: Text("العربية 🇲🇷"),
         ),
         const PopupMenuItem(

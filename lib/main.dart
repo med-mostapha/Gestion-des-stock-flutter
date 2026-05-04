@@ -13,8 +13,6 @@ void main() {
   runApp(const MyApp());
 }
 
-// ... imports ...
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
