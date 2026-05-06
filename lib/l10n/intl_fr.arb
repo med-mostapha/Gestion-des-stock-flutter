@@ -1,0 +1,429 @@
+{
+  "common_login": "Connexion",
+  "@common_login": {
+    "description": "Generic login text"
+  },
+  "common_signup": "S'inscrire",
+  "@common_signup": {
+    "description": "Generic signup text"
+  },
+  "common_cancel": "Annuler",
+  "@common_cancel": {
+    "description": "Cancel button"
+  },
+  "common_delete": "Supprimer",
+  "@common_delete": {
+    "description": "Delete button"
+  },
+  "common_save": "Enregistrer les modifications",
+  "@common_save": {
+    "description": "Save button"
+  },
+  "common_edit": "Modifier",
+  "@common_edit": {
+    "description": "Edit button"
+  },
+  "onboarding_title": "Bonjour",
+  "@onboarding_title": {
+    "description": "Main greeting on onboarding"
+  },
+  "onboarding_subtitle": "Bienvenue sur Little Drop, où vous gérez vos tâches quotidiennes",
+  "@onboarding_subtitle": {
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_social_text": "S'inscrire avec",
+  "@onboarding_social_text": {
+    "description": "Social signup text"
+  },
+  "auth_login_title": "Bon retour",
+  "@auth_login_title": {
+    "description": "Login screen title"
+  },
+  "auth_login_subtitle": "Connectez-vous pour gérer votre stock efficacement",
+  "@auth_login_subtitle": {
+    "description": "Login subtitle"
+  },
+  "auth_login_email_label": "E-mail ou Nom d'utilisateur",
+  "@auth_login_email_label": {
+    "description": "Email label"
+  },
+  "auth_login_email_hint": "Entrez votre e-mail",
+  "@auth_login_email_hint": {
+    "description": "Email hint"
+  },
+  "auth_login_password_label": "Mot de passe",
+  "@auth_login_password_label": {
+    "description": "Password label"
+  },
+  "auth_login_password_hint": "Entrez votre mot de passe",
+  "@auth_login_password_hint": {
+    "description": "Password hint"
+  },
+  "auth_login_button": "Se connecter",
+  "@auth_login_button": {
+    "description": "Login button"
+  },
+  "auth_login_no_account": "Vous n'avez pas de compte ?",
+  "@auth_login_no_account": {
+    "description": "No account text"
+  },
+  "auth_login_signup_link": "S'inscrire",
+  "@auth_login_signup_link": {
+    "description": "Signup link"
+  },
+  "auth_login_validation_empty_email": "Veuillez entrer votre nom d'utilisateur ou e-mail",
+  "@auth_login_validation_empty_email": {
+    "description": "Empty email error"
+  },
+  "auth_login_validation_empty_password": "Veuillez entrer votre mot de passe",
+  "@auth_login_validation_empty_password": {
+    "description": "Empty password error"
+  },
+  "auth_login_validation_short_password": "Le mot de passe doit contenir au moins 6 caractères",
+  "@auth_login_validation_short_password": {
+    "description": "Short password error"
+  },
+  "auth_signup_title": "Créer un compte",
+  "@auth_signup_title": {
+    "description": "Signup title"
+  },
+  "auth_signup_subtitle": "Remplissez les détails pour commencer",
+  "@auth_signup_subtitle": {
+    "description": "Signup subtitle"
+  },
+  "auth_signup_username_label": "Nom d'utilisateur",
+  "@auth_signup_username_label": {
+    "description": "Username label"
+  },
+  "auth_signup_username_hint": "Entrez votre nom d'utilisateur",
+  "@auth_signup_username_hint": {
+    "description": "Username hint"
+  },
+  "auth_signup_email_label": "E-mail",
+  "@auth_signup_email_label": {
+    "description": "Email label"
+  },
+  "auth_signup_email_hint": "Entrez votre e-mail",
+  "@auth_signup_email_hint": {
+    "description": "Email hint"
+  },
+  "auth_signup_password_label": "Mot de passe",
+  "@auth_signup_password_label": {
+    "description": "Password label"
+  },
+  "auth_signup_password_hint": "Entrez le mot de passe",
+  "@auth_signup_password_hint": {
+    "description": "Password hint"
+  },
+  "auth_signup_confirm_password_label": "Confirmer le mot de passe",
+  "@auth_signup_confirm_password_label": {
+    "description": "Confirm password label"
+  },
+  "auth_signup_confirm_password_hint": "Répétez le mot de passe",
+  "@auth_signup_confirm_password_hint": {
+    "description": "Confirm password hint"
+  },
+  "auth_signup_button": "S'inscrire",
+  "@auth_signup_button": {
+    "description": "Signup button"
+  },
+  "auth_signup_have_account": "Vous avez déjà un compte ?",
+  "@auth_signup_have_account": {
+    "description": "Have account text"
+  },
+  "auth_signup_login_link": "Connexion",
+  "@auth_signup_login_link": {
+    "description": "Login link"
+  },
+  "auth_signup_validation_username_required": "Le nom d'utilisateur est requis",
+  "@auth_signup_validation_username_required": {
+    "description": "Username required error"
+  },
+  "auth_signup_validation_email_required": "L'e-mail est requis",
+  "@auth_signup_validation_email_required": {
+    "description": "Email required error"
+  },
+  "auth_signup_validation_email_invalid": "Entrez un e-mail valide",
+  "@auth_signup_validation_email_invalid": {
+    "description": "Invalid email error"
+  },
+  "auth_signup_validation_password_short": "Minimum 6 caractères",
+  "@auth_signup_validation_password_short": {
+    "description": "Short password error"
+  },
+  "auth_signup_validation_confirm_required": "Veuillez confirmer votre mot de passe",
+  "@auth_signup_validation_confirm_required": {
+    "description": "Confirm required error"
+  },
+  "auth_signup_validation_password_mismatch": "Les mots de passe ne correspondent pas",
+  "@auth_signup_validation_password_mismatch": {
+    "description": "Password mismatch error"
+  },
+  "dashboard_title": "Tableau de bord",
+  "@dashboard_title": {
+    "description": "Dashboard tab title"
+  },
+  "dashboard_products": "Produits",
+  "@dashboard_products": {
+    "description": "Products tab title"
+  },
+  "dashboard_categories": "Catégories",
+  "@dashboard_categories": {
+    "description": "Categories tab title"
+  },
+  "dashboard_settings": "Paramètres",
+  "@dashboard_settings": {
+    "description": "Settings tab title"
+  },
+  "dashboard_overview": "Aperçu",
+  "@dashboard_overview": {
+    "description": "Overview bottom nav"
+  },
+  "products_title": "Total des produits: {count}",
+  "@products_title": {
+    "description": "Products page title with count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "chart_distribution_title": "Distribution du stock",
+  "chart_distribution_subtitle": "par valeur de catégorie",
+  "chart_stock_by_category": "Valeur du stock par catégorie",
+  "common_no_data": "Aucune donnée",
+  "products_empty": "Aucun produit trouvé",
+  "@products_empty": {
+    "description": "Empty products message"
+  },
+  "products_delete_title": "Supprimer le produit",
+  "@products_delete_title": {
+    "description": "Delete product dialog title"
+  },
+  "products_delete_message": "Êtes-vous sûr de vouloir supprimer '{name}' ?",
+  "@products_delete_message": {
+    "description": "Delete confirmation message",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "products_deleted": "{name} supprimé",
+  "@products_deleted": {
+    "description": "Product deleted message",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "categories_empty": "Aucune catégorie trouvée",
+  "@categories_empty": {
+    "description": "Empty categories message"
+  },
+  "categories_delete_title": "Supprimer la catégorie",
+  "@categories_delete_title": {
+    "description": "Delete category dialog title"
+  },
+  "category_no_description": "Aucune description",
+  "categories_delete_message": "Êtes-vous sûr de vouloir supprimer '{name}' ?",
+  "@categories_delete_message": {
+    "description": "Delete confirmation message",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "categories_deleted": "{name} supprimée",
+  "@categories_deleted": {
+    "description": "Category deleted message",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "settings_appearance": "Apparence",
+  "@settings_appearance": {
+    "description": "Appearance section"
+  },
+  "settings_dark_mode": "Mode sombre",
+  "@settings_dark_mode": {
+    "description": "Dark mode toggle"
+  },
+  "settings_account": "Compte",
+  "@settings_account": {
+    "description": "Account section"
+  },
+  "common_low_stock": "Stock faible",
+  "@common_low_stock": {
+    "description": "Short title for low stock statistics"
+  },
+  "settings_logout": "Déconnexion",
+  "@settings_logout": {
+    "description": "Logout button"
+  },
+  "settings_logout_title": "Déconnexion",
+  "@settings_logout_title": {
+    "description": "Logout dialog title"
+  },
+  "settings_logout_message": "Êtes-vous sûr de vouloir vous déconnecter ?",
+  "@settings_logout_message": {
+    "description": "Logout confirmation message"
+  },
+  "settings_version": "Version 1.0.0",
+  "@settings_version": {
+    "description": "App version"
+  },
+  "detail_category_updated": "Catégorie mise à jour",
+  "@detail_category_updated": {
+    "description": "Category update success message"
+  },
+  "detail_product_updated": "Produit mis à jour",
+  "@detail_product_updated": {
+    "description": "Product update success message"
+  },
+  "detail_category_name": "Nom de la catégorie",
+  "@detail_category_name": {
+    "description": "Category name label"
+  },
+  "detail_description": "Description",
+  "@detail_description": {
+    "description": "Description label"
+  },
+  "detail_edit_category": "Modifier la catégorie",
+  "@detail_edit_category": {
+    "description": "Edit category button"
+  },
+  "detail_products_label": "PRODUITS",
+  "@detail_products_label": {
+    "description": "Products section label"
+  },
+  "detail_no_products": "Aucun produit dans cette catégorie",
+  "@detail_no_products": {
+    "description": "No products message"
+  },
+  "detail_product_name": "Nom du produit",
+  "@detail_product_name": {
+    "description": "Product name label"
+  },
+  "detail_price": "Prix (MRU)",
+  "@detail_price": {
+    "description": "Price label"
+  },
+  "detail_product_info": "INFOS PRODUIT",
+  "@detail_product_info": {
+    "description": "Product info section"
+  },
+  "detail_stock_info": "INFOS STOCK",
+  "@detail_stock_info": {
+    "description": "Stock info section"
+  },
+  "detail_stock_quantity": "Quantité en stock",
+  "@detail_stock_quantity": {
+    "description": "Stock quantity label"
+  },
+  "detail_alert_level": "Niveau d'alerte",
+  "@detail_alert_level": {
+    "description": "Alert level label"
+  },
+  "detail_edit_product": "Modifier le produit",
+  "@detail_edit_product": {
+    "description": "Edit product button"
+  },
+  "detail_category_info": "INFOS CATÉGORIE",
+  "@detail_category_info": {
+    "description": "Category info section"
+  },
+  "widget_product_out": "Épuisé",
+  "@widget_product_out": {
+    "description": "Out of stock status"
+  },
+  "widget_product_qty": "Qté: {quantity}",
+  "@widget_product_qty": {
+    "description": "Stock quantity display",
+    "placeholders": {
+      "quantity": {
+        "type": "int"
+      }
+    }
+  },
+  "widget_search_hint": "Rechercher des produits...",
+  "@widget_search_hint": {
+    "description": "Search bar hint"
+  },
+  "widget_category_no_desc": "Aucune description",
+  "@widget_category_no_desc": {
+    "description": "No description message"
+  },
+  "widget_stock_out": "Rupture de stock",
+  "@widget_stock_out": {
+    "description": "Out of stock label"
+  },
+  "widget_stock_low": "Stock faible — {count} restant(s)",
+  "@widget_stock_low": {
+    "description": "Low stock label",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "widget_stock_in": "En stock — {count} unités",
+  "@widget_stock_in": {
+    "description": "In stock label",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "widget_min_stock": "Min: {count}",
+  "@widget_min_stock": {
+    "description": "Minimum stock label",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "add_product_title": "Nouveau produit",
+  "add_product_name_label": "Nom du produit",
+  "add_product_name_hint": "Entrez le nom du produit",
+  "add_product_price_label": "Prix",
+  "add_product_category_label": "Catégorie",
+  "add_product_stock_label": "Quantité en stock",
+  "add_product_min_stock_label": "Niveau d'alerte",
+  "add_product_min_stock_hint": "Min",
+  "add_product_button": "Créer le produit",
+  "category_electronics": "Électronique",
+  "category_food": "Alimentation",
+  "category_clothes": "Vêtements",
+  "validation_required": "Requis",
+  "add_category_title": "Nouvelle catégorie",
+  "add_category_name_label": "Nom de la catégorie",
+  "add_category_name_hint": "Entrez le nom de la catégorie",
+  "add_category_desc_label": "Description",
+  "add_category_desc_hint": "Entrez la description de la catégorie",
+  "add_category_button": "Créer la catégorie",
+  "validation_too_short": "Trop court (min 2 caract.)",
+  "stock_status_out": "Rupture de stock",
+  "stock_status_low": "Stock faible — {count} restant(s)",
+  "@stock_status_low": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "stock_status_in": "En stock — {count} unités",
+  "@stock_status_in": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}
