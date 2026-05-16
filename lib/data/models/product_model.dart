@@ -13,7 +13,8 @@ class Product {
   @ColumnInfo(name: 'category_id')
   final String categoryId;
 
-  final DateTime createdAt;
+  @ColumnInfo(name: 'created_at')
+  final String createdAt;  // ← String بدل DateTime
 
   Product({
     required this.id,
@@ -32,7 +33,7 @@ class Product {
     int? stock,
     int? minStock,
     String? categoryId,
-    DateTime? createdAt,
+    String? createdAt,
   }) {
     return Product(
       id: id ?? this.id,
@@ -53,7 +54,7 @@ class Product {
       'stock': stock,
       'minStock': minStock,
       'categoryId': categoryId,
-      'createdAt': createdAt.toIso8601String(),
+      'createdAt': createdAt,
     };
   }
 
@@ -65,7 +66,7 @@ class Product {
       stock: json['stock'] as int,
       minStock: json['minStock'] as int,
       categoryId: json['categoryId'] as String,
-      createdAt: DateTime.parse(json['createdAt'] as String),
+      createdAt: json['createdAt'] as String,
     );
   }
 

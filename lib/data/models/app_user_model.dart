@@ -10,7 +10,7 @@ class AppUser {
   final String passwordHash;
 
   @ColumnInfo(name: 'created_at')
-  final DateTime createdAt;
+  final String createdAt;  // ← String بدل DateTime
 
   AppUser({
     required this.id,
@@ -25,7 +25,7 @@ class AppUser {
     String? email,
     String? name,
     String? passwordHash,
-    DateTime? createdAt,
+    String? createdAt,
   }) {
     return AppUser(
       id: id ?? this.id,
@@ -41,7 +41,7 @@ class AppUser {
       'id': id,
       'email': email,
       'name': name,
-      'createdAt': createdAt.toIso8601String(),
+      'createdAt': createdAt,
     };
   }
 
@@ -51,9 +51,7 @@ class AppUser {
       email: json['email'] as String,
       name: json['name'] as String,
       passwordHash: json['passwordHash'] as String? ?? '',
-      createdAt: json['createdAt'] != null
-          ? DateTime.parse(json['createdAt'] as String)
-          : DateTime.now(),
+      createdAt: json['createdAt'] as String? ?? DateTime.now().toIso8601String(),
     );
   }
 
