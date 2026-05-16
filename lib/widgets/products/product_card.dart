@@ -81,7 +81,7 @@ class ProductCard extends StatelessWidget {
             ),
 
             Text(
-              DateFormat('dd MMM yyyy').format(product.createdAt),
+              DateFormat('dd MMM yyyy').format(product.createdAt as DateTime),
               style: const TextStyle(fontSize: 10, color: Colors.black),
             ),
 

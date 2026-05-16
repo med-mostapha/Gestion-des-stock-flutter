@@ -20,7 +20,7 @@ class DummyData {
       stock: 5,
       minStock: 3,
       categoryId: 'c1',
-      createdAt: DateTime.now(),
+      createdAt: DateTime.now().toString(),
     ),
     Product(
       id: 'p2',
@@ -29,7 +29,7 @@ class DummyData {
       stock: 10,
       minStock: 5,
       categoryId: 'c1',
-      createdAt: DateTime.now(),
+      createdAt: DateTime.now().toString(),
     ),
     Product(
       id: 'p3',
@@ -38,7 +38,7 @@ class DummyData {
       stock: 2,
       minStock: 5,
       categoryId: 'c1',
-      createdAt: DateTime.now(),
+      createdAt: DateTime.now().toString(),
     ),
     Product(
       id: 'p4',
@@ -47,7 +47,7 @@ class DummyData {
       stock: 100,
       minStock: 20,
       categoryId: 'c2',
-      createdAt: DateTime.now(),
+      createdAt: DateTime.now().toString(),
     ),
     Product(
       id: 'p5',
@@ -56,7 +56,7 @@ class DummyData {
       stock: 70,
       minStock: 25,
       categoryId: 'c2',
-      createdAt: DateTime.now(),
+      createdAt: DateTime.now().toString(),
     ),
     Product(
       id: 'p6',
@@ -65,7 +65,7 @@ class DummyData {
       stock: 50,
       minStock: 10,
       categoryId: 'c2',
-      createdAt: DateTime.now(),
+      createdAt: DateTime.now().toString(),
     ),
     Product(
       id: 'p7',
@@ -74,7 +74,7 @@ class DummyData {
       stock: 30,
       minStock: 10,
       categoryId: 'c3',
-      createdAt: DateTime.now(),
+      createdAt: DateTime.now().toString(),
     ),
     Product(
       id: 'p8',
@@ -83,7 +83,7 @@ class DummyData {
       stock: 0,
       minStock: 5,
       categoryId: 'c3',
-      createdAt: DateTime.now(),
+      createdAt: DateTime.now().toString(),
     ),
     Product(
       id: 'p9',
@@ -92,7 +92,7 @@ class DummyData {
       stock: 8,
       minStock: 4,
       categoryId: 'c3',
-      createdAt: DateTime.now(),
+      createdAt: DateTime.now().toString(),
     ),
   ];
 }

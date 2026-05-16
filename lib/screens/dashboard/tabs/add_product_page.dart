@@ -237,7 +237,7 @@ class _AddProductState extends State<AddProductPage> {
         stock: int.parse(stock.text),
         minStock: int.parse(minStock.text),
         categoryId: selectedCategory,
-        createdAt: DateTime.now(),
+        createdAt: DateTime.now().toString(),
       );
 
       context.read<ProductProvider>().addProduct(product);
