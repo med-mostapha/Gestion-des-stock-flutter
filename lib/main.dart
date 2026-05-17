@@ -8,21 +8,39 @@ import 'package:gestion_de_stock_flutter/routes/app_router.dart';
 import 'package:gestion_de_stock_flutter/routes/app_routes.dart';
 import 'package:provider/provider.dart';
 import 'package:gestion_de_stock_flutter/providers/language_provider.dart';
+import 'package:gestion_de_stock_flutter/data/database/app_database.dart';
+import 'package:gestion_de_stock_flutter/data/repositories/category_repository_impl.dart';
+import 'package:gestion_de_stock_flutter/data/repositories/product_repository_impl.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  final database = await $FloorAppDatabase
+      .databaseBuilder('app_database.db')
+      .build();
+
+  runApp(MyApp(database: database));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final AppDatabase database;
+
+  const MyApp({super.key, required this.database});
 
   @override
   Widget build(BuildContext context) {
+    final productRepository = ProductRepositoryImpl(database);
+    final categoryRepository = CategoryRepositoryImpl(database);
+
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => LanguageProvider()),
-        ChangeNotifierProvider(create: (_) => ProductProvider()),
-        ChangeNotifierProvider(create: (_) => CategoryProvider()),
+        ChangeNotifierProvider(
+          create: (_) => ProductProvider(productRepository),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => CategoryProvider(categoryRepository),
+        ),
       ],
       child: Consumer<LanguageProvider>(
         builder: (context, langProvider, child) {
