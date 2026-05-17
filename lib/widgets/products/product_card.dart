@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gestion_de_stock_flutter/core/theme/app_colors.dart';
 import 'package:gestion_de_stock_flutter/data/models/product_model.dart';
-import 'package:gestion_de_stock_flutter/generated/l10n.dart';
 import 'package:intl/intl.dart';
 
 class ProductCard extends StatelessWidget {
@@ -43,6 +42,7 @@ class ProductCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
+            // Placeholder
             Container(
               height: 90,
               width: double.infinity,
@@ -52,15 +52,16 @@ class ProductCard extends StatelessWidget {
                 ),
                 borderRadius: BorderRadius.circular(12),
               ),
-              child: const Icon(
+              child: Icon(
                 Icons.inventory_2_outlined,
                 size: 30,
-                color: Color.fromARGB(255, 26, 24, 90),
+                color: const Color.fromARGB(255, 26, 24, 90),
               ),
             ),
 
             const SizedBox(height: 12),
 
+            // Product name
             Text(
               product.name,
               maxLines: 1,
@@ -72,6 +73,7 @@ class ProductCard extends StatelessWidget {
               ),
             ),
 
+            // Product category
             Text(
               "ID: ${product.categoryId}",
               style: const TextStyle(
@@ -80,8 +82,9 @@ class ProductCard extends StatelessWidget {
               ),
             ),
 
+            // Date - Convert String to DateTime
             Text(
-              DateFormat('dd MMM yyyy').format(product.createdAt as DateTime),
+              DateFormat('dd MMM yyyy').format(DateTime.parse(product.createdAt)),
               style: const TextStyle(fontSize: 10, color: Colors.black),
             ),
 
@@ -99,6 +102,7 @@ class ProductCard extends StatelessWidget {
                   ),
                 ),
 
+                // Status
                 Container(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 6,
@@ -109,9 +113,7 @@ class ProductCard extends StatelessWidget {
                     borderRadius: BorderRadius.circular(6),
                   ),
                   child: Text(
-                    isOutOfStock
-                        ? S.of(context).widget_product_out
-                        : S.of(context).widget_product_qty(product.stock),
+                    isOutOfStock ? "Out" : "Qty: ${product.stock}",
                     style: TextStyle(
                       fontSize: 10,
                       fontWeight: FontWeight.bold,
