@@ -427,3 +427,6 @@
     }
   }
 }
+,
+  "common_low_stock": "مخزون منخفض",
+  "@common_low_stock": {"description": "Low stock label"}

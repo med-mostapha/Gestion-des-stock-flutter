@@ -427,3 +427,6 @@
     }
   }
 }
+,
+  "common_low_stock": "Low Stock",
+  "@common_low_stock": {"description": "Low stock label"}
