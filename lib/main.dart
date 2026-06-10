@@ -3,6 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:gestion_de_stock_flutter/core/theme/app_theme.dart';
 import 'package:gestion_de_stock_flutter/generated/l10n.dart';
 import 'package:gestion_de_stock_flutter/providers/category_provider.dart';
+import 'package:gestion_de_stock_flutter/providers/dashboard_provider.dart';
 import 'package:gestion_de_stock_flutter/providers/product_provider.dart';
 import 'package:gestion_de_stock_flutter/routes/app_router.dart';
 import 'package:gestion_de_stock_flutter/routes/app_routes.dart';
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => LanguageProvider()),
         ChangeNotifierProvider(create: (_) => ProductProvider()),
         ChangeNotifierProvider(create: (_) => CategoryProvider()),
+        ChangeNotifierProvider(create: (_) => DashboardProvider()),
       ],
       child: Consumer<LanguageProvider>(
         builder: (context, langProvider, child) {

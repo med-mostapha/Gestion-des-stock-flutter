@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gestion_de_stock_flutter/core/theme/app_colors.dart';
 import 'package:gestion_de_stock_flutter/generated/l10n.dart';
+import 'package:gestion_de_stock_flutter/providers/dashboard_provider.dart';
 import 'package:gestion_de_stock_flutter/screens/dashboard/tabs/categories_page.dart';
 import 'package:gestion_de_stock_flutter/screens/dashboard/tabs/index_page.dart';
 import 'package:gestion_de_stock_flutter/screens/dashboard/tabs/products_page.dart';
@@ -26,6 +27,17 @@ class _DashboardPageState extends State<DashboardPage> {
     const CategoriesPage(),
     const SettingsPage(),
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    // Fetch all data once when dashboard opens
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<DashboardProvider>().fetchStats();
+      context.read<ProductProvider>().loadProducts();
+      context.read<CategoryProvider>().loadCategories();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,6 +74,7 @@ class _DashboardPageState extends State<DashboardPage> {
                   onPressed: () {
                     switch (index) {
                       case 0:
+                        context.read<DashboardProvider>().refresh();
                         context.read<ProductProvider>().loadProducts();
                         context.read<CategoryProvider>().loadCategories();
                         break;
