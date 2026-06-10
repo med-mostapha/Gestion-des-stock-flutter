@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:gestion_de_stock_flutter/data/services/analytics_service.dart';
 import 'package:provider/provider.dart';
 import 'package:gestion_de_stock_flutter/core/theme/app_colors.dart';
 import 'package:gestion_de_stock_flutter/generated/l10n.dart';
 import 'package:gestion_de_stock_flutter/providers/product_provider.dart';
 import 'package:gestion_de_stock_flutter/providers/category_provider.dart';
 import 'package:gestion_de_stock_flutter/widgets/dashboard/stats_card.dart';
-import '../../../data/ services/analytics_service.dart';
 import '../../../widgets/charts/category_percentage_pie_chart.dart';
 import '../../../widgets/charts/category_stock_bar_chart.dart';
 

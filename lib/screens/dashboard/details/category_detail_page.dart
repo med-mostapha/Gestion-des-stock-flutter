@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gestion_de_stock_flutter/data/ services/analytics_service.dart';
+import 'package:gestion_de_stock_flutter/data/services/analytics_service.dart';
 import 'package:gestion_de_stock_flutter/generated/l10n.dart';
 import 'package:provider/provider.dart';
 import 'package:gestion_de_stock_flutter/core/theme/app_colors.dart';

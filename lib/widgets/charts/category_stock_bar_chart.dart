@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:gestion_de_stock_flutter/core/theme/app_colors.dart';
 import 'package:gestion_de_stock_flutter/data/models/category_model.dart';
 import 'package:gestion_de_stock_flutter/data/models/product_model.dart';
+import 'package:gestion_de_stock_flutter/data/services/analytics_service.dart';
 import 'package:gestion_de_stock_flutter/generated/l10n.dart';
-
-import '../../data/ services/analytics_service.dart';
 
 class CategoryStockBarChart extends StatelessWidget {
   final List<Product> products;
