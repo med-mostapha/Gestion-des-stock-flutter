@@ -1,40 +1,27 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:gestion_de_stock_flutter/core/theme/app_colors.dart';
-import 'package:gestion_de_stock_flutter/data/models/category_model.dart';
-import 'package:gestion_de_stock_flutter/data/models/product_model.dart';
-import 'package:gestion_de_stock_flutter/data/services/analytics_service.dart';
 import 'package:gestion_de_stock_flutter/generated/l10n.dart';
 
 class CategoryStockBarChart extends StatelessWidget {
-  final List<Product> products;
-  final List<Category> categories;
+  final Map<String, double> data;
 
-  const CategoryStockBarChart({
-    super.key,
-    required this.products,
-    required this.categories,
-  });
+  const CategoryStockBarChart({super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {
-    final Map<String, double> data = AnalyticsService.getStockValuePerCategory(
-      products,
-      categories,
-    );
-
     if (data.isEmpty) {
       return Center(child: Text(S.of(context).common_no_data));
     }
 
     final entries = data.entries.toList();
 
-    final barGroups = List.generate(entries.length, (index) {
+    final barGroups = List.generate(entries.length, (i) {
       return BarChartGroupData(
-        x: index,
+        x: i,
         barRods: [
           BarChartRodData(
-            toY: entries[index].value,
+            toY: entries[i].value,
             color: AppColors.success,
             width: 22,
             borderRadius: BorderRadius.circular(6),
@@ -43,9 +30,7 @@ class CategoryStockBarChart extends StatelessWidget {
       );
     });
 
-    final maxY = data.values.isEmpty
-        ? 100.0
-        : data.values.reduce((a, b) => a > b ? a : b) * 1.2;
+    final maxY = data.values.reduce((a, b) => a > b ? a : b) * 1.2;
 
     return Container(
       padding: const EdgeInsets.all(16),
@@ -64,7 +49,7 @@ class CategoryStockBarChart extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            S.of(context).chart_stock_by_category, // Localized Title
+            S.of(context).chart_stock_by_category,
             style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 15,
@@ -72,12 +57,10 @@ class CategoryStockBarChart extends StatelessWidget {
             ),
           ),
           const Text(
-            "MRU", // Keeping currency as MRU
+            '%',
             style: TextStyle(fontSize: 12, color: AppColors.textSecondary),
           ),
-
           const SizedBox(height: 20),
-
           SizedBox(
             height: 200,
             child: BarChart(
@@ -97,14 +80,13 @@ class CategoryStockBarChart extends StatelessWidget {
                     sideTitles: SideTitles(
                       showTitles: true,
                       getTitlesWidget: (value, meta) {
-                        final index = value.toInt();
-                        if (index < 0 || index >= entries.length) {
+                        final i = value.toInt();
+                        if (i < 0 || i >= entries.length)
                           return const SizedBox();
-                        }
                         return Padding(
                           padding: const EdgeInsets.only(top: 8),
                           child: Text(
-                            entries[index].key,
+                            entries[i].key,
                             style: const TextStyle(
                               fontSize: 11,
                               color: AppColors.textSecondary,
@@ -118,15 +100,13 @@ class CategoryStockBarChart extends StatelessWidget {
                     sideTitles: SideTitles(
                       showTitles: true,
                       reservedSize: 45,
-                      getTitlesWidget: (value, meta) {
-                        return Text(
-                          value.toInt().toString(),
-                          style: const TextStyle(
-                            fontSize: 10,
-                            color: AppColors.textSecondary,
-                          ),
-                        );
-                      },
+                      getTitlesWidget: (value, meta) => Text(
+                        '${value.toInt()}%',
+                        style: const TextStyle(
+                          fontSize: 10,
+                          color: AppColors.textSecondary,
+                        ),
+                      ),
                     ),
                   ),
                   topTitles: const AxisTitles(

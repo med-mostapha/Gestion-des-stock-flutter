@@ -1,20 +1,12 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:gestion_de_stock_flutter/core/theme/app_colors.dart';
-import 'package:gestion_de_stock_flutter/data/models/category_model.dart';
-import 'package:gestion_de_stock_flutter/data/models/product_model.dart';
-import 'package:gestion_de_stock_flutter/data/services/analytics_service.dart';
 import 'package:gestion_de_stock_flutter/generated/l10n.dart';
 
 class CategoryPercentagePieChart extends StatelessWidget {
-  final List<Product> products;
-  final List<Category> categories;
+  final Map<String, double> data;
 
-  const CategoryPercentagePieChart({
-    super.key,
-    required this.products,
-    required this.categories,
-  });
+  const CategoryPercentagePieChart({super.key, required this.data});
 
   static const List<Color> _colors = [
     AppColors.primary,
@@ -27,24 +19,18 @@ class CategoryPercentagePieChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Map<String, double> data = AnalyticsService.getStockValuePerCategory(
-      products,
-      categories,
-    );
-
     final filtered = Map.fromEntries(data.entries.where((e) => e.value > 0));
 
     if (filtered.isEmpty) {
       return Center(child: Text(S.of(context).common_no_data));
     }
 
-    final total = filtered.values.fold(0.0, (sum, v) => sum + v);
     final entries = filtered.entries.toList();
 
-    final sections = List.generate(entries.length, (index) {
+    final sections = List.generate(entries.length, (i) {
       return PieChartSectionData(
-        value: entries[index].value,
-        color: _colors[index % _colors.length],
+        value: entries[i].value,
+        color: _colors[i % _colors.length],
         radius: 60,
         showTitle: false,
       );
@@ -67,7 +53,7 @@ class CategoryPercentagePieChart extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            S.of(context).chart_distribution_title, // Localized
+            S.of(context).chart_distribution_title,
             style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 15,
@@ -75,15 +61,13 @@ class CategoryPercentagePieChart extends StatelessWidget {
             ),
           ),
           Text(
-            S.of(context).chart_distribution_subtitle, // Localized
+            S.of(context).chart_distribution_subtitle,
             style: const TextStyle(
               fontSize: 12,
               color: AppColors.textSecondary,
             ),
           ),
-
           const SizedBox(height: 20),
-
           Row(
             children: [
               SizedBox(
@@ -97,15 +81,11 @@ class CategoryPercentagePieChart extends StatelessWidget {
                   ),
                 ),
               ),
-
               const SizedBox(width: 20),
-
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: List.generate(entries.length, (index) {
-                    final percentage = (entries[index].value / total * 100)
-                        .toStringAsFixed(1);
+                  children: List.generate(entries.length, (i) {
                     return Padding(
                       padding: const EdgeInsets.symmetric(vertical: 4),
                       child: Row(
@@ -114,14 +94,14 @@ class CategoryPercentagePieChart extends StatelessWidget {
                             width: 12,
                             height: 12,
                             decoration: BoxDecoration(
-                              color: _colors[index % _colors.length],
+                              color: _colors[i % _colors.length],
                               shape: BoxShape.circle,
                             ),
                           ),
                           const SizedBox(width: 8),
                           Expanded(
                             child: Text(
-                              entries[index].key,
+                              entries[i].key,
                               style: const TextStyle(
                                 fontSize: 12,
                                 color: AppColors.textPrimary,
@@ -130,7 +110,7 @@ class CategoryPercentagePieChart extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            "$percentage%",
+                            '${entries[i].value.toStringAsFixed(1)}%',
                             style: const TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.bold,
