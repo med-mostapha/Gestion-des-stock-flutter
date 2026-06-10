@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gestion_de_stock_flutter/core/theme/app_colors.dart';
+import 'package:gestion_de_stock_flutter/data/services/auth_service.dart';
 import 'package:gestion_de_stock_flutter/generated/l10n.dart';
 import 'package:gestion_de_stock_flutter/routes/app_routes.dart';
 
@@ -20,11 +21,30 @@ class _SignUpPageState extends State<SignUpPage> {
       TextEditingController();
 
   bool _isPasswordVisible = false;
+  bool _isLoading = false;
 
-  void _handleSignUp() {
-    if (formState.currentState!.validate()) {
-      Navigator.pushReplacementNamed(context, AppRoutes.dashboard);
+  Future<void> _handleSignUp() async {
+    if (!formState.currentState!.validate()) return;
+
+    setState(() => _isLoading = true);
+
+    final error = await AuthService.register(
+      username: _usernameController.text.trim(),
+      email: _emailController.text.trim(),
+      password: _passwordController.text,
+    );
+
+    if (!mounted) return;
+    setState(() => _isLoading = false);
+
+    if (error != null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(error), backgroundColor: Colors.red),
+      );
+      return;
     }
+
+    Navigator.pushReplacementNamed(context, AppRoutes.dashboard);
   }
 
   @override
@@ -136,17 +156,29 @@ class _SignUpPageState extends State<SignUpPage> {
                   width: double.infinity,
                   height: 55,
                   child: ElevatedButton(
-                    onPressed: _handleSignUp,
+                    onPressed: _isLoading ? null : _handleSignUp,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.primary,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),
                     ),
-                    child: Text(
-                      S.of(context).common_signup,
-                      style: TextStyle(fontSize: 18, color: Colors.white),
-                    ),
+                    child: _isLoading
+                        ? const SizedBox(
+                            width: 24,
+                            height: 24,
+                            child: CircularProgressIndicator(
+                              color: Colors.white,
+                              strokeWidth: 2.5,
+                            ),
+                          )
+                        : Text(
+                            S.of(context).common_signup,
+                            style: const TextStyle(
+                              fontSize: 18,
+                              color: Colors.white,
+                            ),
+                          ),
                   ),
                 ),
 

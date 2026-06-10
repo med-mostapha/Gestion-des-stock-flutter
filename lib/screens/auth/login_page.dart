@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gestion_de_stock_flutter/core/theme/app_colors.dart';
+import 'package:gestion_de_stock_flutter/data/services/auth_service.dart';
 import 'package:gestion_de_stock_flutter/generated/l10n.dart';
 import 'package:gestion_de_stock_flutter/routes/app_routes.dart';
 
@@ -17,11 +18,29 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _passwordController = TextEditingController();
 
   bool _isPasswordVisible = false;
+  bool _isLoading = false;
 
-  void _handleLogin() {
-    if (formState.currentState!.validate()) {
-      Navigator.pushReplacementNamed(context, AppRoutes.dashboard);
+  Future<void> _handleLogin() async {
+    if (!formState.currentState!.validate()) return;
+
+    setState(() => _isLoading = true);
+
+    final error = await AuthService.login(
+      username: _emailController.text.trim(),
+      password: _passwordController.text,
+    );
+
+    if (!mounted) return;
+    setState(() => _isLoading = false);
+
+    if (error != null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(error), backgroundColor: Colors.red),
+      );
+      return;
     }
+
+    Navigator.pushReplacementNamed(context, AppRoutes.dashboard);
   }
 
   @override
@@ -140,7 +159,7 @@ class _LoginPageState extends State<LoginPage> {
                   width: double.infinity,
                   height: 55,
                   child: ElevatedButton(
-                    onPressed: _handleLogin,
+                    onPressed: _isLoading ? null : _handleLogin,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.primary,
                       foregroundColor: Colors.white,
@@ -148,13 +167,22 @@ class _LoginPageState extends State<LoginPage> {
                         borderRadius: BorderRadius.circular(12),
                       ),
                     ),
-                    child: Text(
-                      S.of(context).common_login,
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    child: _isLoading
+                        ? const SizedBox(
+                            width: 24,
+                            height: 24,
+                            child: CircularProgressIndicator(
+                              color: Colors.white,
+                              strokeWidth: 2.5,
+                            ),
+                          )
+                        : Text(
+                            S.of(context).common_login,
+                            style: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                   ),
                 ),
 
