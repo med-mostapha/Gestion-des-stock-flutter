@@ -411,6 +411,9 @@
   "validation_too_short": "Too short (min 2 chars)",
   "stock_status_out": "Out of Stock",
   "stock_status_low": "Low Stock — {count} left",
+  "todayMovements": "Today's Movements",
+  "stockIn": "Stock In",
+  "stockOut": "Stock Out",
   "@stock_status_low": {
     "placeholders": {
       "count": {

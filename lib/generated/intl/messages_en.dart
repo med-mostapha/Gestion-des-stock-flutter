@@ -242,9 +242,14 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "settings_logout_title": MessageLookupByLibrary.simpleMessage("Logout"),
     "settings_version": MessageLookupByLibrary.simpleMessage("Version 1.0.0"),
+    "stockIn": MessageLookupByLibrary.simpleMessage("Stock In"),
+    "stockOut": MessageLookupByLibrary.simpleMessage("Stock Out"),
     "stock_status_in": m5,
     "stock_status_low": m6,
     "stock_status_out": MessageLookupByLibrary.simpleMessage("Out of Stock"),
+    "todayMovements": MessageLookupByLibrary.simpleMessage(
+      "Today\'s Movements",
+    ),
     "validation_required": MessageLookupByLibrary.simpleMessage("Required"),
     "validation_too_short": MessageLookupByLibrary.simpleMessage(
       "Too short (min 2 chars)",

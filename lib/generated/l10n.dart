@@ -1164,6 +1164,26 @@ class S {
     );
   }
 
+  /// `Today's Movements`
+  String get todayMovements {
+    return Intl.message(
+      'Today\'s Movements',
+      name: 'todayMovements',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Stock In`
+  String get stockIn {
+    return Intl.message('Stock In', name: 'stockIn', desc: '', args: []);
+  }
+
+  /// `Stock Out`
+  String get stockOut {
+    return Intl.message('Stock Out', name: 'stockOut', desc: '', args: []);
+  }
+
   /// `In Stock — {count} units`
   String stock_status_in(int count) {
     return Intl.message(
