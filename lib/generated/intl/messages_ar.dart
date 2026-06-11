@@ -244,9 +244,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "تسجيل الخروج",
     ),
     "settings_version": MessageLookupByLibrary.simpleMessage("الإصدار 1.0.0"),
+    "stockIn": MessageLookupByLibrary.simpleMessage("إدخال المخزون"),
+    "stockOut": MessageLookupByLibrary.simpleMessage("إخراج المخزون"),
     "stock_status_in": m5,
     "stock_status_low": m6,
     "stock_status_out": MessageLookupByLibrary.simpleMessage("نفد من المخزون"),
+    "todayMovements": MessageLookupByLibrary.simpleMessage("حركات اليوم"),
     "validation_required": MessageLookupByLibrary.simpleMessage(
       "هذا الحقل مطلوب",
     ),

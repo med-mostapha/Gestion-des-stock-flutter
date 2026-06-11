@@ -411,6 +411,9 @@
   "validation_too_short": "قصير جداً (حرفين على الأقل)",
   "stock_status_out": "نفد من المخزون",
   "stock_status_low": "مخزون منخفض - تبقى {count}",
+  "todayMovements": "حركات اليوم",
+  "stockIn": "إدخال المخزون",
+  "stockOut": "إخراج المخزون",
   "@stock_status_low": {
     "placeholders": {
       "count": {

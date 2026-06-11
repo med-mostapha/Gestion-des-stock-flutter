@@ -411,6 +411,9 @@
   "validation_too_short": "Trop court (min 2 caract.)",
   "stock_status_out": "Rupture de stock",
   "stock_status_low": "Stock faible — {count} restant(s)",
+  "todayMovements": "Mouvements du jour",
+  "stockIn": "Entrée de stock",
+  "stockOut": "Sortie de stock",
   "@stock_status_low": {
     "placeholders": {
       "count": {
