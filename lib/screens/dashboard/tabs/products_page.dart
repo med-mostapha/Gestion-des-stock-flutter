@@ -48,9 +48,8 @@ class _ProductsPageState extends State<ProductsPage> {
             ElevatedButton(
               style: ElevatedButton.styleFrom(backgroundColor: AppColors.error),
               onPressed: () async {
-                Navigator.pop(context); // إغلاق الدايلوج أولاً
+                Navigator.pop(context); // close dialog
 
-                // استدعاء دالة الحذف المنتظرة للرد من السيرفر
                 final errorMsg = await context
                     .read<ProductProvider>()
                     .deleteProduct(product.id);
