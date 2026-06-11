@@ -52,9 +52,7 @@ class _AddSupplierState extends State<AddSupplierPage> {
       backgroundColor: AppColors.background,
       appBar: AppBar(
         title: Text(
-          isEditMode
-              ? s.detail_edit_category.replaceAll('Category', 'Supplier')
-              : s.dashboard_suppliers,
+          isEditMode ? s.add_supplier_title_edit : s.add_supplier_title_add,
         ),
         centerTitle: true,
         backgroundColor: AppColors.background,
@@ -68,15 +66,10 @@ class _AddSupplierState extends State<AddSupplierPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildLabel(
-                s.add_category_name_label.replaceAll('Category', 'Supplier'),
-              ),
+              _buildLabel(s.add_supplier_name_label),
               _buildTextField(
                 controller: name,
-                hint: s.add_category_name_hint.replaceAll(
-                  'category',
-                  'supplier',
-                ),
+                hint: s.add_supplier_name_hint,
                 icon: Icons.edit_note_rounded,
                 validator: (val) =>
                     (val == null || val.isEmpty) ? s.validation_required : null,
@@ -84,7 +77,7 @@ class _AddSupplierState extends State<AddSupplierPage> {
 
               const SizedBox(height: 20),
 
-              _buildLabel('Phone'),
+              _buildLabel(s.add_supplier_phone_label),
               _buildTextField(
                 controller: phone,
                 hint: '00000000',
@@ -96,7 +89,7 @@ class _AddSupplierState extends State<AddSupplierPage> {
 
               const SizedBox(height: 20),
 
-              _buildLabel('Email'),
+              _buildLabel(s.add_supplier_email_label),
               _buildTextField(
                 controller: email,
                 hint: 'supplier@email.com',
@@ -106,15 +99,10 @@ class _AddSupplierState extends State<AddSupplierPage> {
 
               const SizedBox(height: 20),
 
-              _buildLabel(
-                s.add_category_desc_label.replaceAll('Description', 'Address'),
-              ),
+              _buildLabel(s.add_supplier_address_label),
               _buildTextField(
                 controller: address,
-                hint: s.add_category_desc_hint.replaceAll(
-                  'category description',
-                  'physical address',
-                ),
+                hint: s.add_supplier_address_hint,
                 icon: Icons.location_on_rounded,
               ),
 
@@ -134,12 +122,7 @@ class _AddSupplierState extends State<AddSupplierPage> {
                   child: _isSaving
                       ? const CircularProgressIndicator(color: Colors.white)
                       : Text(
-                          isEditMode
-                              ? 'Save'
-                              : s.add_category_button.replaceAll(
-                                  'Category',
-                                  'Supplier',
-                                ),
+                          isEditMode ? s.common_save : s.add_supplier_button,
                           style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
@@ -154,8 +137,6 @@ class _AddSupplierState extends State<AddSupplierPage> {
       ),
     );
   }
-
-  // Helper Widgets
 
   Widget _buildLabel(String text) {
     return Padding(
