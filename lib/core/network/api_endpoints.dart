@@ -3,7 +3,7 @@ class ApiEndpoints {
   // Android emulator  → 10.0.2.2
   // iOS simulator     → 127.0.0.1
   // Physical device   → your LAN IP e.g. 192.168.1.x
-  static const String baseUrl = 'http://192.168.100.5:8081/api';
+  static const String baseUrl = 'http://10.39.153.122:8081/api';
 
   // Auth
   static const String login = '/auth/login';
