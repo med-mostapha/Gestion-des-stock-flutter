@@ -167,6 +167,7 @@
   "@dashboard_products": {
     "description": "Products tab title"
   },
+  "dashboard_suppliers": "Fournisseurs",
   "dashboard_categories": "Catégories",
   "@dashboard_categories": {
     "description": "Categories tab title"
@@ -414,6 +415,20 @@
   "todayMovements": "Mouvements du jour",
   "stockIn": "Entrée de stock",
   "stockOut": "Sortie de stock",
+  "suppliers_delete_title": "Supprimer le fournisseur",
+  "suppliers_delete_message": "Êtes-vous sûr de vouloir supprimer le fournisseur {name} ?",
+  "suppliers_deleted": "Le fournisseur {name} a été supprimé avec succès",
+  "suppliers_total_count": "Fournisseurs ({count})",
+  "suppliers_empty": "Aucun fournisseur trouvé",
+  "add_supplier_title_add": "Ajouter un fournisseur",
+  "add_supplier_title_edit": "Modifier le fournisseur",
+  "add_supplier_name_label": "Nom du fournisseur",
+  "add_supplier_name_hint": "Saisissez le nom du fournisseur",
+  "add_supplier_phone_label": "Numéro de téléphone",
+  "add_supplier_email_label": "Adresse e-mail",
+  "add_supplier_address_label": "Adresse",
+  "add_supplier_address_hint": "Saisissez l'adresse du fournisseur",
+  "add_supplier_button": "Créer le fournisseur",
   "@stock_status_low": {
     "placeholders": {
       "count": {

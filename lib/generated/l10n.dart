@@ -474,6 +474,16 @@ class S {
     );
   }
 
+  /// `Suppliers`
+  String get dashboard_suppliers {
+    return Intl.message(
+      'Suppliers',
+      name: 'dashboard_suppliers',
+      desc: 'Supplier tab title',
+      args: [],
+    );
+  }
+
   /// `Categories`
   String get dashboard_categories {
     return Intl.message(
@@ -1182,6 +1192,146 @@ class S {
   /// `Stock Out`
   String get stockOut {
     return Intl.message('Stock Out', name: 'stockOut', desc: '', args: []);
+  }
+
+  /// `Delete Supplier`
+  String get suppliers_delete_title {
+    return Intl.message(
+      'Delete Supplier',
+      name: 'suppliers_delete_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to delete supplier {name}?`
+  String suppliers_delete_message(Object name) {
+    return Intl.message(
+      'Are you sure you want to delete supplier $name?',
+      name: 'suppliers_delete_message',
+      desc: '',
+      args: [name],
+    );
+  }
+
+  /// `Supplier {name} deleted successfully`
+  String suppliers_deleted(Object name) {
+    return Intl.message(
+      'Supplier $name deleted successfully',
+      name: 'suppliers_deleted',
+      desc: '',
+      args: [name],
+    );
+  }
+
+  /// `Suppliers ({count})`
+  String suppliers_total_count(Object count) {
+    return Intl.message(
+      'Suppliers ($count)',
+      name: 'suppliers_total_count',
+      desc: '',
+      args: [count],
+    );
+  }
+
+  /// `No suppliers found`
+  String get suppliers_empty {
+    return Intl.message(
+      'No suppliers found',
+      name: 'suppliers_empty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Supplier`
+  String get add_supplier_title_add {
+    return Intl.message(
+      'Add Supplier',
+      name: 'add_supplier_title_add',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit Supplier`
+  String get add_supplier_title_edit {
+    return Intl.message(
+      'Edit Supplier',
+      name: 'add_supplier_title_edit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Supplier Name`
+  String get add_supplier_name_label {
+    return Intl.message(
+      'Supplier Name',
+      name: 'add_supplier_name_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter supplier name`
+  String get add_supplier_name_hint {
+    return Intl.message(
+      'Enter supplier name',
+      name: 'add_supplier_name_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone Number`
+  String get add_supplier_phone_label {
+    return Intl.message(
+      'Phone Number',
+      name: 'add_supplier_phone_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email Address`
+  String get add_supplier_email_label {
+    return Intl.message(
+      'Email Address',
+      name: 'add_supplier_email_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Address`
+  String get add_supplier_address_label {
+    return Intl.message(
+      'Address',
+      name: 'add_supplier_address_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter supplier physical address`
+  String get add_supplier_address_hint {
+    return Intl.message(
+      'Enter supplier physical address',
+      name: 'add_supplier_address_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create Supplier`
+  String get add_supplier_button {
+    return Intl.message(
+      'Create Supplier',
+      name: 'add_supplier_button',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `In Stock — {count} units`

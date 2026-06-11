@@ -20,4 +20,7 @@ class ApiEndpoints {
 
   // Dashboard
   static const String dashboard = '/dashboard';
+
+  // Suppliers
+  static const String suppliers = '/suppliers';
 }

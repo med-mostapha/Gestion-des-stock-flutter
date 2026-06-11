@@ -34,13 +34,19 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m6(count) => "Low Stock — ${count} left";
 
-  static String m7(count) => "Min: ${count}";
+  static String m7(name) => "Are you sure you want to delete supplier ${name}?";
 
-  static String m8(quantity) => "Qty: ${quantity}";
+  static String m8(name) => "Supplier ${name} deleted successfully";
 
-  static String m9(count) => "In Stock — ${count} units";
+  static String m9(count) => "Suppliers (${count})";
 
-  static String m10(count) => "Low Stock — ${count} left";
+  static String m10(count) => "Min: ${count}";
+
+  static String m11(quantity) => "Qty: ${quantity}";
+
+  static String m12(count) => "In Stock — ${count} units";
+
+  static String m13(count) => "Low Stock — ${count} left";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -81,6 +87,33 @@ class MessageLookup extends MessageLookupByLibrary {
       "Stock Quantity",
     ),
     "add_product_title": MessageLookupByLibrary.simpleMessage("New Product"),
+    "add_supplier_address_hint": MessageLookupByLibrary.simpleMessage(
+      "Enter supplier physical address",
+    ),
+    "add_supplier_address_label": MessageLookupByLibrary.simpleMessage(
+      "Address",
+    ),
+    "add_supplier_button": MessageLookupByLibrary.simpleMessage(
+      "Create Supplier",
+    ),
+    "add_supplier_email_label": MessageLookupByLibrary.simpleMessage(
+      "Email Address",
+    ),
+    "add_supplier_name_hint": MessageLookupByLibrary.simpleMessage(
+      "Enter supplier name",
+    ),
+    "add_supplier_name_label": MessageLookupByLibrary.simpleMessage(
+      "Supplier Name",
+    ),
+    "add_supplier_phone_label": MessageLookupByLibrary.simpleMessage(
+      "Phone Number",
+    ),
+    "add_supplier_title_add": MessageLookupByLibrary.simpleMessage(
+      "Add Supplier",
+    ),
+    "add_supplier_title_edit": MessageLookupByLibrary.simpleMessage(
+      "Edit Supplier",
+    ),
     "auth_login_button": MessageLookupByLibrary.simpleMessage("Login"),
     "auth_login_email_hint": MessageLookupByLibrary.simpleMessage(
       "Enter your email",
@@ -189,6 +222,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "dashboard_overview": MessageLookupByLibrary.simpleMessage("Overview"),
     "dashboard_products": MessageLookupByLibrary.simpleMessage("Products"),
     "dashboard_settings": MessageLookupByLibrary.simpleMessage("Settings"),
+    "dashboard_suppliers": MessageLookupByLibrary.simpleMessage("Suppliers"),
     "dashboard_title": MessageLookupByLibrary.simpleMessage("Dashboard"),
     "detail_alert_level": MessageLookupByLibrary.simpleMessage("Alert Level"),
     "detail_category_info": MessageLookupByLibrary.simpleMessage(
@@ -247,6 +281,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "stock_status_in": m5,
     "stock_status_low": m6,
     "stock_status_out": MessageLookupByLibrary.simpleMessage("Out of Stock"),
+    "suppliers_delete_message": m7,
+    "suppliers_delete_title": MessageLookupByLibrary.simpleMessage(
+      "Delete Supplier",
+    ),
+    "suppliers_deleted": m8,
+    "suppliers_empty": MessageLookupByLibrary.simpleMessage(
+      "No suppliers found",
+    ),
+    "suppliers_total_count": m9,
     "todayMovements": MessageLookupByLibrary.simpleMessage(
       "Today\'s Movements",
     ),
@@ -257,14 +300,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "widget_category_no_desc": MessageLookupByLibrary.simpleMessage(
       "No description",
     ),
-    "widget_min_stock": m7,
+    "widget_min_stock": m10,
     "widget_product_out": MessageLookupByLibrary.simpleMessage("Out"),
-    "widget_product_qty": m8,
+    "widget_product_qty": m11,
     "widget_search_hint": MessageLookupByLibrary.simpleMessage(
       "Search products...",
     ),
-    "widget_stock_in": m9,
-    "widget_stock_low": m10,
+    "widget_stock_in": m12,
+    "widget_stock_low": m13,
     "widget_stock_out": MessageLookupByLibrary.simpleMessage("Out of Stock"),
   };
 }

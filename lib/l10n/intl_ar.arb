@@ -167,6 +167,7 @@
   "@dashboard_products": {
     "description": "Products tab title"
   },
+  "dashboard_suppliers": "الموردون",
   "dashboard_categories": "الفئات",
   "@dashboard_categories": {
     "description": "Categories tab title"
@@ -414,6 +415,20 @@
   "todayMovements": "حركات اليوم",
   "stockIn": "إدخال المخزون",
   "stockOut": "إخراج المخزون",
+  "suppliers_delete_title": "حذف المورد",
+  "suppliers_delete_message": "هل أنت متأكد من حذف المورد {name}؟",
+  "suppliers_deleted": "تم حذف المورد {name} بنجاح",
+  "suppliers_total_count": "الموردون ({count})",
+  "suppliers_empty": "لا يوجد موردون",
+  "add_supplier_title_add": "إضافة مورد",
+  "add_supplier_title_edit": "تعديل المورد",
+  "add_supplier_name_label": "اسم المورد",
+  "add_supplier_name_hint": "أدخل اسم المورد",
+  "add_supplier_phone_label": "رقم الهاتف",
+  "add_supplier_email_label": "البريد الإلكتروني",
+  "add_supplier_address_label": "العنوان",
+  "add_supplier_address_hint": "أدخل عنوان المورد",
+  "add_supplier_button": "إنشاء مورد",
   "@stock_status_low": {
     "placeholders": {
       "count": {

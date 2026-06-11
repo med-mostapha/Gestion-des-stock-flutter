@@ -6,6 +6,7 @@ import 'package:gestion_de_stock_flutter/screens/dashboard/tabs/categories_page.
 import 'package:gestion_de_stock_flutter/screens/dashboard/tabs/index_page.dart';
 import 'package:gestion_de_stock_flutter/screens/dashboard/tabs/products_page.dart';
 import 'package:gestion_de_stock_flutter/screens/dashboard/tabs/settings_page.dart';
+import 'package:gestion_de_stock_flutter/screens/dashboard/tabs/suppliers_page.dart';
 import 'package:gestion_de_stock_flutter/widgets/ui/language_selector.dart';
 import 'package:provider/provider.dart';
 import '../../providers/category_provider.dart';
@@ -25,6 +26,7 @@ class _DashboardPageState extends State<DashboardPage> {
     const IndexPage(),
     const ProductsPage(),
     const CategoriesPage(),
+    const SuppliersPage(),
     const SettingsPage(),
   ];
 
@@ -45,6 +47,7 @@ class _DashboardPageState extends State<DashboardPage> {
       S.of(context).dashboard_title,
       S.of(context).dashboard_products,
       S.of(context).dashboard_categories,
+      S.of(context).dashboard_suppliers,
       S.of(context).dashboard_settings,
     ];
     return Scaffold(
@@ -140,9 +143,14 @@ class _DashboardPageState extends State<DashboardPage> {
               label: S.of(context).dashboard_categories,
             ),
             BottomNavigationBarItem(
+              icon: Icon(Icons.local_shipping_outlined),
+              activeIcon: Icon(Icons.local_shipping),
+              label: S.of(context).dashboard_suppliers,
+            ),
+            BottomNavigationBarItem(
               icon: Icon(Icons.settings_outlined),
               activeIcon: Icon(Icons.settings_rounded),
-              label: S.of(context).dashboard_categories,
+              label: S.of(context).dashboard_settings,
             ),
           ],
         ),
