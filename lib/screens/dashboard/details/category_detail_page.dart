@@ -43,24 +43,26 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
     super.dispose();
   }
 
-  void _handleSave(S s) {
+  void _handleSave(S s) async {
     if (_formKey.currentState!.validate()) {
-      final updated = Category(
-        id: widget.category.id,
-        name: _name.text,
-        description: _description.text,
-      );
-
-      context.read<CategoryProvider>().updateCategory(
+      final error = await context.read<CategoryProvider>().updateCategory(
         widget.category.id,
-        updated,
+        _name.text.trim(),
+        _description.text.trim(),
       );
 
-      setState(() => _isEditing = false);
+      if (!mounted) return;
 
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text(s.detail_category_updated)));
+      if (error != null) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(error), backgroundColor: Colors.red),
+        );
+      } else {
+        setState(() => _isEditing = false);
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text(s.detail_category_updated)));
+      }
     }
   }
 
@@ -77,12 +79,22 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(backgroundColor: AppColors.error),
-            onPressed: () {
-              context.read<CategoryProvider>().deleteCategory(
-                widget.category.id,
-              );
+            onPressed: () async {
+              final error = await context
+                  .read<CategoryProvider>()
+                  .deleteCategory(widget.category.id);
+
+              if (!ctx.mounted) return;
               Navigator.pop(ctx);
-              Navigator.pop(context);
+
+              if (error != null) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text(error), backgroundColor: Colors.red),
+                );
+              } else {
+                if (!mounted) return;
+                Navigator.pop(context);
+              }
             },
             child: Text(
               s.common_delete,
@@ -266,11 +278,11 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
       child: Row(
         children: [
           Container(
-            padding: const EdgeInsets.all(8),
+            padding: const EdgeInsets.all(2),
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
             child: Icon(icon, color: color, size: 20),
           ),
-          const SizedBox(width: 10),
+          const SizedBox(width: 2),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
