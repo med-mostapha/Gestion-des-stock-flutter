@@ -46,13 +46,12 @@ class _CategoriesState extends State<CategoriesPage> {
               style: ElevatedButton.styleFrom(backgroundColor: AppColors.error),
               onPressed: () async {
                 final name = category.name;
-                // استدعاء دالة الحذف الفعلية من السيرفر
                 final error = await context
                     .read<CategoryProvider>()
                     .deleteCategory(category.id);
 
                 if (!mounted) return;
-                Navigator.pop(context); // إغلاق الـ Dialog
+                Navigator.pop(context); // close Dialog
 
                 if (error != null) {
                   ScaffoldMessenger.of(context).showSnackBar(
