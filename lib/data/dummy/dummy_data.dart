@@ -1,17 +1,6 @@
 import '../models/product_model.dart';
-import '../models/category_model.dart';
 
 class DummyData {
-  static final List<Category> categories = [
-    Category(
-      id: 'c1',
-      name: 'Electronics',
-      description: 'Electronic devices and gadgets',
-    ),
-    Category(id: 'c2', name: 'Food', description: 'Food and consumables'),
-    Category(id: 'c3', name: 'Clothes', description: 'Clothing and fashion'),
-  ];
-
   static final List<Product> products = [
     Product(
       id: 'p1',

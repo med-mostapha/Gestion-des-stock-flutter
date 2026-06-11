@@ -17,7 +17,7 @@ class AuthService {
       final token = data['token'] as String?;
       if (token == null) return 'Invalid response from server';
       await TokenStorage.saveToken(token);
-      return null; // success
+      return null; // success_client
     } on ApiException catch (e) {
       if (e.statusCode == 401 || e.statusCode == 403) {
         return 'Invalid username or password';
