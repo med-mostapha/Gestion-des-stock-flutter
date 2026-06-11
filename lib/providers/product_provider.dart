@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:gestion_de_stock_flutter/data/repositories/dummy_product_repository.dart';
 import '../data/models/product_model.dart';
-import '../data/repositories/product_repository.dart';
+import '../data/services/product_service.dart';
 
 class ProductProvider extends ChangeNotifier {
-  final ProductRepository _repository = DummyProductRepository();
+  final ProductService _service = ProductService();
 
   List<Product> _products = [];
   bool _isLoading = false;
@@ -20,12 +19,9 @@ class ProductProvider extends ChangeNotifier {
     notifyListeners();
 
     try {
-      await Future.delayed(
-        const Duration(seconds: 2),
-      ); // simulator I will delete this latter
-      _products = await _repository.getAllProducts();
+      _products = await _service.getAllProducts();
     } catch (e) {
-      _error = "Failed to load products";
+      _error = "Failed to load products from server";
     } finally {
       _isLoading = false;
       notifyListeners();
@@ -42,23 +38,40 @@ class ProductProvider extends ChangeNotifier {
   double get totalStockValue =>
       _products.fold(0, (sum, p) => sum + (p.price * p.stock));
 
-  void addProduct(Product product) {
-    _products.add(product);
-    notifyListeners();
-  }
-
-  // this methode not work now because we use Dummy data
-  void updateProduct(String id, Product updatedProduct) {
-    final index = _products.indexWhere((p) => p.id == id);
-    if (index != -1) {
-      _products[index] = updatedProduct;
+  Future<String?> addProduct(Product product) async {
+    try {
+      final newProduct = await _service.createProduct(product);
+      _products.add(newProduct);
       notifyListeners();
+      return null;
+    } catch (e) {
+      return "Failed to add product to server";
     }
   }
 
-  void deleteProduct(String id) {
-    _products.removeWhere((p) => p.id == id);
-    notifyListeners();
+  Future<String?> updateProduct(int id, Product updatedProduct) async {
+    try {
+      final updated = await _service.updateProduct(id, updatedProduct);
+      final index = _products.indexWhere((p) => p.id == id);
+      if (index != -1) {
+        _products[index] = updated;
+        notifyListeners();
+      }
+      return null;
+    } catch (e) {
+      return "Failed to update product on server";
+    }
+  }
+
+  Future<String?> deleteProduct(int id) async {
+    try {
+      await _service.deleteProduct(id);
+      _products.removeWhere((p) => p.id == id);
+      notifyListeners();
+      return null;
+    } catch (e) {
+      return "Failed to delete product from server";
+    }
   }
 
   List<Product> search(String query) {

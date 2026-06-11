@@ -27,7 +27,6 @@ class _ProductsPageState extends State<ProductsPage> {
     });
   }
 
-  // Delete Product confirm
   void _confirmDelete(Product product) {
     showDialog(
       context: context,
@@ -48,14 +47,27 @@ class _ProductsPageState extends State<ProductsPage> {
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(backgroundColor: AppColors.error),
-              onPressed: () {
-                context.read<ProductProvider>().deleteProduct(product.id);
-                Navigator.pop(context);
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(S.of(context).products_deleted(product.name)),
-                  ),
-                );
+              onPressed: () async {
+                Navigator.pop(context); // إغلاق الدايلوج أولاً
+
+                // استدعاء دالة الحذف المنتظرة للرد من السيرفر
+                final errorMsg = await context
+                    .read<ProductProvider>()
+                    .deleteProduct(product.id);
+
+                if (mounted) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(
+                        errorMsg ??
+                            S.of(context).products_deleted(product.name),
+                      ),
+                      backgroundColor: errorMsg != null
+                          ? AppColors.error
+                          : AppColors.success,
+                    ),
+                  );
+                }
               },
               child: Text(
                 S.of(context).common_delete,
@@ -71,8 +83,6 @@ class _ProductsPageState extends State<ProductsPage> {
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<ProductProvider>();
-
-    // search work on provider list
     final filtered = provider.search(_searchQuery);
 
     return Scaffold(
@@ -84,8 +94,6 @@ class _ProductsPageState extends State<ProductsPage> {
               _searchQuery = query;
             }),
           ),
-
-          /// total products counter
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5),
             child: Row(
@@ -102,10 +110,7 @@ class _ProductsPageState extends State<ProductsPage> {
               ],
             ),
           ),
-
           const SizedBox(height: 10),
-
-          // Products list
           Expanded(
             child: provider.isLoading
                 ? _buildSkeleton()
@@ -146,8 +151,6 @@ class _ProductsPageState extends State<ProductsPage> {
           ),
         ],
       ),
-
-      // add new product btn
       floatingActionButton: FloatingActionButton(
         heroTag: "fab_products",
         onPressed: () async {
