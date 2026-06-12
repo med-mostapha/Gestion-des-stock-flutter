@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:gestion_de_stock_flutter/data/repositories/dummy_category_repository.dart';
 import '../data/models/category_model.dart';
-import '../data/repositories/category_repository.dart';
+import '../data/services/category_service.dart';
 
 class CategoryProvider extends ChangeNotifier {
-  final CategoryRepository _repository = DummyCategoryRepository();
+  final CategoryService _service = CategoryService();
 
   List<Category> _categories = [];
   bool _isLoading = false;
@@ -20,10 +19,7 @@ class CategoryProvider extends ChangeNotifier {
     notifyListeners();
 
     try {
-      await Future.delayed(
-        const Duration(seconds: 1),
-      ); // simulator don't forgat to delete this.
-      _categories = await _repository.getAllCategories();
+      _categories = await _service.getAllCategories();
     } catch (e) {
       _error = "Failed to load categories";
     } finally {
@@ -32,23 +28,50 @@ class CategoryProvider extends ChangeNotifier {
     }
   }
 
-  int get totalCategories => _categories.length;
-
-  void addCategory(Category category) {
-    _categories.add(category);
+  Future<String?> addCategory(String name, String? description) async {
+    _isLoading = true;
     notifyListeners();
-  }
-
-  void updateCategory(String id, Category updatedCategory) {
-    final index = _categories.indexWhere((c) => c.id == id);
-    if (index != -1) {
-      _categories[index] = updatedCategory;
+    try {
+      final newCategory = await _service.addCategory(name, description);
+      _categories.add(newCategory);
+      _error = null;
+      return null; // ok
+    } catch (e) {
+      return "Failed to create category on server";
+    } finally {
+      _isLoading = false;
       notifyListeners();
     }
   }
 
-  void deleteCategory(String id) {
-    _categories.removeWhere((c) => c.id == id);
-    notifyListeners();
+  Future<String?> updateCategory(
+    int id,
+    String name,
+    String? description,
+  ) async {
+    try {
+      final updated = await _service.updateCategory(id, name, description);
+      final index = _categories.indexWhere((c) => c.id == id);
+      if (index != -1) {
+        _categories[index] = updated;
+        notifyListeners();
+      }
+      return null;
+    } catch (e) {
+      return "Failed to update category";
+    }
   }
+
+  Future<String?> deleteCategory(int id) async {
+    try {
+      await _service.deleteCategory(id);
+      _categories.removeWhere((c) => c.id == id);
+      notifyListeners();
+      return null;
+    } catch (e) {
+      return "Failed to delete category";
+    }
+  }
+
+  int get totalCategories => _categories.length;
 }

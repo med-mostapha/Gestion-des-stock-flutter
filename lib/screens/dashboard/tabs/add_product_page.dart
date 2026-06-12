@@ -3,6 +3,7 @@ import 'package:gestion_de_stock_flutter/core/theme/app_colors.dart';
 import 'package:gestion_de_stock_flutter/data/models/product_model.dart';
 import 'package:gestion_de_stock_flutter/generated/l10n.dart';
 import 'package:gestion_de_stock_flutter/providers/product_provider.dart';
+import 'package:gestion_de_stock_flutter/providers/category_provider.dart';
 import 'package:provider/provider.dart';
 
 class AddProductPage extends StatefulWidget {
@@ -20,11 +21,25 @@ class _AddProductState extends State<AddProductPage> {
   final TextEditingController stock = TextEditingController();
   final TextEditingController minStock = TextEditingController();
 
-  String selectedCategory = "c1";
+  int? selectedCategoryId;
+  bool _isSaving = false;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final categories = context.read<CategoryProvider>().categories;
+      if (categories.isNotEmpty) {
+        setState(() {
+          selectedCategoryId = categories.first.id;
+        });
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    final s = S.of(context); // Shortcut for convenience
+    final s = S.of(context);
 
     return Scaffold(
       backgroundColor: AppColors.background,
@@ -141,15 +156,17 @@ class _AddProductState extends State<AddProductPage> {
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
-                  onPressed: _handleSave,
-                  child: Text(
-                    s.add_product_button,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
+                  onPressed: _isSaving ? null : _handleSave,
+                  child: _isSaving
+                      ? const CircularProgressIndicator(color: Colors.white)
+                      : Text(
+                          s.add_product_button,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
                 ),
               ),
             ],
@@ -208,8 +225,10 @@ class _AddProductState extends State<AddProductPage> {
   }
 
   Widget _buildCategoryDropdown(S s) {
-    return DropdownButtonFormField<String>(
-      value: selectedCategory,
+    final categories = context.watch<CategoryProvider>().categories;
+
+    return DropdownButtonFormField<int>(
+      value: selectedCategoryId,
       decoration: InputDecoration(
         filled: true,
         fillColor: AppColors.white,
@@ -219,29 +238,46 @@ class _AddProductState extends State<AddProductPage> {
         ),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
       ),
-      items: [
-        DropdownMenuItem(value: "c1", child: Text(s.category_electronics)),
-        DropdownMenuItem(value: "c2", child: Text(s.category_food)),
-        DropdownMenuItem(value: "c3", child: Text(s.category_clothes)),
-      ],
-      onChanged: (val) => setState(() => selectedCategory = val!),
+      items: categories.map((category) {
+        return DropdownMenuItem<int>(
+          value: category.id,
+          child: Text(category.name),
+        );
+      }).toList(),
+      onChanged: (val) => setState(() => selectedCategoryId = val),
+      validator: (val) => val == null ? s.validation_required : null,
     );
   }
 
-  void _handleSave() {
-    if (formstate.currentState!.validate()) {
+  void _handleSave() async {
+    if (formstate.currentState!.validate() && selectedCategoryId != null) {
+      setState(() => _isSaving = true);
+
       final product = Product(
-        id: DateTime.now().millisecondsSinceEpoch.toString(),
+        id: 0,
         name: name.text,
         price: double.parse(price.text),
         stock: int.parse(stock.text),
         minStock: int.parse(minStock.text),
-        categoryId: selectedCategory,
+        categoryId: selectedCategoryId!,
         createdAt: DateTime.now(),
       );
 
-      context.read<ProductProvider>().addProduct(product);
-      Navigator.pop(context, product);
+      final errorMsg = await context.read<ProductProvider>().addProduct(
+        product,
+      );
+
+      setState(() => _isSaving = false);
+
+      if (mounted) {
+        if (errorMsg != null) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(errorMsg), backgroundColor: AppColors.error),
+          );
+        } else {
+          Navigator.pop(context);
+        }
+      }
     }
   }
 }

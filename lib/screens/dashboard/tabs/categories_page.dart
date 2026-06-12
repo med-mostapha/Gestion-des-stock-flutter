@@ -44,16 +44,26 @@ class _CategoriesState extends State<CategoriesPage> {
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(backgroundColor: AppColors.error),
-              onPressed: () {
-                context.read<CategoryProvider>().deleteCategory(category.id);
-                Navigator.pop(context);
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(
-                      S.of(context).categories_deleted(category.name),
+              onPressed: () async {
+                final name = category.name;
+                final error = await context
+                    .read<CategoryProvider>()
+                    .deleteCategory(category.id);
+
+                if (!mounted) return;
+                Navigator.pop(context); // close Dialog
+
+                if (error != null) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text(error), backgroundColor: Colors.red),
+                  );
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(S.of(context).categories_deleted(name)),
                     ),
-                  ),
-                );
+                  );
+                }
               },
               child: Text(
                 S.of(context).common_delete,

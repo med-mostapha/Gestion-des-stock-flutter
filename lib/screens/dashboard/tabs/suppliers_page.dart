@@ -1,33 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:gestion_de_stock_flutter/core/theme/app_colors.dart';
-import 'package:gestion_de_stock_flutter/data/models/product_model.dart';
+import 'package:gestion_de_stock_flutter/data/models/supplier_model.dart';
 import 'package:gestion_de_stock_flutter/generated/l10n.dart';
-import 'package:gestion_de_stock_flutter/providers/product_provider.dart';
-import 'package:gestion_de_stock_flutter/screens/dashboard/details/product_detail_page.dart';
-import 'package:gestion_de_stock_flutter/screens/dashboard/tabs/add_product_page.dart';
-import 'package:gestion_de_stock_flutter/widgets/products/product_card.dart';
+import 'package:gestion_de_stock_flutter/providers/supplier_provider.dart';
+import 'package:gestion_de_stock_flutter/screens/dashboard/tabs/add_supplier_page.dart';
+import 'package:gestion_de_stock_flutter/widgets/suppliers/supplier_card.dart';
 import 'package:gestion_de_stock_flutter/widgets/ui/app_search_bar.dart';
 import 'package:provider/provider.dart';
 
-class ProductsPage extends StatefulWidget {
-  const ProductsPage({super.key});
+class SuppliersPage extends StatefulWidget {
+  const SuppliersPage({super.key});
 
   @override
-  State<ProductsPage> createState() => _ProductsPageState();
+  State<SuppliersPage> createState() => _SuppliersPageState();
 }
 
-class _ProductsPageState extends State<ProductsPage> {
+class _SuppliersPageState extends State<SuppliersPage> {
   String _searchQuery = '';
 
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<ProductProvider>().loadProducts();
+      context.read<SupplierProvider>().loadSuppliers();
     });
   }
 
-  void _confirmDelete(Product product) {
+  void _confirmDelete(Supplier supplier) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -35,8 +34,8 @@ class _ProductsPageState extends State<ProductsPage> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
           ),
-          title: Text(S.of(context).products_delete_title),
-          content: Text(S.of(context).products_delete_message(product.name)),
+          title: Text(S.of(context).suppliers_delete_title),
+          content: Text(S.of(context).suppliers_delete_message(supplier.name)),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
@@ -48,18 +47,18 @@ class _ProductsPageState extends State<ProductsPage> {
             ElevatedButton(
               style: ElevatedButton.styleFrom(backgroundColor: AppColors.error),
               onPressed: () async {
-                Navigator.pop(context); // close dialog
+                Navigator.pop(context);
 
                 final errorMsg = await context
-                    .read<ProductProvider>()
-                    .deleteProduct(product.id);
+                    .read<SupplierProvider>()
+                    .deleteSupplier(supplier.id);
 
                 if (mounted) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       content: Text(
                         errorMsg ??
-                            S.of(context).products_deleted(product.name),
+                            S.of(context).suppliers_deleted(supplier.name),
                       ),
                       backgroundColor: errorMsg != null
                           ? AppColors.error
@@ -81,8 +80,10 @@ class _ProductsPageState extends State<ProductsPage> {
 
   @override
   Widget build(BuildContext context) {
-    final provider = context.watch<ProductProvider>();
-    final filtered = provider.search(_searchQuery);
+    final provider = context.watch<SupplierProvider>();
+    final filtered = _searchQuery.isEmpty
+        ? provider.suppliers
+        : provider.search(_searchQuery);
 
     return Scaffold(
       backgroundColor: AppColors.background,
@@ -99,7 +100,7 @@ class _ProductsPageState extends State<ProductsPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  S.of(context).products_title(filtered.length),
+                  S.of(context).suppliers_total_count(filtered.length),
                   style: const TextStyle(
                     color: AppColors.textSecondary,
                     fontWeight: FontWeight.w500,
@@ -125,25 +126,25 @@ class _ProductsPageState extends State<ProductsPage> {
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
-                          childAspectRatio: 0.72,
+                          childAspectRatio: 0.85,
                           crossAxisSpacing: 15,
                           mainAxisSpacing: 15,
                         ),
                     itemCount: filtered.length,
                     itemBuilder: (context, index) {
-                      final product = filtered[index];
-                      return ProductCard(
-                        product: product,
+                      final supplier = filtered[index];
+                      return SupplierCard(
+                        supplier: supplier,
                         onTap: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (_) =>
-                                  ProductDetailPage(product: product),
+                                  AddSupplierPage(supplier: supplier),
                             ),
                           );
                         },
-                        onLongPress: () => _confirmDelete(product),
+                        onLongPress: () => _confirmDelete(supplier),
                       );
                     },
                   ),
@@ -151,11 +152,11 @@ class _ProductsPageState extends State<ProductsPage> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        heroTag: "fab_products",
+        heroTag: "fab_suppliers",
         onPressed: () async {
           await Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const AddProductPage()),
+            MaterialPageRoute(builder: (context) => const AddSupplierPage()),
           );
         },
         backgroundColor: AppColors.primary,
@@ -170,7 +171,7 @@ class _ProductsPageState extends State<ProductsPage> {
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        childAspectRatio: 0.72,
+        childAspectRatio: 0.85,
         crossAxisSpacing: 15,
         mainAxisSpacing: 15,
       ),
@@ -196,13 +197,13 @@ class _ProductsPageState extends State<ProductsPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Icon(
-            Icons.inventory_2_outlined,
+            Icons.local_shipping_outlined,
             size: 80,
             color: AppColors.border,
           ),
           const SizedBox(height: 16),
           Text(
-            S.of(context).products_empty,
+            S.of(context).suppliers_empty,
             style: const TextStyle(
               color: AppColors.textSecondary,
               fontSize: 16,

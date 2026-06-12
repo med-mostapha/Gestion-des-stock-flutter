@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gestion_de_stock_flutter/core/theme/app_colors.dart';
-import 'package:gestion_de_stock_flutter/data/models/category_model.dart';
 import 'package:gestion_de_stock_flutter/generated/l10n.dart';
 import 'package:gestion_de_stock_flutter/providers/category_provider.dart';
 import 'package:provider/provider.dart';
@@ -24,16 +23,24 @@ class _AddCategoryState extends State<AddCategoryPage> {
     super.dispose();
   }
 
-  void _saveCategory() {
+  void _saveCategory() async {
     if (formstate.currentState!.validate()) {
-      final newCategory = Category(
-        id: DateTime.now().millisecondsSinceEpoch.toString(),
-        name: nameController.text.trim(),
-        description: descriptionController.text.trim(),
+      final provider = context.read<CategoryProvider>();
+
+      final error = await provider.addCategory(
+        nameController.text.trim(),
+        descriptionController.text.trim(),
       );
 
-      context.read<CategoryProvider>().addCategory(newCategory);
-      Navigator.pop(context, newCategory);
+      if (!mounted) return;
+
+      if (error != null) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(error), backgroundColor: Colors.red),
+        );
+      } else {
+        Navigator.pop(context);
+      }
     }
   }
 

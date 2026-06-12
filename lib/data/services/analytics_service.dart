@@ -8,14 +8,13 @@ class AnalyticsService {
 
   static double getTotalStockValueByCategory(
     List<Product> products,
-    String categoryId,
+    int categoryId,
   ) {
     return products
         .where((p) => p.categoryId == categoryId)
         .fold(0, (sum, p) => sum + (p.price * p.stock));
   }
 
-  //  exp : { "Electronics": 1200.0, "Food": 300.0 }
   static Map<String, double> getStockValuePerCategory(
     List<Product> products,
     List<Category> categories,

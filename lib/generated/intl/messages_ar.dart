@@ -34,13 +34,19 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m6(count) => "مخزون منخفض - تبقى ${count}";
 
-  static String m7(count) => "الحد الأدنى: ${count}";
+  static String m7(name) => "هل أنت متأكد من حذف المورد ${name}؟";
 
-  static String m8(quantity) => "الكمية: ${quantity}";
+  static String m8(name) => "تم حذف المورد ${name} بنجاح";
 
-  static String m9(count) => "متوفر — ${count} وحدة";
+  static String m9(count) => "الموردون (${count})";
 
-  static String m10(count) => "مخزون منخفض — تبقى ${count}";
+  static String m10(count) => "الحد الأدنى: ${count}";
+
+  static String m11(quantity) => "الكمية: ${quantity}";
+
+  static String m12(count) => "متوفر — ${count} وحدة";
+
+  static String m13(count) => "مخزون منخفض — تبقى ${count}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -56,6 +62,25 @@ class MessageLookup extends MessageLookupByLibrary {
       "اسم الفئة",
     ),
     "add_category_title": MessageLookupByLibrary.simpleMessage("فئة جديدة"),
+    "add_movement_button": MessageLookupByLibrary.simpleMessage("حفظ الحركة"),
+    "add_movement_product_label": MessageLookupByLibrary.simpleMessage(
+      "اختر المنتج",
+    ),
+    "add_movement_quantity_label": MessageLookupByLibrary.simpleMessage(
+      "الكمية",
+    ),
+    "add_movement_reason_hint": MessageLookupByLibrary.simpleMessage(
+      "أدخل السبب (مثال: المخزون الأولي، بيع)",
+    ),
+    "add_movement_reason_label": MessageLookupByLibrary.simpleMessage(
+      "السبب / المرجع",
+    ),
+    "add_movement_title": MessageLookupByLibrary.simpleMessage(
+      "حركة مخزون جديدة",
+    ),
+    "add_movement_type_label": MessageLookupByLibrary.simpleMessage(
+      "نوع الحركة",
+    ),
     "add_product_button": MessageLookupByLibrary.simpleMessage("إضافة المنتج"),
     "add_product_category_label": MessageLookupByLibrary.simpleMessage("الفئة"),
     "add_product_min_stock_hint": MessageLookupByLibrary.simpleMessage(
@@ -75,6 +100,31 @@ class MessageLookup extends MessageLookupByLibrary {
       "كمية المخزون",
     ),
     "add_product_title": MessageLookupByLibrary.simpleMessage("منتج جديد"),
+    "add_supplier_address_hint": MessageLookupByLibrary.simpleMessage(
+      "أدخل عنوان المورد",
+    ),
+    "add_supplier_address_label": MessageLookupByLibrary.simpleMessage(
+      "العنوان",
+    ),
+    "add_supplier_button": MessageLookupByLibrary.simpleMessage("إنشاء مورد"),
+    "add_supplier_email_label": MessageLookupByLibrary.simpleMessage(
+      "البريد الإلكتروني",
+    ),
+    "add_supplier_name_hint": MessageLookupByLibrary.simpleMessage(
+      "أدخل اسم المورد",
+    ),
+    "add_supplier_name_label": MessageLookupByLibrary.simpleMessage(
+      "اسم المورد",
+    ),
+    "add_supplier_phone_label": MessageLookupByLibrary.simpleMessage(
+      "رقم الهاتف",
+    ),
+    "add_supplier_title_add": MessageLookupByLibrary.simpleMessage(
+      "إضافة مورد",
+    ),
+    "add_supplier_title_edit": MessageLookupByLibrary.simpleMessage(
+      "تعديل المورد",
+    ),
     "auth_login_button": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "auth_login_email_hint": MessageLookupByLibrary.simpleMessage(
       "أدخل بريدك الإلكتروني",
@@ -186,9 +236,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "common_save": MessageLookupByLibrary.simpleMessage("حفظ التغييرات"),
     "common_signup": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
     "dashboard_categories": MessageLookupByLibrary.simpleMessage("الفئات"),
+    "dashboard_movements": MessageLookupByLibrary.simpleMessage("الحركات"),
     "dashboard_overview": MessageLookupByLibrary.simpleMessage("نظرة عامة"),
     "dashboard_products": MessageLookupByLibrary.simpleMessage("المنتجات"),
     "dashboard_settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
+    "dashboard_suppliers": MessageLookupByLibrary.simpleMessage("الموردون"),
     "dashboard_title": MessageLookupByLibrary.simpleMessage("لوحة التحكم"),
     "detail_alert_level": MessageLookupByLibrary.simpleMessage("مستوى التنبيه"),
     "detail_category_info": MessageLookupByLibrary.simpleMessage(
@@ -219,6 +271,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "detail_stock_quantity": MessageLookupByLibrary.simpleMessage(
       "كمية المخزون",
     ),
+    "movements_empty": MessageLookupByLibrary.simpleMessage(
+      "لا توجد حركات مخزون مسجلة",
+    ),
+    "movements_title": MessageLookupByLibrary.simpleMessage("حركات المخزون"),
+    "movements_type_adjustment": MessageLookupByLibrary.simpleMessage("تعديل"),
+    "movements_type_in": MessageLookupByLibrary.simpleMessage(
+      "إدخال إلى المخزون",
+    ),
+    "movements_type_out": MessageLookupByLibrary.simpleMessage(
+      "إخراج من المخزون",
+    ),
     "onboarding_social_text": MessageLookupByLibrary.simpleMessage(
       "سجل الدخول بواسطة",
     ),
@@ -244,9 +307,19 @@ class MessageLookup extends MessageLookupByLibrary {
       "تسجيل الخروج",
     ),
     "settings_version": MessageLookupByLibrary.simpleMessage("الإصدار 1.0.0"),
+    "stockIn": MessageLookupByLibrary.simpleMessage("إدخال المخزون"),
+    "stockOut": MessageLookupByLibrary.simpleMessage("إخراج المخزون"),
     "stock_status_in": m5,
     "stock_status_low": m6,
     "stock_status_out": MessageLookupByLibrary.simpleMessage("نفد من المخزون"),
+    "suppliers_delete_message": m7,
+    "suppliers_delete_title": MessageLookupByLibrary.simpleMessage(
+      "حذف المورد",
+    ),
+    "suppliers_deleted": m8,
+    "suppliers_empty": MessageLookupByLibrary.simpleMessage("لا يوجد موردون"),
+    "suppliers_total_count": m9,
+    "todayMovements": MessageLookupByLibrary.simpleMessage("حركات اليوم"),
     "validation_required": MessageLookupByLibrary.simpleMessage(
       "هذا الحقل مطلوب",
     ),
@@ -256,14 +329,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "widget_category_no_desc": MessageLookupByLibrary.simpleMessage(
       "لا يوجد وصف",
     ),
-    "widget_min_stock": m7,
+    "widget_min_stock": m10,
     "widget_product_out": MessageLookupByLibrary.simpleMessage("نفد"),
-    "widget_product_qty": m8,
+    "widget_product_qty": m11,
     "widget_search_hint": MessageLookupByLibrary.simpleMessage(
       "البحث عن منتجات...",
     ),
-    "widget_stock_in": m9,
-    "widget_stock_low": m10,
+    "widget_stock_in": m12,
+    "widget_stock_low": m13,
     "widget_stock_out": MessageLookupByLibrary.simpleMessage("نفد من المخزون"),
   };
 }
