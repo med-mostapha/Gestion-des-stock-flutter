@@ -175,6 +175,10 @@
   "@dashboard_categories": {
     "description": "Categories tab title"
   },
+  "dashboard_movements": "Movement",
+  "@dashboard_movements": {
+    "description": "Movement tab title"
+  },
   "dashboard_settings": "Settings",
   "@dashboard_settings": {
     "description": "Settings tab title"
@@ -446,5 +450,17 @@
         "type": "int"
       }
     }
-  }
+  },
+  "movements_title": "Stock Movements",
+  "movements_empty": "No stock movements recorded",
+  "movements_type_in": "Stock In",
+  "movements_type_out": "Stock Out",
+  "movements_type_adjustment": "Adjustment",
+  "add_movement_title": "New Stock Movement",
+  "add_movement_product_label": "Select Product",
+  "add_movement_quantity_label": "Quantity",
+  "add_movement_type_label": "Movement Type",
+  "add_movement_reason_label": "Reason / Reference",
+  "add_movement_reason_hint": "Enter reason (e.g. Initial inventory, sale)",
+  "add_movement_button": "Save Movement"
 }

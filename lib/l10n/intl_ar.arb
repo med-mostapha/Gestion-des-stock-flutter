@@ -180,6 +180,7 @@
   "@dashboard_overview": {
     "description": "Overview bottom nav"
   },
+  "dashboard_movements": "الحركات",
   "products_title": "إجمالي المنتجات: {count}",
   "@products_title": {
     "description": "Products page title with count",
@@ -443,5 +444,17 @@
         "type": "int"
       }
     }
-  }
+  },
+  "movements_title": "حركات المخزون",
+  "movements_empty": "لا توجد حركات مخزون مسجلة",
+  "movements_type_in": "إدخال إلى المخزون",
+  "movements_type_out": "إخراج من المخزون",
+  "movements_type_adjustment": "تعديل",
+  "add_movement_title": "حركة مخزون جديدة",
+  "add_movement_product_label": "اختر المنتج",
+  "add_movement_quantity_label": "الكمية",
+  "add_movement_type_label": "نوع الحركة",
+  "add_movement_reason_label": "السبب / المرجع",
+  "add_movement_reason_hint": "أدخل السبب (مثال: المخزون الأولي، بيع)",
+  "add_movement_button": "حفظ الحركة"
 }

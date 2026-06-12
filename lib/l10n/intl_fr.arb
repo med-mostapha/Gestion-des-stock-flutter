@@ -180,6 +180,7 @@
   "@dashboard_overview": {
     "description": "Overview bottom nav"
   },
+  "dashboard_movements": "Mouvements",
   "products_title": "Total des produits: {count}",
   "@products_title": {
     "description": "Products page title with count",
@@ -443,5 +444,17 @@
         "type": "int"
       }
     }
-  }
+  },
+  "movements_title": "Mouvements de stock",
+  "movements_empty": "Aucun mouvement de stock enregistré",
+  "movements_type_in": "Entrée en stock",
+  "movements_type_out": "Sortie de stock",
+  "movements_type_adjustment": "Ajustement",
+  "add_movement_title": "Nouveau mouvement de stock",
+  "add_movement_product_label": "Sélectionner un produit",
+  "add_movement_quantity_label": "Quantité",
+  "add_movement_type_label": "Type de mouvement",
+  "add_movement_reason_label": "Raison / Référence",
+  "add_movement_reason_hint": "Saisissez la raison (ex. : stock initial, vente)",
+  "add_movement_button": "Enregistrer le mouvement"
 }

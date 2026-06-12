@@ -66,6 +66,27 @@ class MessageLookup extends MessageLookupByLibrary {
       "Category Name",
     ),
     "add_category_title": MessageLookupByLibrary.simpleMessage("New Category"),
+    "add_movement_button": MessageLookupByLibrary.simpleMessage(
+      "Save Movement",
+    ),
+    "add_movement_product_label": MessageLookupByLibrary.simpleMessage(
+      "Select Product",
+    ),
+    "add_movement_quantity_label": MessageLookupByLibrary.simpleMessage(
+      "Quantity",
+    ),
+    "add_movement_reason_hint": MessageLookupByLibrary.simpleMessage(
+      "Enter reason (e.g. Initial inventory, sale)",
+    ),
+    "add_movement_reason_label": MessageLookupByLibrary.simpleMessage(
+      "Reason / Reference",
+    ),
+    "add_movement_title": MessageLookupByLibrary.simpleMessage(
+      "New Stock Movement",
+    ),
+    "add_movement_type_label": MessageLookupByLibrary.simpleMessage(
+      "Movement Type",
+    ),
     "add_product_button": MessageLookupByLibrary.simpleMessage(
       "Create Product",
     ),
@@ -219,6 +240,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "common_save": MessageLookupByLibrary.simpleMessage("Save Changes"),
     "common_signup": MessageLookupByLibrary.simpleMessage("Sign Up"),
     "dashboard_categories": MessageLookupByLibrary.simpleMessage("Categories"),
+    "dashboard_movements": MessageLookupByLibrary.simpleMessage("Movement"),
     "dashboard_overview": MessageLookupByLibrary.simpleMessage("Overview"),
     "dashboard_products": MessageLookupByLibrary.simpleMessage("Products"),
     "dashboard_settings": MessageLookupByLibrary.simpleMessage("Settings"),
@@ -253,6 +275,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "detail_stock_quantity": MessageLookupByLibrary.simpleMessage(
       "Stock Quantity",
     ),
+    "movements_empty": MessageLookupByLibrary.simpleMessage(
+      "No stock movements recorded",
+    ),
+    "movements_title": MessageLookupByLibrary.simpleMessage("Stock Movements"),
+    "movements_type_adjustment": MessageLookupByLibrary.simpleMessage(
+      "Adjustment",
+    ),
+    "movements_type_in": MessageLookupByLibrary.simpleMessage("Stock In"),
+    "movements_type_out": MessageLookupByLibrary.simpleMessage("Stock Out"),
     "onboarding_social_text": MessageLookupByLibrary.simpleMessage(
       "Sign up using",
     ),

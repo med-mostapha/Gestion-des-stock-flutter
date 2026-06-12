@@ -494,6 +494,16 @@ class S {
     );
   }
 
+  /// `Movement`
+  String get dashboard_movements {
+    return Intl.message(
+      'Movement',
+      name: 'dashboard_movements',
+      desc: 'Movement tab title',
+      args: [],
+    );
+  }
+
   /// `Settings`
   String get dashboard_settings {
     return Intl.message(
@@ -1341,6 +1351,126 @@ class S {
       name: 'stock_status_in',
       desc: '',
       args: [count],
+    );
+  }
+
+  /// `Stock Movements`
+  String get movements_title {
+    return Intl.message(
+      'Stock Movements',
+      name: 'movements_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No stock movements recorded`
+  String get movements_empty {
+    return Intl.message(
+      'No stock movements recorded',
+      name: 'movements_empty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Stock In`
+  String get movements_type_in {
+    return Intl.message(
+      'Stock In',
+      name: 'movements_type_in',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Stock Out`
+  String get movements_type_out {
+    return Intl.message(
+      'Stock Out',
+      name: 'movements_type_out',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Adjustment`
+  String get movements_type_adjustment {
+    return Intl.message(
+      'Adjustment',
+      name: 'movements_type_adjustment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New Stock Movement`
+  String get add_movement_title {
+    return Intl.message(
+      'New Stock Movement',
+      name: 'add_movement_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Product`
+  String get add_movement_product_label {
+    return Intl.message(
+      'Select Product',
+      name: 'add_movement_product_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Quantity`
+  String get add_movement_quantity_label {
+    return Intl.message(
+      'Quantity',
+      name: 'add_movement_quantity_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Movement Type`
+  String get add_movement_type_label {
+    return Intl.message(
+      'Movement Type',
+      name: 'add_movement_type_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reason / Reference`
+  String get add_movement_reason_label {
+    return Intl.message(
+      'Reason / Reference',
+      name: 'add_movement_reason_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter reason (e.g. Initial inventory, sale)`
+  String get add_movement_reason_hint {
+    return Intl.message(
+      'Enter reason (e.g. Initial inventory, sale)',
+      name: 'add_movement_reason_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save Movement`
+  String get add_movement_button {
+    return Intl.message(
+      'Save Movement',
+      name: 'add_movement_button',
+      desc: '',
+      args: [],
     );
   }
 }

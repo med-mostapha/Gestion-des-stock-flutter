@@ -23,4 +23,6 @@ class ApiEndpoints {
 
   // Suppliers
   static const String suppliers = '/suppliers';
+
+  static const String movements = '/movements';
 }

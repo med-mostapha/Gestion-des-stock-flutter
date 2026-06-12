@@ -1,7 +1,7 @@
 # 📦 Gestion de Stock Flutter
 
-A modern, clean stock management mobile application built with Flutter.  
-Designed with a scalable architecture to support local and cloud storage.
+A modern, clean full-stack stock management mobile application built with Flutter.  
+Integrated seamlessly with a Spring Boot REST API, featuring advanced inventory features, multi-tenant auditing, and full localization support.
 
 ---
 
@@ -54,35 +54,45 @@ Designed with a scalable architecture to support local and cloud storage.
 
 ## 🏗️ Architecture
 
-This project follows a clean **layered architecture**:
+This project follows a clean **layered architecture** decoupled from data providers, enabling quick refactoring and centralized state tracking via Provider pattern.
 
 ## 📁 Project Structure
 
 ````text
 .
 ├── core
+│   ├── network
+│   │   ├── api_client.dart
+│   │   └── api_endpoints.dart
 │   ├── theme
 │   │   ├── app_colors.dart
 │   │   └── app_theme.dart
 │   └── utils
 │       └── random_colors.dart
 ├── data
-│   ├── dummy
-│   │   └── dummy_data.dart
 │   ├── models
 │   │   ├── category_model.dart
-│   │   └── product_model.dart
-│   ├── repositories
-│   │   ├── category_repository.dart
-│   │   ├── dummy_category_repository.dart
-│   │   ├── dummy_product_repository.dart
-│   │   └── product_repository.dart
+│   │   ├── product_model.dart
+│   │   ├── stock_movement_model.dart
+│   │   └── supplier_model.dart
 │   └── services
-│       └── analytics_service.dart
+│       ├── analytics_service.dart
+│       ├── stock_movement_service.dart
+│       └── supplier_service.dart
+├── generated
+│   ├── intl
+│   └── l10n.dart
+├── l10n
+│   ├── intl_ar.arb
+│   ├── intl_en.arb
+│   └── intl_fr.arb
 ├── main.dart
 ├── providers
 │   ├── category_provider.dart
-│   └── product_provider.dart
+│   ├── dashboard_provider.dart
+│   ├── product_provider.dart
+│   ├── stock_movement_provider.dart
+│   └── supplier_provider.dart
 ├── routes
 │   ├── app_router.dart
 │   └── app_routes.dart
@@ -97,11 +107,15 @@ This project follows a clean **layered architecture**:
 │   │   │   └── product_detail_page.dart
 │   │   └── tabs
 │   │       ├── add_category_page.dart
+│   │       ├── add_movement_page.dart
 │   │       ├── add_product_page.dart
+│   │       ├── add_supplier_page.dart
 │   │       ├── categories_page.dart
 │   │       ├── index_page.dart
+│   │       ├── movements_page.dart
 │   │       ├── products_page.dart
-│   │       └── settings_page.dart
+│   │       ├── settings_page.dart
+│   │       └── suppliers_page.dart
 │   └── onboarding
 │       └── main_page.dart
 └── widgets
@@ -112,131 +126,76 @@ This project follows a clean **layered architecture**:
     │   └── category_stock_bar_chart.dart
     ├── dashboard
     │   └── stats_card.dart
+    ├── movements
+    │   ├── movement_filter_chips.dart
+    │   └── stock_movement_card.dart
     ├── products
     │   └── product_card.dart
     └── ui
         ├── app_search_bar.dart
+        ├── language_selector.dart
         └── detail
             ├── detail_field.dart
             ├── detail_info_card.dart
             └── detail_stock_badge.dart
 
-### Repository Pattern
+            ## ✅ Features
 
-Each data source implements the same abstract contract:
+### 🔐 Authentication & Security
+- JWT-based stateless authentication
+- Role-based access control
+- Secure navigation flow from dashboard
 
-```dart
-abstract class ProductRepository {
-  Future<List<Product>> getAllProducts();
-  Future<void> addProduct(Product product);
-  Future<void> updateProduct(String id, Product product);
-  Future<void> deleteProduct(String id);
-}
-````
+### 📊 Dashboard & Analytics
+- Total Products, Categories, Stock Value (MRU)
+- Low stock alerts
+- Skeleton loading states
+- Charts using `fl_chart`
 
-Switching from Dummy to Hive to Firebase requires changing **one line** in the Provider.
+### 📦 Products & Categories
+- Advanced search & filtering
+- Stock status indicators (In Stock / Low Stock / Out of Stock)
+- Full CRUD operations
 
----
+### 🤝 Suppliers Management
+- Full CRUD (Create, Read, Update, Delete)
+- Supplier profile tracking
 
----
+### 🔄 Stock Movements (Audit Trail)
+- IN / OUT / ADJUSTMENT tracking
+- Timestamped history
+- User traceability
 
-## ✅ Features
-
-### Authentication
-
-- Onboarding welcome screen
-- Login with email and password validation
-- Sign up with confirm password validation
-- Stack-free navigation (no back to auth from dashboard)
-
-### Dashboard Overview
-
-- Total products count
-- Total categories count
-- Total stock value in MRU
-- Low stock alerts count
-- Granular skeleton loading per section
-
-### Products
-
-- Grid view with search
-- Stock status indicator (In Stock / Low / Out)
-- Add new product with form validation
-- Delete with confirmation dialog
-- Detail page with read/edit mode toggle
-- Live stock badge refresh after update
-
-### Categories
-
-- List view with description
-- Add new category
-- Delete with confirmation dialog
-- Detail page with products list and analytics
-- Total stock value per category
-
-### Analytics
-
-- Bar chart: stock value by category
-- Pie chart: stock distribution percentage
-- Computed via `AnalyticsService` (stateless, testable)
-
-### Architecture
-
-- Abstract Repository Pattern (swap data source in one line)
-- Provider state management with `isLoading` and `error` state
-- `Future.delayed` simulator for loading states (ready for real async)
-- Reusable detail widgets shared between Product and Category pages
-- Named routes with `pushReplacementNamed` (no navigation stack issues)
-
----
-
-## 🔮 Roadmap
-
-### 🔜 Next Steps
-
-- [ ] **Hive** — local database persistence (replace DummyData)
-- [ ] **Firebase Auth** — real authentication (email/password)
-- [ ] **Cloud Firestore** — cloud sync for products and categories
-- [ ] **Dark Mode** — theme switching via Provider
-- [ ] **Product Images** — camera/gallery upload
-- [ ] **Export** — PDF or Excel stock report
-- [ ] **Notifications** — local alerts for low stock products
-- [ ] **Filters** — filter products by category, price, stock status
-- [ ] **Pagination** — lazy loading for large product lists
-- [ ] **Multi-language** — Arabic / French / English support
+### 🌍 Localization
+- Arabic / English / French support
+- Dynamic language switching via `.arb` files
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Technology           | Usage                      |
-| -------------------- | -------------------------- |
-| Flutter              | UI framework               |
-| Provider             | State management           |
-| fl_chart             | Charts and analytics       |
-| flutter_svg          | SVG assets                 |
-| intl                 | Number and date formatting |
-| Hive _(planned)_     | Local database             |
-| Firebase _(planned)_ | Auth + Firestore           |
+| Technology | Usage |
+|------------|------|
+| Flutter | Mobile UI |
+| Spring Boot | Backend API |
+| Provider | State Management |
+| fl_chart | Data visualization |
+| Intl | Localization |
 
 ---
 
 ## 🚀 Getting Started
 
-```bash
-# Clone the repo
+```bash id="setup-commands"
+# Clone the repository
 git clone https://github.com/your-username/gestion_de_stock_flutter.git
+
+# Navigate into project
+cd gestion_de_stock_flutter
 
 # Install dependencies
 flutter pub get
 
-# Run the app
+# Run app
 flutter run
-```
-
----
-
-## 👨‍💻 Author
-
-**Mohamed El Moustapha**
-Building real projects to master full-stack development.
+````

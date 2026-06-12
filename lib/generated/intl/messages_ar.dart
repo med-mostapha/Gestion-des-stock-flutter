@@ -62,6 +62,25 @@ class MessageLookup extends MessageLookupByLibrary {
       "اسم الفئة",
     ),
     "add_category_title": MessageLookupByLibrary.simpleMessage("فئة جديدة"),
+    "add_movement_button": MessageLookupByLibrary.simpleMessage("حفظ الحركة"),
+    "add_movement_product_label": MessageLookupByLibrary.simpleMessage(
+      "اختر المنتج",
+    ),
+    "add_movement_quantity_label": MessageLookupByLibrary.simpleMessage(
+      "الكمية",
+    ),
+    "add_movement_reason_hint": MessageLookupByLibrary.simpleMessage(
+      "أدخل السبب (مثال: المخزون الأولي، بيع)",
+    ),
+    "add_movement_reason_label": MessageLookupByLibrary.simpleMessage(
+      "السبب / المرجع",
+    ),
+    "add_movement_title": MessageLookupByLibrary.simpleMessage(
+      "حركة مخزون جديدة",
+    ),
+    "add_movement_type_label": MessageLookupByLibrary.simpleMessage(
+      "نوع الحركة",
+    ),
     "add_product_button": MessageLookupByLibrary.simpleMessage("إضافة المنتج"),
     "add_product_category_label": MessageLookupByLibrary.simpleMessage("الفئة"),
     "add_product_min_stock_hint": MessageLookupByLibrary.simpleMessage(
@@ -217,6 +236,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "common_save": MessageLookupByLibrary.simpleMessage("حفظ التغييرات"),
     "common_signup": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
     "dashboard_categories": MessageLookupByLibrary.simpleMessage("الفئات"),
+    "dashboard_movements": MessageLookupByLibrary.simpleMessage("الحركات"),
     "dashboard_overview": MessageLookupByLibrary.simpleMessage("نظرة عامة"),
     "dashboard_products": MessageLookupByLibrary.simpleMessage("المنتجات"),
     "dashboard_settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
@@ -250,6 +270,17 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "detail_stock_quantity": MessageLookupByLibrary.simpleMessage(
       "كمية المخزون",
+    ),
+    "movements_empty": MessageLookupByLibrary.simpleMessage(
+      "لا توجد حركات مخزون مسجلة",
+    ),
+    "movements_title": MessageLookupByLibrary.simpleMessage("حركات المخزون"),
+    "movements_type_adjustment": MessageLookupByLibrary.simpleMessage("تعديل"),
+    "movements_type_in": MessageLookupByLibrary.simpleMessage(
+      "إدخال إلى المخزون",
+    ),
+    "movements_type_out": MessageLookupByLibrary.simpleMessage(
+      "إخراج من المخزون",
     ),
     "onboarding_social_text": MessageLookupByLibrary.simpleMessage(
       "سجل الدخول بواسطة",

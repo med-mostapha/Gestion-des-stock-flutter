@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:gestion_de_stock_flutter/core/theme/app_colors.dart';
 import 'package:gestion_de_stock_flutter/generated/l10n.dart';
 import 'package:gestion_de_stock_flutter/providers/dashboard_provider.dart';
+import 'package:gestion_de_stock_flutter/providers/stock_movement_provider.dart';
+import 'package:gestion_de_stock_flutter/providers/supplier_provider.dart';
 import 'package:gestion_de_stock_flutter/screens/dashboard/tabs/categories_page.dart';
 import 'package:gestion_de_stock_flutter/screens/dashboard/tabs/index_page.dart';
+import 'package:gestion_de_stock_flutter/screens/dashboard/tabs/movements_page.dart';
 import 'package:gestion_de_stock_flutter/screens/dashboard/tabs/products_page.dart';
 import 'package:gestion_de_stock_flutter/screens/dashboard/tabs/settings_page.dart';
 import 'package:gestion_de_stock_flutter/screens/dashboard/tabs/suppliers_page.dart';
@@ -27,6 +30,7 @@ class _DashboardPageState extends State<DashboardPage> {
     const ProductsPage(),
     const CategoriesPage(),
     const SuppliersPage(),
+    const MovementsPage(),
     const SettingsPage(),
   ];
 
@@ -48,6 +52,7 @@ class _DashboardPageState extends State<DashboardPage> {
       S.of(context).dashboard_products,
       S.of(context).dashboard_categories,
       S.of(context).dashboard_suppliers,
+      S.of(context).movements_title,
       S.of(context).dashboard_settings,
     ];
     return Scaffold(
@@ -72,12 +77,13 @@ class _DashboardPageState extends State<DashboardPage> {
           ),
         ),
         actions: [
-          index != 3
+          // نستثني فقط صفحة الإعدادات (index 5) من زر الـ Refresh لتظهر فيها قائمة اللغات
+          index != 5
               ? IconButton(
                   onPressed: () {
                     switch (index) {
                       case 0:
-                        context.read<DashboardProvider>().refresh();
+                        context.read<DashboardProvider>().fetchStats();
                         context.read<ProductProvider>().loadProducts();
                         context.read<CategoryProvider>().loadCategories();
                         break;
@@ -86,6 +92,12 @@ class _DashboardPageState extends State<DashboardPage> {
                         break;
                       case 2:
                         context.read<CategoryProvider>().loadCategories();
+                        break;
+                      case 3:
+                        context.read<SupplierProvider>().loadSuppliers();
+                        break;
+                      case 4:
+                        context.read<StockMovementProvider>().loadMovements();
                         break;
                     }
                   },
@@ -146,6 +158,11 @@ class _DashboardPageState extends State<DashboardPage> {
               icon: Icon(Icons.local_shipping_outlined),
               activeIcon: Icon(Icons.local_shipping),
               label: S.of(context).dashboard_suppliers,
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.swap_horiz_rounded),
+              activeIcon: Icon(Icons.swap_horiz_rounded),
+              label: S.of(context).dashboard_movements,
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.settings_outlined),
